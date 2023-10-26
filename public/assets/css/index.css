@@ -1,0 +1,42 @@
+:root {
+    --marron: #9b7a5a;
+    --bleu: #324c5d;
+    --gris: #8f898b;
+}
+
+main {
+    background-color: var(--bleu);
+    margin-top: 5rem;
+}
+
+.uk-align-center {
+    border-radius: 0 0 5% 5%;
+    height: 30rem;
+    width: 65rem;
+}
+
+.uk-text-center {
+    color: white;
+    font-family: "Roboto", sans-serif;
+}
+
+.liserai {
+    height: 3px;
+    background: rgb(155, 122, 90);
+    background: linear-gradient(
+        90deg,
+        rgba(155, 122, 90, 1) 35%,
+        rgba(50, 76, 93, 1) 51%,
+        rgba(143, 137, 139, 1) 62%
+    );
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.uk-card-title {
+    color: var(--marron);
+}
+
+.uk-button {
+    color: var(--marron);
+}
