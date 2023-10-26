@@ -9,12 +9,17 @@
     <title>{% block title %}{% endblock %}</title>
 
     <link rel="stylesheet" href="/assets/css/style.css">
-    {% block stylesheet %}{% endblock %}
+    {% block stylesheet %} {% endblock %}
+ 
+ 
+
 </head>
 
 <body>
+    {% include "/include/_navbar.html.twig" %}
     {% block content %}{% endblock %}
-    {% block javascript %}{% endblock %}
+    {% include "/include/_footer.html.twig" %}
+    {% block javascript %}<script src="https://cdn.jsdelivr.net/npm/uikit@3.17.6/dist/js/uikit.min.js"></script>{% endblock %}
 </body>
 </html>
 
