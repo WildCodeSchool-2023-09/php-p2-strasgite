@@ -1,6 +1,7 @@
-@import url('https://cdn.jsdelivr.net/npm/uikit@3.17.5/dist/css/uikit.min.css');
+@import url("https://cdn.jsdelivr.net/npm/uikit@3.17.6/dist/css/uikit.min.css");
 
 @import url('index.css');
-@import "navbar.css";
-@import "footer.css";
-@import "global.css";
+@import url("footer.css";
+@import url('navbar.css');
+@import url('global.css');
+@import url('carrousel.css');
