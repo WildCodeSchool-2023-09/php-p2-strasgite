@@ -19,7 +19,12 @@
     {% include "/include/_navbar.html.twig" %}
     {% block content %}{% endblock %}
     {% include "/include/_footer.html.twig" %}
-    {% block javascript %}<script src="https://cdn.jsdelivr.net/npm/uikit@3.17.6/dist/js/uikit.min.js"></script>{% endblock %}
+    {% block javascript %}
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.17.6/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.17.5/dist/js/uikit-icons.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.17.5/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+    {% endblock %}
 </body>
 </html>
 
