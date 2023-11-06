@@ -1,13 +1,7 @@
 {% extends 'layout.html.twig' %}
 
-{% block stylesheet %}
-    <link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-{% endblock %}
-
 {% block content %}
-    <div class="uk-container">
+    <div class="uk-container-carrousel">
       <swiper-container class="mySwiper" scrollbar-hide="true" autoplay-delay="2000" autoplay-disable-on-interaction="false">
           <swiper-slide><img src="/assets/images/chambre1.jpg" alt="image chambre"></swiper-slide>
           <swiper-slide><img src="/assets/images/chambre2.jpg" alt="image chambre"></swiper-slide>
@@ -75,12 +69,7 @@
               </fieldset>
           </form>
         </div>
-      </div>  
+    </div>  
   </div>
 
-{% endblock %}
-
-
-{% block javascript %}
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
 {% endblock %}
