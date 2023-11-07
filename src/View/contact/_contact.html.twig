@@ -1,0 +1,75 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <div class="uk-container-carrousel">
+      <swiper-container class="mySwiper" scrollbar-hide="true" autoplay-delay="2000" autoplay-disable-on-interaction="false">
+          <swiper-slide><img src="/assets/images/chambre1.jpg" alt="image chambre"></swiper-slide>
+          <swiper-slide><img src="/assets/images/chambre2.jpg" alt="image chambre"></swiper-slide>
+          <swiper-slide><img src="/assets/images/chambre1.jpg" alt="image chambre"></swiper-slide>
+          <swiper-slide><img src="/assets/images/chambre2.jpg" alt="image chambre"></swiper-slide>
+          <swiper-slide><img src="/assets/images/chambre1.jpg" alt="image chambre"></swiper-slide>
+          <swiper-slide><img src="/assets/images/chambre2.jpg" alt="image chambre"></swiper-slide>
+          <swiper-slide><img src="/assets/images/chambre1.jpg" alt="image chambre"></swiper-slide>
+          <swiper-slide><img src="/assets/images/chambre2.jpg" alt="image chambre"></swiper-slide>
+          <swiper-slide><img src="/assets/images/chambre1.jpg" alt="image chambre"></swiper-slide>
+      </swiper-container>
+    </div>
+
+    <div class="liserai"></div>
+
+  <div class="uk-child-width-expand@s uk-text-center uk-grid kfd-background">
+
+    <div>
+        <div class="uk-card uk-card-default uk-card-body kfd-background-left">
+          <legend class="uk-contact"><h2>Information de contact</h2></legend>
+            <li>Téléphone</li>
+            <li> 0225649685</li>
+            <li> mail</li>
+            <li> Stras'git@gmail.com</li>
+            <li> Adresse</li>
+            <li> 7 rue de Yavuz, Strasbourg 67000</li>
+        </div>
+        <div class="uk-card uk-card-default uk-card-body kfd-background-left">
+          <legend class="uk-contact"><h2>Horraires d'ouverture</h2></legend>
+            <li>Flexibles-Prévenez nous</li>
+        </div>
+    </div>
+
+    <div>
+        <div class="uk-card uk-card-default uk-card-body kfd-background-right">
+          <form>
+              <fieldset class="uk-fieldset">
+                  <legend class="uk-Formulaire"><h2>Formulaire</h2></legend>
+                  <div class="uk-margin">
+                      <input class="uk-input" name="lastname" id="lastname" type="text" placeholder="nom">
+                  </div>
+                  <div class="uk-margin">
+                      <input class="uk-input" name="firstname" id="firstname" type="text" placeholder="Prénom">
+                  </div>
+                  <div class="uk-margin">
+                    <input class="uk-input" name="phone" id="phone" type="number" placeholder="Votre téléphone">
+                  </div>
+                  <div class="uk-margin">
+                    <input class="uk-input" name="Email" id="Email" type="email" placeholder="Email">
+                  </div>
+                  <div class="uk-margin">
+                      <select class="uk-select" aria-label="Select">
+                        <option>Un probleme</option>
+                        <option>remboursement</option>
+                        <option>annulation</option>
+                        <option>information</option>
+                      </select>
+                  </div>
+                  <div class="uk-margin">
+                    <textarea class="uk-textarea" rows="5" placeholder="commentaire" ></textarea>
+                  </div>
+                  <div>
+                   <button class="uk-button uk-button-default">Envoyer</button>
+                  </div>
+              </fieldset>
+          </form>
+        </div>
+    </div>  
+  </div>
+
+{% endblock %}
