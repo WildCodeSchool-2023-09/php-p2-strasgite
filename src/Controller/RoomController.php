@@ -6,6 +6,6 @@ class RoomController extends AbstractController
 {
     public function show(): string
     {
-    return $this->twig->render('chambre/show.html.twig');
+        return $this->twig->render('chambre/show.html.twig');
     }
 }
