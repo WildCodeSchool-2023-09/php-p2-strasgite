@@ -2,14 +2,22 @@
 
 namespace App\Controller;
 
+use App\Model\UserManager;
+
 class DashboardController extends AbstractController
 {
     public function index()
     {
-        if (isset($_SESSION['isadmin']) && $_SESSION['isadmin'] === true) {
+        /*if (isset($_SESSION['isadmin']) && $_SESSION['isadmin'] === true) {
             return $this->twig->render('admin/dashboard/index.html.twig');
         } else {
             header('Location:/');
+        }*/
+
+        if (!isset($_SESSION['isadmin']) || $_SESSION['isadmin'] === 0 || !isset($_SESSION['islogin'])) {
+            header('Location:/');
+        } else {
+            return $this->twig->render('admin/dashboard/index.html.twig');
         }
     }
 }

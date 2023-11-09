@@ -17,7 +17,6 @@ class SecurityController extends AbstractController
         }
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
             if ($_POST['email'] == '') {
                 $errors['email'] = 'Veuillez renseigner votre email';
             }
@@ -44,8 +43,7 @@ class SecurityController extends AbstractController
     public function logout()
     {
         unset($_SESSION['islogin']);
-        if (isset($_SESSION['isadmin']))
-        {
+        if (isset($_SESSION['isadmin'])) {
             unset($_SESSION['isadmin']);
         }
         header('Location:/');
