@@ -1,4 +1,7 @@
 @import url("https://cdn.jsdelivr.net/npm/uikit@3.17.6/dist/css/uikit.min.css");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
+@import url('index.css');
+@import url("footer.css");
 @import url('navbar.css');
 @import url('contact.css');
 @import url('global.css');
