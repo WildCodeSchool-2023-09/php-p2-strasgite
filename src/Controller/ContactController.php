@@ -12,10 +12,10 @@ class ContactController extends AbstractController
         if ($_SERVER['REQUEST_METHOD'] === "POST") {
             $contact = array_map('trim', $_POST);
             if ($contact['lastname'] === "") {
-                $errors['lastname'] = "veuilleaz remplir votre nom";
+                $errors['lastname'] = "veuillez remplir votre nom";
             }
             if ($contact['firstname'] === "") {
-                $errors['firstname'] = "veuillez remplir vortre Prénom";
+                $errors['firstname'] = "veuillez remplir votre Prénom";
             }
             if ($contact['phone'] === "") {
                 $errors['phone'] = "veuillez remplir votre numéro";
