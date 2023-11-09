@@ -2,8 +2,9 @@
 
 return [
     '' => ['HomeController', 'index',],
-    'index' => ['HomeController', 'index',],
     'contact' => ['ContactController', 'index',],
+    'tarifs' => ['TarifsController', 'index',],
+    'index' => ['HomeController', 'index',],
     'items' => ['ItemController', 'index',],
     'items/edit' => ['ItemController', 'edit', ['id']],
     'items/show' => ['ItemController', 'show', ['id']],
