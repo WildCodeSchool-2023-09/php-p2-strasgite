@@ -1,0 +1,23 @@
+{% extends 'layout.html.twig' %}
+{% block title %}
+	{{parent()}}-Inscription
+{% endblock %}
+{% block content %}
+	<h1 class="uk-heading-bullet">Inscription</h1>
+	<div class="line"></div>
+	<form action="#" method="post">
+		<input class="uk-input" name="firstname" type="text" placeholder="prenom" required>
+		<input class="uk-input" name="lastname" type="text" placeholder="Nom de famille" required>
+		<input class="uk-input" name="email" type="mail" placeholder="Email" required>
+		<input class="uk-input" name="password" type="password" placeholder="Mot de passe" required>
+		<input class="uk-input" name="adresse" type="text" placeholder="Adresse" required>
+		<input class="uk-input" name="telephone" type="text" placeholder="Numero de telephone" required>
+		<select class="uk-select" name="profession" aria-label="Select" required>
+			<option value="">Please select...</option>
+			<option value="Parlementaire">Parlementaire</option>
+			<option value="Autres">Autres</option>
+		</select>
+		<div class="line"></div>
+		<button class="uk-button uk-button-primary">Inscription</button>
+	</form>
+{% endblock %}
