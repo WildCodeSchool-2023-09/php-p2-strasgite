@@ -17,11 +17,9 @@ class ReservationController extends AbstractController
             $reservation = array_map('trim', $_POST);
             if ($reservation['lastname'] === "") {
                 $errors['lastname'] = "veuillez remplir votre nom";
-            }
-            elseif ($reservation['firstname'] === "") {
+            } elseif ($reservation['firstname'] === "") {
                 $errors['firstname'] = "veuillez remplir votre Prénom";
-            }
-            elseif (strlen($reservation['demands']) > 255) {
+            } elseif (strlen($reservation['demands']) > 255) {
                 $errors['demands'] = "Les spécifités demandées sont trop longues (max 255 caractères).";
             }
             if (empty($errors)) {
