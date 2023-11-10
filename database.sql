@@ -143,12 +143,14 @@ CREATE TABLE
 
 CREATE TABLE
     IF NOT EXISTS `strasgite`.`contact` (
-        `id_contact` INT NOT NULL AUTO_INCREMENT,
-        `contact_id_user` INT NOT NULL,
+        `id` INT NOT NULL AUTO_INCREMENT,
+        `lastname` VARCHAR(50) NOT NULL,
+        `firstname` VARCHAR(50) NOT NULL,
+        `phone` INT NOT NULL,
+        `email` VARCHAR(100) NOT NULL,
+        `reason` VARCHAR(50) NOT NULL,
         `content` TEXT NOT NULL,
-        PRIMARY KEY (`id_contact`),
-        INDEX `id_user_idx` (`contact_id_user` ASC) VISIBLE,
-        CONSTRAINT `contact_id_user` FOREIGN KEY (`contact_id_user`) REFERENCES `strasgite`.`user` (`id_user`) ON DELETE NO ACTION ON UPDATE NO ACTION
+        PRIMARY KEY (`id`)
     ) ENGINE = InnoDB;
 
 -- -----------------------------------------------------
