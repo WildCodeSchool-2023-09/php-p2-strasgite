@@ -1,23 +1,30 @@
 {% extends 'layout.html.twig' %}
 
+{% block title %}
+	{{parent()}}-Contact
+{% endblock %}
+{% block stylesheet %}
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+{% endblock %}
+
 {% block content %}
-    <div class="uk-container-carrousel">
-      <swiper-container class="mySwiper" scrollbar-hide="true" autoplay-delay="2000" autoplay-disable-on-interaction="false">
-          <swiper-slide><img src="/assets/images/chambre1.jpg" alt="image chambre"></swiper-slide>
-          <swiper-slide><img src="/assets/images/chambre2.jpg" alt="image chambre"></swiper-slide>
-          <swiper-slide><img src="/assets/images/chambre1.jpg" alt="image chambre"></swiper-slide>
-          <swiper-slide><img src="/assets/images/chambre2.jpg" alt="image chambre"></swiper-slide>
-          <swiper-slide><img src="/assets/images/chambre1.jpg" alt="image chambre"></swiper-slide>
-          <swiper-slide><img src="/assets/images/chambre2.jpg" alt="image chambre"></swiper-slide>
-          <swiper-slide><img src="/assets/images/chambre1.jpg" alt="image chambre"></swiper-slide>
-          <swiper-slide><img src="/assets/images/chambre2.jpg" alt="image chambre"></swiper-slide>
-          <swiper-slide><img src="/assets/images/chambre1.jpg" alt="image chambre"></swiper-slide>
-      </swiper-container>
-    </div>
+	<div class="uk-container">
+		<swiper-container class="mySwiper" scrollbar-hide="true" autoplay-delay="2000" autoplay-disable-on-interaction="false">
+			<swiper-slide><img src="/assets/images/chambre1.jpg" alt="image chambre"></swiper-slide>
+			<swiper-slide><img src="/assets/images/chambre2.jpg" alt="image chambre"></swiper-slide>
+			<swiper-slide><img src="/assets/images/chambre1.jpg" alt="image chambre"></swiper-slide>
+			<swiper-slide><img src="/assets/images/chambre2.jpg" alt="image chambre"></swiper-slide>
+			<swiper-slide><img src="/assets/images/chambre1.jpg" alt="image chambre"></swiper-slide>
+			<swiper-slide><img src="/assets/images/chambre2.jpg" alt="image chambre"></swiper-slide>
+			<swiper-slide><img src="/assets/images/chambre1.jpg" alt="image chambre"></swiper-slide>
+			<swiper-slide><img src="/assets/images/chambre2.jpg" alt="image chambre"></swiper-slide>
+			<swiper-slide><img src="/assets/images/chambre1.jpg" alt="image chambre"></swiper-slide>
+		</swiper-container>
+	</div>
 
-    <div class="liserai"></div>
+	<div class="line"></div>
 
-  <div class="uk-child-width-expand@s uk-text-center uk-grid kfd-background">
+	<div class="uk-child-width-expand@s uk-text-center uk-grid kfd-background">
 
     <div>
         <div class="uk-card uk-card-default uk-card-body kfd-background-left">
