@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Model\ReservationManager;
+
 class ReservationController extends AbstractController
 {
     public function index(): string
@@ -15,16 +17,6 @@ class ReservationController extends AbstractController
             }
             if ($reservation['firstname'] === "") {
                 $errors['firstname'] = "veuillez remplir votre Prénom";
-            }
-            if ($reservation['date_entry'] === "") {
-                $errors['date_entry'] = "Veuillez sélectionner une date d'entrée.";
-            } elseif (!strtotime($reservation['date_entry'])) {
-                $errors['date_entry'] = "Format de date d'entrée invalide.";
-            }
-            if ($reservation['date_exit'] === "") {
-                $errors['date_exit'] = "Veuillez sélectionner une date de sortie.";
-            } elseif (!strtotime($reservation['date_exit'])) {
-                $errors['date_exit'] = "Format de date de sortie invalide.";
             }
             if (!isset($reservation['chambre']) || $reservation['chambre'] === "") {
                 $errors['chambre'] = "Veuillez choisir une chambre.";
@@ -44,11 +36,3 @@ class ReservationController extends AbstractController
         ]);
     }
 }
-
-
-
-
-
-
-
-    
