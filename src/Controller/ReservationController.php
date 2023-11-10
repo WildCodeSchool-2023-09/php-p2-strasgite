@@ -10,7 +10,7 @@ class ReservationController extends AbstractController
     {
         $errors = [];
         if (!isset($_SESSION['islogin']) || $_SESSION['islogin'] !== true) {
-            header('Location: /login'); 
+            header('Location: /login');
             return '';
         }
         if ($_SERVER['REQUEST_METHOD'] === "POST") {
@@ -38,4 +38,3 @@ class ReservationController extends AbstractController
         ]);
     }
 }
-
