@@ -3,9 +3,9 @@
 @import url('_main-room.css');
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
 @import url('index.css');
-@import url("footer.css");
 @import url('navbar.css');
 @import url('carrousel.css');
 @import url('global.css');
 @import url('contact.css');
-
+@import url('reservation.css');
+@import url('footer.css');

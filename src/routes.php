@@ -5,6 +5,7 @@ return [
     'contact' => ['ContactController', 'index',],
     'tarifs' => ['TarifsController', 'index',],
     'index' => ['HomeController', 'index',],
+    'reservation' => ['ReservationController', 'index',],
     'items' => ['ItemController', 'index',],
     'items/edit' => ['ItemController', 'edit', ['id']],
     'items/show' => ['ItemController', 'show', ['id']],
