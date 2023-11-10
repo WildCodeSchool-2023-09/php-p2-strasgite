@@ -10,6 +10,10 @@ class ReservationController extends AbstractController
     {
 
         $errors = [];
+        if (!isset($_SESSION['islogin']) || $_SESSION['islogin'] !== true) {
+            header('Location: /login'); 
+            return '';
+        }
         if ($_SERVER['REQUEST_METHOD'] === "POST") {
             $reservation = array_map('trim', $_POST);
             if ($reservation['lastname'] === "") {
@@ -35,4 +39,6 @@ class ReservationController extends AbstractController
             'errors' => $errors
         ]);
     }
+
 }
+
