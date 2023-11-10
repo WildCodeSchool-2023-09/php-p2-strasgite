@@ -8,7 +8,6 @@ class ReservationController extends AbstractController
 {
     public function index(): string
     {
-
         $errors = [];
         if (!isset($_SESSION['islogin']) || $_SESSION['islogin'] !== true) {
             header('Location: /login'); 
@@ -34,11 +33,9 @@ class ReservationController extends AbstractController
                 header('Location: /');
             }
         }
-
         return $this->twig->render('reservation/_reservation.html.twig', [
             'errors' => $errors
         ]);
     }
-
 }
 
