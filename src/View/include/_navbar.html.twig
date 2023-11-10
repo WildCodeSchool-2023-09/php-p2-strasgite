@@ -4,7 +4,7 @@
 			<div class="uk-navbar-left">
 				<a class="uk-navbar-item uk-logo" href="/" aria-label="logo strat's gite"><img class="img-logo" src="/assets/images/logov1.png"></a>
 			</div>
-			<div class="uk-navbar-right-1">	
+			<div class="uk-navbar-right-1">
 				<ul class="uk-navbar-nav">
 					<li>
 						<a href="">Réservation</a>
@@ -32,25 +32,24 @@
 						</div>
 					</li>
 					<li>
-						<a href="tarifs">Nos tarifs</a>
+						<a href="/tarifs">Nos tarifs</a>
 					</li>
 					<li>
-						<a href="contact">Contact</a>
+						<a href="/contact">Contact</a>
 					</li>
-					{{ dump(session) }}
 					{% if session.isadmin == true %}
-					<li>
-						<a href="admin/dashboard">Admin</a>
-					</li>
+						<li>
+							<a href="/admin/dashboard">Admin</a>
+						</li>
 					{% endif %}
 					{% if session.islogin == true %}
-					<li>
-						<a href="logout">Deconnection</a>
-					</li>
+						<li>
+							<a href="/logout">Deconnection</a>
+						</li>
 					{% else %}
-					<li>
-						<a href="login">Login</a>
-					</li>
+						<li>
+							<a href="/login">Login</a>
+						</li>
 					{% endif %}
 				</ul>
 			</div>
@@ -80,14 +79,28 @@
 								</li>
 								<li class="uk-nav-header">Nous joindre</li>
 								<li>
-									<a href="#">Nos tarifs</a>
+									<a href="/tarifs">Nos tarifs</a>
 								</li>
 								<li>
 									<a href="">Réservation</a>
 								</li>
 								<li>
-									<a href="">Contact</a>
+									<a href="/contact">Contact</a>
 								</li>
+								{% if session.isadmin == true %}
+									<li>
+										<a href="/admin/dashboard">Admin</a>
+									</li>
+								{% endif %}
+								{% if session.islogin == true %}
+									<li>
+										<a href="/logout">Deconnection</a>
+									</li>
+								{% else %}
+									<li>
+										<a href="/login">Login</a>
+									</li>
+								{% endif %}
 
 							</ul>
 
