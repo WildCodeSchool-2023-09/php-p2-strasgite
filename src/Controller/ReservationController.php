@@ -21,9 +21,6 @@ class ReservationController extends AbstractController
             if ($reservation['firstname'] === "") {
                 $errors['firstname'] = "veuillez remplir votre Prénom";
             }
-            if (!isset($reservation['chambre']) || $reservation['chambre'] === "") {
-                $errors['chambre'] = "Veuillez choisir une chambre.";
-            }
             if (strlen($reservation['demands']) > 255) {
                 $errors['demands'] = "Les spécifités demandées sont trop longues (max 255 caractères).";
             }
