@@ -18,10 +18,10 @@ class ReservationController extends AbstractController
             if ($reservation['lastname'] === "") {
                 $errors['lastname'] = "veuillez remplir votre nom";
             }
-            if ($reservation['firstname'] === "") {
+            elseif ($reservation['firstname'] === "") {
                 $errors['firstname'] = "veuillez remplir votre Prénom";
             }
-            if (strlen($reservation['demands']) > 255) {
+            elseif (strlen($reservation['demands']) > 255) {
                 $errors['demands'] = "Les spécifités demandées sont trop longues (max 255 caractères).";
             }
             if (empty($errors)) {
