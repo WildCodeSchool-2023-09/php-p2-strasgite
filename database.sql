@@ -1,4 +1,3 @@
--- Active: 1698143962948@@127.0.0.1@3306
 -- MySQL Workbench Forward Engineering
 
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
@@ -22,6 +21,8 @@ SET
 -- Schema strasgite
 
 -- -----------------------------------------------------
+
+CREATE SCHEMA IF NOT EXISTS `strasgite` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
 USE `strasgite` ;
 
