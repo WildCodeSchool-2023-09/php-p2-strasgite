@@ -14,9 +14,6 @@ abstract class AbstractController
 {
     protected Environment $twig;
 
-    //protected array $user;
-
-
     public function __construct()
     {
         $loader = new FilesystemLoader(APP_VIEW_PATH);
@@ -29,7 +26,5 @@ abstract class AbstractController
         );
         $this->twig->addExtension(new DebugExtension());
         $this->twig->addGlobal('session', $_SESSION);
-        //$userManager = new UserManager;
-        //$this->user = isset($_SESSION['isLogin'])?$userManager->userLogin($_SESSION['isLogin']):false;
     }
 }

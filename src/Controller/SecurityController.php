@@ -31,7 +31,7 @@ class SecurityController extends AbstractController
                 if ($user) {
                     $_SESSION['islogin'] = true;
                     $_SESSION['isadmin'] = $user['isadmin'];
-
+                    $_SESSION['email'] = $user['email'];
                     header('Location:/');
                 } else {
                     $errors['login'] = 'Email ou mot de passe incorrect';
