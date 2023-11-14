@@ -1,3 +1,4 @@
+{% extends 'layout.html.twig' %}
 {% block title %}
 	{{parent()}}-tarifs
 {% endblock %}
@@ -6,37 +7,17 @@
 	<table class="uk-table uk-table-hover uk-table-divider">
 		<thead>
 			<tr>
-				<th>Chambre 1</th>
-				<th>Chambre 2</th>
-				<th>Chambre 3</th>
-				<th>Chambre 4</th>
+				<th>Libellé</th>
+				<th>Prix</th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				<td>Table Data</td>
-				<td>Table Data</td>
-				<td>Table Data</td>
-				<td>Table Data</td>
-			</tr>
-			<tr>
-				<td>Table Data</td>
-				<td>Table Data</td>
-				<td>Table Data</td>
-				<td>Table Data</td>
-			</tr>
-			<tr>
-				<td>Table Data</td>
-				<td>Table Data</td>
-				<td>Table Data</td>
-				<td>Table Data</td>
-			</tr>
-			<tr>
-				<td>Table Data</td>
-				<td>Table Data</td>
-				<td>Table Data</td>
-				<td>Table Data</td>
-			</tr>
+			{% for tarif in tarifs %}
+				<tr>
+					<td>{{tarif.name}}</td>
+					<td>{{tarif.prix}}</td>
+				</tr>
+			{% endfor %}
 		</tbody>
 	</table>
 {% endblock %}

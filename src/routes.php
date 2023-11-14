@@ -13,7 +13,7 @@ return [
     'items/delete' => ['ItemController', 'delete',],
     'chambre' => ['RoomController', 'show', ['id']],
     'login' => ['SecurityController', 'login',],
+    'signin' => ['SecurityController', 'signin',],
     'logout' => ['SecurityController', 'logout',],
     'admin/dashboard' => ['DashboardController', 'index',],
-    'tarifs' => ['TarifController', 'index',],
 ];

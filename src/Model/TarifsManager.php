@@ -1,23 +1,20 @@
 <?php
 
-
-
 namespace App\Model;
 
-use App\Model\Connection;
-use PDO;
-
-/**
- * Abstract class handling default manager.
- */
-abstract class TarifsManager extends AbstractManager
+class TarifsManager extends AbstractManager
 {
     public const TABLE = 'chambre';
+    public const PARLEMENTAIRE = 'parlementaire';
 
-    public function selectTarifs(): array
+    public function selectPrix(): array
     {
-        $query = 'SELECT prix FROM ' . self::TABLE;
-        
-        return $this->pdo->query($query)->fetchAll();
+        if (isset($_POST['profession']) && $_POST['profession'] === self::PARLEMENTAIRE) {
+            $query = 'SELECT name, prix - (prix * 0.10) AS prixReduit FROM ' . self::TABLE;
+            return $this->pdo->query($query)->fetchAll();
+        } else {
+            $query = 'SELECT name, prix FROM ' . self::TABLE;
+            return $this->pdo->query($query)->fetchAll();
+        }
     }
 }
