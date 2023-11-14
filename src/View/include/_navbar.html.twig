@@ -17,7 +17,7 @@
 									<a href="#">En ce moment</a>
 								</li>
 								<li>
-									<a href="#">Chambre 1</a>
+									<a href="/chambre">Chambre 1</a>
 								</li>
 								<li>
 									<a href="#">Chambre 2</a>
@@ -79,7 +79,7 @@
 								</li>
 								<li class="uk-nav-header">Nous joindre</li>
 								<li>
-									<a href="/tarif">Nos tarifs</a>
+									<a href="/tarifs">Nos tarifs</a>
 								</li>
 								<li>
 									<a href="/reservation">Réservation</a>
@@ -87,6 +87,20 @@
 								<li>
 									<a href="/contact">Contact</a>
 								</li>
+								{% if session.isadmin == true %}
+									<li>
+										<a href="/admin/dashboard">Admin</a>
+									</li>
+								{% endif %}
+								{% if session.islogin == true %}
+									<li>
+										<a href="/logout">Deconnection</a>
+									</li>
+								{% else %}
+									<li>
+										<a href="/login">Login</a>
+									</li>
+								{% endif %}
 
 							</ul>
 								{% if session.isadmin == true %}

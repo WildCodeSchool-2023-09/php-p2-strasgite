@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Model\UserManager;
+use App\Model\DashboardManager;
 
 class DashboardController extends AbstractController
 {
@@ -12,6 +12,17 @@ class DashboardController extends AbstractController
             header('Location:/');
         } else {
             return $this->twig->render('admin/dashboard/index.html.twig');
+        }
+    }
+
+    public function editChambre()
+    {
+        if (!isset($_SESSION['isadmin']) || $_SESSION['isadmin'] === 0 || !isset($_SESSION['islogin'])) {
+            header('Location:/');
+        } else {
+            $dashboardManager = new DashboardManager();
+            $chambres = $dashboardManager->selectChambres();
+            return $this->twig->render('admin/dashboard/chambre.html.twig', ['chambres' => $chambres]);
         }
     }
 }

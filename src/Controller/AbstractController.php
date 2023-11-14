@@ -7,9 +7,6 @@ use App\Model\UserManager;
 use Twig\Loader\FilesystemLoader;
 use Twig\Extension\DebugExtension;
 
-/**
- * Initialized some Controller common features (Twig...)
- */
 abstract class AbstractController
 {
     protected Environment $twig;
