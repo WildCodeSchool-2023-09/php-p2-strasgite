@@ -49,7 +49,7 @@ class SecurityController extends AbstractController
         header('Location:/');
     }
 
-    public function signin()
+    public function verify()
     {
         $errors = [];
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -66,7 +66,15 @@ class SecurityController extends AbstractController
                     $errors[$required] = 'Ce champ est obligatoire';
                 }
             }
+            return $errors;
+        }
+    }
 
+    public function signin()
+    {
+        $errors = $this->verify();
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (isset($_SESSION['islogin']) && $_SESSION['islogin'] === true) {
                 header('Location:/');
                 return;
@@ -80,10 +88,9 @@ class SecurityController extends AbstractController
                     $_SESSION['isadmin'] = $user['isadmin'];
                     $_SESSION['email'] = $user['email'];
                 }
-                header('Location:/');
+                header('Location:/login');
             }
         }
-
         return $this->twig->render('Security/_signin.html.twig', ['errors' => $errors]);
     }
 }

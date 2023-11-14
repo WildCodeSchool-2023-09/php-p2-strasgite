@@ -6,7 +6,6 @@ use PDO;
 
 class DashboardManager extends AbstractManager
 {
-
     public const TABLE = 'chambre';
     protected PDO $pdo;
     public function selectChambres(): array

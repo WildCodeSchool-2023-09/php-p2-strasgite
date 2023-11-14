@@ -19,7 +19,7 @@ class UserManager extends AbstractManager
         return $statement->fetch();
     }
 
-    public function userSignin(array $user): void
+    public function userSignin(array $user)
     {
         $statement = $this->pdo->prepare("INSERT INTO " . static::TABLE .
             " (firstname, lastname, email, password, adresse, tel, profession) 
