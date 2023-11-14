@@ -49,4 +49,12 @@ class SecurityController extends AbstractController
         }
         header('Location:/');
     }
+    public function signin()
+    {
+        if (isset($_SESSION['islogin']) && $_SESSION['islogin'] === true) {
+            header('Location:/');
+            return;
+        }
+        return $this->twig->render('Security/_signin.html.twig');
+    }
 }

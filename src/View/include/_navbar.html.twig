@@ -7,10 +7,10 @@
 			<div class="uk-navbar-right-1">
 				<ul class="uk-navbar-nav">
 					<li>
-						<a href="">Réservation</a>
+						<a href="/reservation">Réservation</a>
 					</li>
 					<li class="uk-active">
-						<a href="#">Nos chambres</a>
+						<a href="/chambre">Nos chambres</a>
 						<div class="uk-navbar-dropdown">
 							<ul class="uk-nav uk-navbar-dropdown-nav">
 								<li class="uk-active">
@@ -79,17 +79,30 @@
 								</li>
 								<li class="uk-nav-header">Nous joindre</li>
 								<li>
-									<a href="#">Nos tarifs</a>
+									<a href="/tarif">Nos tarifs</a>
 								</li>
 								<li>
-									<a href="">Réservation</a>
+									<a href="/reservation">Réservation</a>
 								</li>
 								<li>
-									<a href="">Contact</a>
+									<a href="/contact">Contact</a>
 								</li>
 
 							</ul>
-
+								{% if session.isadmin == true %}
+									<li>
+										<a href="/admin/dashboard">Admin</a>
+									</li>
+								{% endif %}
+								{% if session.islogin == true %}
+									<li>
+										<a href="/logout">Deconnection</a>
+									</li>
+								{% else %}
+									<li>
+										<a href="/login">Login</a>
+									</li>
+								{% endif %}
 						</div>
 
 					</ul>
