@@ -15,4 +15,5 @@ return [
     'login' => ['SecurityController', 'login',],
     'logout' => ['SecurityController', 'logout',],
     'admin/dashboard' => ['DashboardController', 'index',],
+    'signin' => ['SecurityController', 'signin',],
 ];
