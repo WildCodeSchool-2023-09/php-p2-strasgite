@@ -1,0 +1,37 @@
+div .img-header-coworking{
+    display:flex;
+    width: 75%;
+    height: 50%;
+   align-items: content;
+   margin: 0 auto;
+   padding-top:0;
+   padding-bottom: 1rem;
+   border-radius: 0 0 3% 3%;
+}
+
+.main-cowrking {
+    background-color: #324c5d;
+}
+
+.uk-text-justify{
+    padding:2rem 2rem;
+    color: white;
+}
+
+.uk-button {
+    text-decoration: underline;
+    border: gray 1px solid;
+}
+
+.line {
+    height: 3px;
+    background: rgb(155, 122, 90);
+    background: linear-gradient(
+        90deg,
+        rgba(155, 122, 90, 1) 35%,
+        rgba(50, 76, 93, 1) 51%,
+        rgba(143, 137, 139, 1) 62%
+    );
+    margin-top: 50px;
+    margin-bottom: 50px;
+}

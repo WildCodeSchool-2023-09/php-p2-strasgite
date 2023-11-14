@@ -2,6 +2,7 @@
 
 return [
     '' => ['HomeController', 'index',],
+    'coworking' => ['CoworkingController','index'],
     'contact' => ['ContactController', 'index',],
     'tarifs' => ['TarifsController', 'index',],
     'index' => ['HomeController', 'index',],
