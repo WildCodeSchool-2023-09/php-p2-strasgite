@@ -25,7 +25,7 @@ class ContactController extends AbstractController
 
     public function validate(array $contact)
     {
-        $errors=[];
+        $errors = [];
         if ($contact['lastname'] === "") {
             $errors['lastname'] = "veuillez remplir votre nom";
         }

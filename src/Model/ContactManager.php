@@ -24,19 +24,4 @@ class ContactManager extends AbstractManager
             $statement->execute();
             return (int)$this->pdo->lastInsertId();
     }
-
-    /*public function show(array $contact): void
-    {
-        $statement = $this->pdo->prepare("selecAll " . self::TABLE .
-        " (lastname,firstname,phone,email,reason,content) 
-        VALUES (:lastname, :firstname, :phone, :email, :reason, :content)");
-        $statement->bindValue('lastname', $contact, PDO::PARAM_STR);
-        $statement->bindValue('firstname', $contact, PDO::PARAM_STR);
-        $statement->bindValue('phone', $contact, PDO::PARAM_STR);
-        $statement->bindValue('email', $contact, PDO::PARAM_STR);
-        $statement->bindValue('reason', $contact, PDO::PARAM_STR);
-        $statement->bindValue('content', $contact, PDO::PARAM_STR);
-        $statement->execute();
-    }*/
-    
 }
