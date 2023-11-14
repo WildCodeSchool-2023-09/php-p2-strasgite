@@ -11,7 +11,7 @@ class ReservationManager extends AbstractManager
     {
         $userId = isset($_SESSION['email']) ? $_SESSION['email'] : null;
         $statement = $this->pdo->prepare("INSERT INTO " . self::TABLE .
-            " (chambre_id,id_user, firstname, lastname, date_entree, date_sortie, demandes_specifiques) 
+            " (chambre_id,id_user, firstname, lastname, date_entry, date_exit, demand) 
             VALUES (:chambre_id, :id_user, :firstname, :lastname, :date_entry, :date_exit, :demands)");
         $statement->bindValue(':chambre_id', $reservation['chambre']);
         $statement->bindValue(':id_user', $userId, PDO::PARAM_STR);
