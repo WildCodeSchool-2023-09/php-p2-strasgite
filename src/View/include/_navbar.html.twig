@@ -10,7 +10,7 @@
 						<a href="/reservation">Réservation</a>
 					</li>
 					<li class="uk-active">
-						<a href="#">Nos chambres</a>
+						<a href="/chambre">Nos chambres</a>
 						<div class="uk-navbar-dropdown">
 							<ul class="uk-nav uk-navbar-dropdown-nav">
 								<li class="uk-active">
@@ -103,7 +103,20 @@
 								{% endif %}
 
 							</ul>
-
+								{% if session.isadmin == true %}
+									<li>
+										<a href="/admin/dashboard">Admin</a>
+									</li>
+								{% endif %}
+								{% if session.islogin == true %}
+									<li>
+										<a href="/logout">Deconnection</a>
+									</li>
+								{% else %}
+									<li>
+										<a href="/login">Login</a>
+									</li>
+								{% endif %}
 						</div>
 
 					</ul>
