@@ -31,6 +31,7 @@ class SecurityController extends AbstractController
                     $_SESSION['islogin'] = true;
                     $_SESSION['isadmin'] = $user['isadmin'];
                     $_SESSION['email'] = $user['email'];
+                    $_SESSION['profession'] = $user['profession'];
                     header('Location:/');
                 } else {
                     $errors['login'] = 'Email ou mot de passe incorrect';
@@ -43,6 +44,8 @@ class SecurityController extends AbstractController
     public function logout()
     {
         unset($_SESSION['islogin']);
+        unset($_SESSION['email']);
+        unset($_SESSION['profession']);
         if (isset($_SESSION['isadmin'])) {
             unset($_SESSION['isadmin']);
         }

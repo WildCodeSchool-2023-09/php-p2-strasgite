@@ -1,138 +1,81 @@
 {% extends 'layout.html.twig' %}
 
 {% block stylesheet %}
-    <link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-/>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
 {% endblock %}
 
 {% block content %}
-<main>
-    <div class="uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light"uk-img>
-        <img src="/assets/images/photo-standard-gite.jpg" alt="Photo chambre">
-    </div>
-        
-    <div class="uk-tile uk-tile-default"><h1 class="title-room">Titre Chambre</h1></div> 
-        <div class="uk-card uk-card-default uk-card-small">
-            <div class="uk-column-1-2">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt 
-                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
-                ullamco laboris.</p>
+	<main>
+		<div class="uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light" uk-img>
+			{% for image in images|slice(0, 1) %}
+				<img src="{{image.img}}" alt="{{image.name}}">
+			{% endfor %}
+		</div>
+		<div class="uk-tile uk-tile-default">
+			<h1 class="title-room">{{ chambre.name }}</h1>
+		</div>
+		<div class="uk-card uk-card-default uk-card-small">
+			<div class="uk-column-1-2">
+				<p>{{ chambre.description }}</p>
+			</div>
+		</div>
+		<div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider autoplay="true" autoplay-interval="3000">
+			<ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@m uk-grid">
+				{% for image in images|slice(0, 3) %}
+					<li>
+						<div class="uk-panel">
+							<img src="{{image.img}}" alt="{{image.name}}">
+						</div>
+					</li>
+				{% endfor %}
+			</ul>
+			<a class="uk-position-center-left uk-position-small uk-hidden" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+			<a class="uk-position-center-right uk-position-small uk-hidden" href="#" uk-slidenav-next uk-slider-item="next"></a>
+		</div>
 
-                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat 
-                nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia 
-                deserunt mollit anim id est laborum.</p>
+		<div class="bottom">
 
-                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex 
-                ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum 
-                dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident. Duis aute 
-                irure dolor in reprehenderit in voluptate velit esse cillum dolore.</p>
-            </div>
-        </div>
+			<div class="uk-tile">
+				<h2 class="title-activity">Activités principal du gîte</h2>
+			</div>
 
+			<swiper-container class="mySwiper" effect="cards" grab-cursor="true">
+				<swiper-slide><img src="/assets/images/salle-de-conference.jpg" alt="Salle de conférence"/></swiper-slide>
+				<swiper-slide><img src="/assets/images/jacuzzi3.jpg" alt="Jacuzzi"/></swiper-slide>
+				<swiper-slide><img src="/assets/images/piscine-interieur.jpg" alt="Piscine intérieur"/></swiper-slide>
+			</swiper-container>
 
-    <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider autoplay="true" autoplay-interval="3000">
-        <ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@m uk-grid">
-            <li>
-                <div class="uk-panel">
-                    <img src="/assets/images/chambre-avec-bureau.jpg" width="600" height="800" alt="Chambre avec bureau">   
-                </div>
-            </li>
-            <li>
-                <div class="uk-panel">
-                    <img src="/assets/images/salon-moderne-3.jpg" width="600" height="800" alt="Salon moderne">
-                </div>
-            </li>
-            <li>
-                <div class="uk-panel">
-                    <img src="/assets/images/chambre boisé.jpg" width="600" height="800" alt="Chambre boisé">
-                </div>
-            </li>
-            <li>
-                <div class="uk-panel">
-                    <img src="/assets/images/chambre-en-pierre.jpg" width="600" height="800" alt="Chambre en pierres">
-                </div>
-            </li>
-            <li>
-                <div class="uk-panel">
-                    <img src="/assets/images/deux-lits3.jpg" width="600" height="800" alt="Chambre avec deux lits">
-                </div>
-            </li>
-            <li>
-                <div class="uk-panel">
-                    <img src="/assets/images/salle-de-bain-pierre.jpg" width="600" height="800" alt="Salle de bain en pierres">
-                </div>
-            </li>
-            <li>
-                <div class="uk-panel">
-                    <img src="/assets/images/chambre-chalet.jpg" width="600" height="800" alt="Chambre imitation chalet">
-                </div>
-            </li>
-            <li>
-                <div class="uk-panel">
-                    <img src="/assets/images/deux-petits-lits.jpg" width="600" height="800" alt="Chambre avec deux lits">
-                </div>
-            </li>
-            <li>
-                <div class="uk-panel">
-                    <img src="/assets/images/salon-moderne.jpg" width="600" height="800" alt="Salon moderne">
-                </div>
-            </li>
-            <li>
-                <div class="uk-panel">
-                    <img src="/assets/images/chambre.jpg" width="600" height="800" alt="Chambre">
-                </div>
-            </li>
-            <li>
-                <div class="uk-panel">
-                    <img src="/assets/images/salle-a-manger.jpg" width="600" height="800" alt="Salle à manger">
-                </div>
-            </li>
-            <li>
-                <div class="uk-panel">
-                    <img src="/assets/images/salon-avec-plantes.jpg" width="600" height="800" alt="Salon avec plantes">
-                </div>
-            </li>
-        </ul>
-            <a class="uk-position-center-left uk-position-small uk-hidden" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
-            <a class="uk-position-center-right uk-position-small uk-hidden" href="#" uk-slidenav-next uk-slider-item="next"></a>
-    </div>
+			<section class="activites-annexe">
+				<h4 class="title">Activités annexe
+					<div class="images">
+						<img src="/assets/images/trampoling-r.jpg" width="225" height="150">
+						<img src="/assets/images/poker-baby-foot.jpg" width="225" height="150">
+						<img src="/assets/images/balancoire-et-jardin.jpg" width="225" height="150">
+					</div>
+				</h4>
 
-    <div class="bottom">
+				<div class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit,<br>
+					sed do eiusmod tempor incididunt ut labore 
+					et dolore
+					<br>magna aliqua. Ut enim ad minim veniam, quis nostrud
+					<br>
+					exercitation ullamco laboris nisi ut 
+					aliquip ex ea commodo consequat.
+				</div>
 
-        <div class="uk-tile"><h2 class="title-activity">Activités principal du gîte</h2></div>
-
-        <swiper-container class="mySwiper" effect="cards" grab-cursor="true">
-            <swiper-slide><img src="/assets/images/salle-de-conference.jpg" alt="Salle de conférence" /></swiper-slide> 
-            <swiper-slide><img src="/assets/images/jacuzzi3.jpg" alt="Jacuzzi" /></swiper-slide>
-            <swiper-slide><img src="/assets/images/piscine-interieur.jpg" alt="Piscine intérieur" /></swiper-slide>
-        </swiper-container>
-
-        <section class="activites-annexe"><h4 class="title">Activités annexe
-                <div class="images">
-                    <img src="/assets/images/trampoling-r.jpg" width="225" height="150">
-                    <img src="/assets/images/poker-baby-foot.jpg" width="225" height="150">
-                    <img src="/assets/images/balancoire-et-jardin.jpg" width="225" height="150">
-                </div></h4>
-
-                <div class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit,<br> sed do eiusmod tempor incididunt ut labore 
-                    et dolore <br>magna aliqua. Ut enim ad minim veniam, quis nostrud <br> exercitation ullamco laboris nisi ut 
-                    aliquip ex ea commodo consequat.
-                </div>
-
-                <div class="button">
-                    <hr class="uk-divider-vertical">
-                    <p uk-margin>
-                        <button class="uk-button uk-button-primary uk-button-large">Reserver</button>
-                    </p>
-                </div>
-        </section>
-    </div>
-</main>
+				<div class="button">
+					<hr class="uk-divider-vertical">
+					<p uk-margin>
+						<button class="uk-button-c uk-button-primary uk-button-large">Reserver</button>
+					</p>
+				</div>
+			</section>
+		</div>
+	</main>
 {% endblock %}
 
 {% block javascript %}
-    {{ parent() }}
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+	{{ parent() }}
+	<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
 {% endblock %}

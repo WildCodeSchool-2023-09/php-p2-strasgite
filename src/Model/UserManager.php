@@ -32,12 +32,14 @@ class UserManager extends AbstractManager
         $statement->bindValue('tel', $user['tel'], \PDO::PARAM_INT);
         $statement->bindValue('profession', $user['profession'], \PDO::PARAM_STR);
         $statement->execute();
+
+        return;
     }
 
     public function emailExist(string $email)
     {
         $statement = $this->pdo->prepare("SELECT COUNT(*) AS count FROM " . static::TABLE .
-        " WHERE email = :email");
+            " WHERE email = :email");
         $statement->bindValue('email', $email, \PDO::PARAM_STR);
         $statement->execute();
         $result = $statement->fetch();
