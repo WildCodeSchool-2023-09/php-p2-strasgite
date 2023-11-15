@@ -37,7 +37,7 @@ class ReservationController extends AbstractController
             if (empty($errors)) {
                 $reservationManager = new ReservationManager();
                 $reservationManager->insert($reservation);
-                header('Location: /');
+                header('Location: /reservation');
             }
         }
         return $this->twig->render('reservation/_reservation.html.twig', [

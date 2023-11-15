@@ -132,6 +132,69 @@ CREATE TABLE
         CONSTRAINT `id_user` FOREIGN KEY (`id_user`) REFERENCES `strasgite`.`user` (`id_user`) ON DELETE NO ACTION ON UPDATE NO ACTION
     ) ENGINE = InnoDB;
  
+
+CREATE TABLE
+    IF NOT EXISTS `strasgite`.`chambre` (
+        `id_chambre` INT NOT NULL AUTO_INCREMENT,
+        `name` VARCHAR(45) NOT NULL,
+        `id_option` INT NULL,
+        `is_available` TINYINT NOT NULL,
+        `id_categorie` INT NOT NULL,
+        `prix` FLOAT NOT NULL,
+        `id_image` INT NOT NULL,
+        PRIMARY KEY (`id_chambre`),
+        INDEX `id_image_idx` (`id_image` ASC) VISIBLE,
+        INDEX `id_option_idx` (`id_option` ASC) VISIBLE,
+        INDEX `id_categorie_idx` (`id_categorie` ASC) VISIBLE,
+        CONSTRAINT `id_image` FOREIGN KEY (`id_image`) REFERENCES `strasgite`.`image` (`id_image`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+        CONSTRAINT `id_option` FOREIGN KEY (`id_option`) REFERENCES `strasgite`.`options` (`id_options`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+        CONSTRAINT `id_categorie` FOREIGN KEY (`id_categorie`) REFERENCES `strasgite`.`categories` (`id_categories`) ON DELETE NO ACTION ON UPDATE NO ACTION
+    ) ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+
+-- Table `strasgite`.`user`
+
+-- -----------------------------------------------------
+
+CREATE TABLE
+    IF NOT EXISTS `strasgite`.`user` (
+        `id_user` INT NOT NULL AUTO_INCREMENT,
+        `firstname` VARCHAR(150) NOT NULL,
+        `lastname` VARCHAR(150) NOT NULL,
+        `email` VARCHAR(50) NOT NULL,
+        `password` VARCHAR(45) NOT NULL,
+        `adresse` VARCHAR(100) NOT NULL,
+        `tel` INT NOT NULL,
+        `profession` VARCHAR(100) NOT NULL,
+        `isadmin` TINYINT NOT NULL,
+        PRIMARY KEY (`id_user`)
+    ) ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+
+-- Table `strasgite`.`reservation`
+
+-- -----------------------------------------------------
+
+CREATE TABLE
+    IF NOT EXISTS `strasgite`.`reservation` (
+        `id_reservation` INT NOT NULL AUTO_INCREMENT,
+        `chambre_id` INT NOT NULL,
+        `id_user` INT NOT NULL,
+        `firstname` VARCHAR(255) NOT NULL,
+        `lastname` VARCHAR(255) NOT NULL,
+        `date_entry` DATE NOT NULL,
+        `date_exit` DATE NOT NULL,
+        `demand` TEXT,
+        PRIMARY KEY (`id_reservation`),
+        INDEX `id_chambre_idx` (`chambre_id` ASC) VISIBLE,
+        INDEX `id_user_idx` (`id_user` ASC) VISIBLE,
+        CONSTRAINT `id_chambre` FOREIGN KEY (`chambre_id`) REFERENCES `strasgite`.`chambre` (`id_chambre`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+        CONSTRAINT `id_user` FOREIGN KEY (`id_user`) REFERENCES `strasgite`.`user` (`id_user`) ON DELETE NO ACTION ON UPDATE NO ACTION
+    ) ENGINE = InnoDB;
+
+
 -- -----------------------------------------------------
 
 -- Table `strasgite`.`contact`
