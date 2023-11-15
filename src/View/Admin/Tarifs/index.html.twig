@@ -22,16 +22,30 @@
 				</tr>
 			</thead>
 			<tbody>
-				{% for reservation in reservations %}
+				{% for chambre in chambres %}
 					<tr>
 						<td>
-							<a href="admin/reservation/{{ reservation.id }}" class="uk-button uk-button-primary">Voir</a>
-							<a href="admin/reservation/{{ reservation.id }}/delete" class="uk-button uk-button-danger">Supprimer</a>
+							{{chambre.name}}
+						</td>
+						<td>
+							{{chambre.option}}
+						</td>
+						<td>
+							{{chambre.categorie}}
+						</td>
+						<td>
+							{{chambre.prix}}
+						</td>
+						<td>
+							{{chambre.img}}
+						</td>
+						<td>
+							<a href="admin/reservation/{{ chambre.id }}" class="uk-button uk-button-primary">Modifier</a>
+							<a href="admin/reservation/{{ chambre.id }}/delete" class="uk-button uk-button-danger">Supprimer</a>
 						</td>
 					</tr>
 				{% endfor %}
 			</tbody>
 		</table>
 	</div>
-</div>
-{% endblock %}
+</div>{% endblock %}

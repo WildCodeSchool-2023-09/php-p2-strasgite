@@ -13,10 +13,10 @@
 			</tr>
 		</thead>
 		<tbody>
-			{% for tarif in tarifs %}
+			{% for chambre in chambres %}
 				<tr>
-					<td>{{tarif.name}}</td>
-					<td>{{tarif.prix}}</td>
+					<td>{{chambre.name}}</td>
+					<td>{{chambre.prix}}</td>
 					<td><a class="uk-button uk-button-default" href="\reservation">Reservations</a></td>
 				</tr>
 			{% endfor %}
