@@ -1,6 +1,6 @@
 {% extends 'layout.html.twig' %}
 
-{% block title %}Dashboard
+{% block title %}Dashboard - Edit Chambres
 {% endblock %}
 
 {% block content %}
@@ -9,26 +9,21 @@
 	<a class="uk-button uk-button-default" href="/admin/Tarifs">Edition des chambres</a>
 
 	<div class="uk-container">
-		<h2>Resevations</h2>
+		<h2>Edition des chambres</h2>
 		<table class="uk-table uk-table-striped">
 			<thead>
 				<tr>
 					<th>Nom</th>
-					<th>Prénom</th>
-					<th>Arrivée</th>
-					<th>Départ</th>
-					<th>Chambre</th>
+					<th>Options</th>
+					<th>Categories</th>
+					<th>Prix</th>
+					<th>Image</th>
 					<th>Actions</th>
 				</tr>
 			</thead>
 			<tbody>
 				{% for reservation in reservations %}
 					<tr>
-						<td>{{ reservation.lastname }}</td>
-						<td>{{ reservation.firstname }}</td>
-						<td>{{ reservation.arrivalDate|date('d/m/Y') }}</td>
-						<td>{{ reservation.departureDate|date('d/m/Y') }}</td>
-						<td>{{ reservation.room }}</td>
 						<td>
 							<a href="admin/reservation/{{ reservation.id }}" class="uk-button uk-button-primary">Voir</a>
 							<a href="admin/reservation/{{ reservation.id }}/delete" class="uk-button uk-button-danger">Supprimer</a>
@@ -38,4 +33,5 @@
 			</tbody>
 		</table>
 	</div>
-</div>{% endblock %}
+</div>
+{% endblock %}

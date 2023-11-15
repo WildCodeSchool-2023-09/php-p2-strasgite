@@ -9,8 +9,8 @@ class TarifsManager extends AbstractManager
 
     public function selectPrix(): array
     {
-        if (isset($_POST['profession']) && $_POST['profession'] === self::PARLEMENTAIRE) {
-            $query = 'SELECT name, prix - (prix * 0.10) AS prixReduit FROM ' . self::TABLE;
+        if (isset($_SESSION['profession']) && $_SESSION['profession'] === self::PARLEMENTAIRE) {
+            $query = 'SELECT name, prix - (prix * 0.10) AS prix FROM ' . self::TABLE;
             return $this->pdo->query($query)->fetchAll();
         } else {
             $query = 'SELECT name, prix FROM ' . self::TABLE;
