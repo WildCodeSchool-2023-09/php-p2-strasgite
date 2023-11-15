@@ -9,9 +9,23 @@ class ContactController extends AbstractController
     public function index(): string
     {
         $errors = [];
-        if ($_SERVER['REQUEST_METHOD'] === "POST") {
-            $contact = array_map('trim', $_POST);
-            $errors = $this->validate($contact);
+        $options = [
+            ['requête' => 'problem', 'nom' => 'un problème'],
+            ['requête' => 'refund', 'nom' => 'remboursement'],
+            ['requête' => 'cancel', 'nom' => 'annulation'],
+            ['requête' => 'information', 'nom' => 'information'],
+            ];
+            $informationsContact =[
+                'Téléphone',
+                '0225649685',
+                'mail',
+                ' Stras\'git@gmail.com',
+                'Adresse',
+                '7 rue de Yavuz, Strasbourg 67000'
+            ];
+            if ($_SERVER['REQUEST_METHOD'] === "POST") {
+                $contact = array_map('trim', $_POST);
+                $errors = $this->validate($contact);
 
             if (empty($errors)) {
                 $contactManager = new ContactManager();
@@ -20,7 +34,11 @@ class ContactController extends AbstractController
             }
         }
 
-        return $this->twig->render('contact/_contact.html.twig', ['errors' => $errors]);
+        return $this->twig->render('contact/_contact.html.twig', [
+            'errors' => $errors,
+            'options' => $options,
+            'informationsContact' => $informationsContact
+        ]);
     }
 
     public function validate(array $contact)

@@ -13,14 +13,18 @@ div .img-header-coworking{
     background-color: #324c5d;
 }
 
-.uk-text-justify{
-    padding:2rem 2rem;
-    color: white;
+.uk-text-center-text-coworking {
+    padding: 2rem 4rem;
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.425);
+    font-family: "Roboto", sans-serif;
 }
 
 .uk-button {
+    margin: 2rem auto;
     text-decoration: underline;
     border: gray 1px solid;
+    
 }
 
 .line {

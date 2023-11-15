@@ -22,6 +22,10 @@ h1 {
     color: white;
     font-family: "Roboto", sans-serif;
 }
+.uk-text-center-text {
+    color: rgba(255, 255, 255, 0.425);
+    font-family: "Roboto", sans-serif;
+}
 
 .line {
     height: 3px;

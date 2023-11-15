@@ -1,14 +1,8 @@
 -- MySQL Workbench Forward Engineering
 
-SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
-
-SET
-    @OLD_FOREIGN_KEY_CHECKS = @ @FOREIGN_KEY_CHECKS,
-    FOREIGN_KEY_CHECKS = 0;
-
-SET
-    @OLD_SQL_MODE = @ @SQL_MODE,
-    SQL_MODE = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+SET @OLD_UNIQUE_CHECKS=@@SESSION.UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@SESSION.FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SESSION.SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
 
@@ -126,15 +120,18 @@ CREATE TABLE
         `id_reservation` INT NOT NULL AUTO_INCREMENT,
         `chambre_id` INT NOT NULL,
         `id_user` INT NOT NULL,
-        `date_entree` DATE NOT NULL,
-        `date_sortie` DATE NOT NULL,
+        `firstname` VARCHAR(255) NOT NULL,
+        `lastname` VARCHAR(255) NOT NULL,
+        `date_entry` DATE NOT NULL,
+        `date_exit` DATE NOT NULL,
+        `demand` TEXT,
         PRIMARY KEY (`id_reservation`),
         INDEX `id_chambre_idx` (`chambre_id` ASC) VISIBLE,
         INDEX `id_user_idx` (`id_user` ASC) VISIBLE,
         CONSTRAINT `id_chambre` FOREIGN KEY (`chambre_id`) REFERENCES `strasgite`.`chambre` (`id_chambre`) ON DELETE NO ACTION ON UPDATE NO ACTION,
         CONSTRAINT `id_user` FOREIGN KEY (`id_user`) REFERENCES `strasgite`.`user` (`id_user`) ON DELETE NO ACTION ON UPDATE NO ACTION
     ) ENGINE = InnoDB;
-
+ 
 -- -----------------------------------------------------
 
 -- Table `strasgite`.`contact`

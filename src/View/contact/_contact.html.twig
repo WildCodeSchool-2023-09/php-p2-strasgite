@@ -28,17 +28,16 @@
 
   <div>
       <div class="uk-card uk-card-default uk-card-body kfd-background-left">
-        <legend class="uk-contact"><h2>Information de contact</h2></legend>
-          <li>Téléphone</li>
-          <li> 0225649685</li>
-          <li> mail</li>
-          <li> Stras'git@gmail.com</li>
-          <li> Adresse</li>
-          <li> 7 rue de Yavuz, Strasbourg 67000</li>
+        <legend><h2>Information de contact</h2></legend>
+          {% for information in informationsContact %}
+          <li class="uk-text-center-text">
+              {{ information }}
+          </li>
+          {% endfor %}
       </div>
       <div class="uk-card uk-card-default uk-card-body kfd-background-left">
         <legend class="uk-contact"><h2>Horraires d'ouverture</h2></legend>
-          <li>Flexibles-Prévenez nous</li>
+          <li class="uk-text-center-text">Flexibles-Prévenez nous</li>
       </div>
   </div>
   <div> 
@@ -84,10 +83,10 @@
                 </div>
                 <div class="uk-margin">
                     <select class="uk-select" name="reason"  aria-label="Select">
-                      <option value="problem">Un probleme</option>
-                      <option value="refunde">remboursement</option>
-                      <option value="cancel">annulation</option>
-                      <option value="information">information</option>
+                      <option disabled selected hidden>Choisissez votre requêtes</option>
+                      {% for option in options %}
+                        <option value="{{ option.requête }}">{{ option.nom }}</option>
+                      {% endfor %}
                     </select>
                 </div>
                 <div class="uk-margin">

@@ -1,0 +1,117 @@
+/* Photo 1 en haut de page */
+.uk-height-medium {
+    margin-top: 7rem;
+    height: 100%;
+}
+
+/* Titre de la chambre + déscriptif */
+.title-room {
+    font-family: "Playfair Display", serif;
+    color: #324C5D;
+    padding-top: 5rem;
+    text-align: center;
+}
+.uk-column-1-2 {
+    font-family: "Roboto", sans-serif;
+    font-size: 1.5rem;
+    margin-left: 9rem;
+    margin-right: 9rem;
+    box-shadow: 10px 10px 15px #8F898B;
+}
+
+/* Premier carrousel */
+.uk-position-relative {
+    margin: 8rem;
+}
+
+/* Deuxième titre */
+.bottom {
+    background-color: #324C5D;
+}
+
+.title-activity {
+    font-family: "Playfair Display", serif;
+    background-color: #324C5D;
+    color: white;
+    text-align: center;
+}
+
+.uk-title {
+    background-color: #324C5D;
+}
+
+/* Deuxième carrousel */
+swiper-container {
+    width: 30%;
+    height: 30%;
+}
+
+swiper-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 18px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #fff;
+}
+
+/* Zone activités annexes */
+.activites-annexe {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1.5fr;
+    margin: 5rem;
+    align-items: stretch;
+    gap: 10px;
+}
+
+.title {
+    font-family: "Playfair Display", serif;
+    color: #fff;
+    text-align: center;
+}
+
+.images {
+    display: grid;
+    margin-top: 1rem;
+    grid-gap: 20px;
+    justify-content: space-around;
+    align-items: stretch;
+}
+
+.paragraph {
+    font-family: "Roboto", sans-serif;
+    color: #fff;
+    font-size: 1.2rem;
+    margin-left: 2rem;
+    display: flex;
+    align-items: center;
+}
+
+/* Séparateur et Bouton */
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-right: 3rem;
+}
+
+.uk-divider-vertical {
+    height: 30rem;
+    margin: 0 2rem 0 1rem;
+}
+
+.uk-button-c {
+    background-color: #8F898B;
+    width: 20rem;
+    height: 12rem;
+    font-size: x-large;
+}
+
+@media screen and (max-width: 1200px) {
+    .activites-annexe {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+    
