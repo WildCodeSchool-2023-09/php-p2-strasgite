@@ -9,7 +9,6 @@ class SecurityController extends AbstractController
 {
     public function login()
     {
-
         $errors = [];
         if (isset($_SESSION['islogin']) && $_SESSION['islogin'] === true) {
             header('Location:/');
@@ -48,5 +47,50 @@ class SecurityController extends AbstractController
             unset($_SESSION['isadmin']);
         }
         header('Location:/');
+    }
+
+    public function verify()
+    {
+        $errors = [];
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if ($_POST['email'] != '' && !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+                $errors['email'] = 'Veuillez renseigner un email valide';
+            }
+            $userManager = new UserManager();
+            if ($userManager->emailExist($_POST['email'])) {
+                $errors['compte'] = 'Un compte existe deja avec cet email';
+            }
+            $requireds = ["firstname", "lastname", "email", "password", "adresse", "tel"];
+            foreach ($requireds as $required) {
+                if ($_POST[$required] == '') {
+                    $errors[$required] = 'Ce champ est obligatoire';
+                }
+            }
+            return $errors;
+        }
+    }
+
+    public function signin()
+    {
+        $errors = $this->verify();
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if (isset($_SESSION['islogin']) && $_SESSION['islogin'] === true) {
+                header('Location:/');
+                return;
+            }
+
+            if (!$errors) {
+                $userManager = new UserManager();
+                $user = $userManager->userSignin($_POST);
+                if ($user) {
+                    $_SESSION['islogin'] = true;
+                    $_SESSION['isadmin'] = $user['isadmin'];
+                    $_SESSION['email'] = $user['email'];
+                }
+                header('Location:/login');
+            }
+        }
+        return $this->twig->render('Security/_signin.html.twig', ['errors' => $errors]);
     }
 }

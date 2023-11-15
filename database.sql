@@ -106,7 +106,8 @@ CREATE TABLE
         `tel` INT NOT NULL,
         `profession` VARCHAR(100) NOT NULL,
         `isadmin` TINYINT NOT NULL,
-        PRIMARY KEY (`id_user`)
+        PRIMARY KEY (`id_user`),
+        UNIQUE KEY `email_UNIQUE` (`email`)
     ) ENGINE = InnoDB;
 
 -- -----------------------------------------------------

@@ -1,72 +1,102 @@
 {% extends 'layout.html.twig' %}
 
-{% block title %}Dashboard{% endblock %}
+{% block title %}Dashboard
+{% endblock %}
 
 {% block content %}
-    <h1>Dashboard</h1>
-    <div uk-grid>
-        <div  class="uk-container" >
-            <h2>Messages prospect</h2>
-            <table class="uk-table uk-table-striped">
-                <thead>
-                    <tr>
-                        <th>Nom</th>
-                        <th>Prenom</th>
-                        <th>Telephone</th>
-                        <th>Email</th>
-                        <th>sujet</th>
-                        <th>Message</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for message in messages %}
-                    <tr>
-                        <td>{{ message.lastname }}</td>
-                        <td>{{ message.firstname }}</td>
-                        <td>{{ message.phone }}</td>
-                        <td>{{ message.email }}</td>
-                        <td>{{ message.reason }}</td>
-                        <td>{{ message.message }}</td>
-                        <td>
-                            <a href="admin/message/{{ message.id }}" class="uk-button uk-button-primary">Voir</a>
-                            <a href="admin/message/{{ message.id }}/delete" class="uk-button uk-button-danger">Supprimer</a>
-                        </td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div> 
+	<h1>Dashboard</h1>
+	<div uk-grid>
+		<div class="uk-container">
+			<h2>Messages prospect</h2>
+			<table class="uk-table uk-table-striped">
+				<thead>
+					<tr>
+						<th>Nom</th>
+						<th>Prenom</th>
+						<th>Telephone</th>
+						<th>Email</th>
+						<th>sujet</th>
+						<th>Message</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for message in messages %}
+						<tr>
+							<td>{{ message.lastname }}</td>
+							<td>{{ message.firstname }}</td>
+							<td>{{ message.phone }}</td>
+							<td>{{ message.email }}</td>
+							<td>{{ message.reason }}</td>
+							<td>{{ message.message }}</td>
+							<td>
+								<a href="admin/message/{{ message.id }}" class="uk-button uk-button-primary">Voir</a>
+								<a href="admin/message/{{ message.id }}/delete" class="uk-button uk-button-danger">Supprimer</a>
+							</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
 
-        <div class="uk-container">
-            <h2>Resevations</h2>
-            <table class="uk-table uk-table-striped">
-                <thead>
-                    <tr>
-                        <th>Nom</th>
-                        <th>Prénom</th>
-                        <th>Arrivée</th>
-                        <th>Départ</th>
-                        <th>Chambre</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for reservation in reservations %}
-                    <tr>
-                        <td>{{ reservation.lastname }}</td>
-                        <td>{{ reservation.firstname }}</td>
-                        <td>{{ reservation.arrivalDate|date('d/m/Y') }}</td>
-                        <td>{{ reservation.departureDate|date('d/m/Y') }}</td>
-                        <td>{{ reservation.room }}</td>
-                        <td>
-                            <a href="admin/reservation/{{ reservation.id }}" class="uk-button uk-button-primary">Voir</a>
-                            <a href="admin/reservation/{{ reservation.id }}/delete" class="uk-button uk-button-danger">Supprimer</a>
-                        </td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
-    </div>
+		<div class="uk-container">
+			<h2>Resevations</h2>
+			<table class="uk-table uk-table-striped">
+				<thead>
+					<tr>
+						<th>Nom</th>
+						<th>Prénom</th>
+						<th>Arrivée</th>
+						<th>Départ</th>
+						<th>Chambre</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for reservation in reservations %}
+						<tr>
+							<td>{{ reservation.lastname }}</td>
+							<td>{{ reservation.firstname }}</td>
+							<td>{{ reservation.arrivalDate|date('d/m/Y') }}</td>
+							<td>{{ reservation.departureDate|date('d/m/Y') }}</td>
+							<td>{{ reservation.room }}</td>
+							<td>
+								<a href="admin/reservation/{{ reservation.id }}" class="uk-button uk-button-primary">Voir</a>
+								<a href="admin/reservation/{{ reservation.id }}/delete" class="uk-button uk-button-danger">Supprimer</a>
+							</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<div class="uk-container">
+		<h2>Chambres</h2>
+		<table class="uk-table uk-table-striped">
+			<thead>
+				<tr>
+					<th>Nom</th>
+					<th>Option</th>
+					<th>Prix</th>
+					<th>image</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for chambre in chambres %}
+					<tr>
+						<td>{{ chambre.name }}</td>
+						<td>{{ chambre.option }}</td>
+						<td>{{ chambre.prix }}</td>
+						<td>{{ chambre.image }}</td>
+						<td>
+							<a href="admin/room/{{ chambre.name }}" class="uk-button uk-button-primary">Modifier</a>
+							<a href="admin/room/{{ chambre.name }}/delete" class="uk-button uk-button-danger">Supprimer</a>
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
 {% endblock %}
