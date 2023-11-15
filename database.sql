@@ -93,6 +93,9 @@ CREATE TABLE
 
 -- Table `strasgite`.`user`
 
+<<<<<<< HEAD
+... (99 lignes restantes)
+=======
 -- -----------------------------------------------------
 
 CREATE TABLE
@@ -196,3 +199,4 @@ SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+>>>>>>> ef095ea86148a0e205a892fbc3ff2e504643823a
