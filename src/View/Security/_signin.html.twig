@@ -12,49 +12,49 @@
 				<p>{{ errors.compte }}</p>
 			</div>
 		{% endif %}
-		<input class="uk-input" name="firstname" type="text" placeholder="prenom" >
+		<input class="uk-input" name="firstname" type="text" placeholder="prenom">
 		{% if errors.firstname is defined %}
 			<div class="uk-alert-danger" uk-alert>
 				<a class="uk-alert-close" uk-close></a>
 				<p>{{ errors.firstname }}</p>
 			</div>
 		{% endif %}
-		<input class="uk-input" name="lastname" type="text" placeholder="Nom de famille" >
+		<input class="uk-input" name="lastname" type="text" placeholder="Nom de famille">
 		{% if errors.lastname is defined %}
 			<div class="uk-alert-danger" uk-alert>
 				<a class="uk-alert-close" uk-close></a>
 				<p>{{ errors.lastname }}</p>
 			</div>
 		{% endif %}
-		<input class="uk-input" name="email" type="mail" placeholder="Email" >
+		<input class="uk-input" name="email" type="mail" placeholder="Email">
 		{% if errors.email is defined %}
 			<div class="uk-alert-danger" uk-alert>
 				<a class="uk-alert-close" uk-close></a>
 				<p>{{ errors.email }}</p>
 			</div>
 		{% endif %}
-		<input class="uk-input" name="password" type="password" placeholder="Mot de passe" >
+		<input class="uk-input" name="password" type="password" placeholder="Mot de passe">
 		{% if errors.password is defined %}
 			<div class="uk-alert-danger" uk-alert>
 				<a class="uk-alert-close" uk-close></a>
 				<p>{{ errors.password }}</p>
 			</div>
 		{% endif %}
-		<input class="uk-input" name="adresse" type="text" placeholder="Adresse" >
+		<input class="uk-input" name="adresse" type="text" placeholder="Adresse">
 		{% if errors.adresse is defined %}
 			<div class="uk-alert-danger" uk-alert>
 				<a class="uk-alert-close" uk-close></a>
 				<p>{{ errors.adresse }}</p>
 			</div>
 		{% endif %}
-		<input class="uk-input" name="tel" type="text" placeholder="Numero de telephone" >
+		<input class="uk-input" name="tel" type="text" placeholder="Numero de telephone">
 		{% if errors.tel is defined %}
 			<div class="uk-alert-danger" uk-alert>
 				<a class="uk-alert-close" uk-close></a>
 				<p>{{ errors.tel }}</p>
 			</div>
 		{% endif %}
-		<select class="uk-select" name="profession" aria-label="Select" >
+		<select class="uk-select" name="profession" aria-label="Select">
 			{% if errors.profession is defined %}
 				<div class="uk-alert-danger" uk-alert>
 					<a class="uk-alert-close" uk-close></a>

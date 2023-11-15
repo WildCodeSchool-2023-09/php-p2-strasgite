@@ -21,7 +21,7 @@ class DashboardController extends AbstractController
             header('Location:/');
         } else {
             $dashboardManager = new DashboardManager();
-            $chambres = $dashboardManager->selectChambres();
+            $chambres = $dashboardManager->selectAll();
             return $this->twig->render('admin/dashboard/chambre.html.twig', ['chambres' => $chambres]);
         }
     }

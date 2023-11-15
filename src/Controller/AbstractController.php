@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use Twig\Environment;
+use App\Model\DashboardManager;
 use App\Model\UserManager;
 use Twig\Loader\FilesystemLoader;
 use Twig\Extension\DebugExtension;
@@ -23,5 +24,13 @@ abstract class AbstractController
         );
         $this->twig->addExtension(new DebugExtension());
         $this->twig->addGlobal('session', $_SESSION);
+        $this->twig->addGlobal('chambres', $this->showRoom());
+    }
+
+    private function showRoom()
+    {
+        $dashboardManager = new DashboardManager();
+        $rooms = $dashboardManager->selectAll();
+        return $rooms;
     }
 }
