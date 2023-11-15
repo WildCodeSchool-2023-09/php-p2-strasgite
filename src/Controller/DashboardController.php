@@ -8,10 +8,12 @@ class DashboardController extends AbstractController
 {
     public function index()
     {
+        $dashboardManager = new DashboardManager();
+        $reservations = $dashboardManager->getAllReservations();
         if (!isset($_SESSION['isadmin']) || $_SESSION['isadmin'] === 0 || !isset($_SESSION['islogin'])) {
             header('Location:/');
         } else {
-            return $this->twig->render('admin/dashboard/index.html.twig');
+            return $this->twig->render('admin/dashboard/index.html.twig', ['reservations' => $reservations]);
         }
     }
 

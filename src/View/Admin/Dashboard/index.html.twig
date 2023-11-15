@@ -15,9 +15,11 @@
 				<tr>
 					<th>Nom</th>
 					<th>Prénom</th>
-					<th>Arrivée</th>
+					<th>Email</th>
+					<th>date d'arrivée</th>
 					<th>Départ</th>
 					<th>Chambre</th>
+					<th>Demandes</th>
 					<th>Actions</th>
 				</tr>
 			</thead>
@@ -28,6 +30,7 @@
 						<td>{{ reservation.firstname }}</td>
 						<td>{{ reservation.arrivalDate|date('d/m/Y') }}</td>
 						<td>{{ reservation.departureDate|date('d/m/Y') }}</td>
+						<td>{{ reservation.demands }}</td>
 						<td>{{ reservation.room }}</td>
 						<td>
 							<a href="admin/reservation/{{ reservation.id }}" class="uk-button uk-button-primary">Voir</a>
