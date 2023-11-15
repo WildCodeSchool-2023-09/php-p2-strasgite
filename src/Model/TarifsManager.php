@@ -5,7 +5,7 @@ namespace App\Model;
 class TarifsManager extends AbstractManager
 {
     public const TABLE = 'chambre';
-    public const PARLEMENTAIRE = 'parlementaire';
+    public const PARLEMENTAIRE = 'Parlementaire';
 
     public function selectPrix(): array
     {

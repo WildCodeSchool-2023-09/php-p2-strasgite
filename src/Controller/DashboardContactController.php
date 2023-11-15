@@ -2,8 +2,6 @@
 
 namespace App\Controller;
 
-use App\Model\DashboardManager;
-
 class DashboardContactController extends AbstractController
 {
     public function index()
