@@ -1,7 +1,7 @@
 <main>
 	<section class="uk-container">
 		<img class="uk-align-center" src="assets/images/strasbourg-1354438_1280.jpg" width="" height="" alt="Image presentation Gite">
-		<h1 class="uk-text-center">Stras'Git</h1>
+		<h1 class="uk-text-center">Stras'Gite</h1>
 		<p class="uk-text-center-text">
 			Lorem ipsum dolor sit amet consectetur adipisicing elit.
 			Aperiam reprehenderit ullam dolorem beatae velit pariatur!
@@ -43,14 +43,16 @@
 
 
 		<div class="uk-container">
-			<a class="uk-button uk-button-default" href="">Reservations</a>
+			<a class="uk-button uk-button-default" href="">Reserver</a>
 			<div class="uk-child-width-1-2@s uk-grid-match" uk-grid>
+				{% for room in rooms %}
 				<div>
 					<div class="uk-card uk-card-hover uk-card-body">
-						<h3 class="uk-card-title">Chambre 1</h3>
+						<h3 class="uk-card-title">{{ room.name }}</h3>
 						<p>Presentation chambre 1</p>
 					</div>
 				</div>
+				{% endfor %}
 				<div>
 					<div class="uk-card uk-card-hover uk-card-body">
 						<h3 class="uk-card-title">Chambre 2</h3>

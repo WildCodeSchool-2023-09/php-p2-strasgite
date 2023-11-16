@@ -1,6 +1,6 @@
 /* Photo 1 en haut de page */
 .uk-height-medium {
-    margin-top: 7rem;
+    margin-top: 3rem;
     height: 100%;
 }
 
@@ -11,9 +11,9 @@
     padding-top: 5rem;
     text-align: center;
 }
-.uk-column-1-2 {
+.uk-column-1-2-c {
     font-family: "Roboto", sans-serif;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     margin-left: 9rem;
     margin-right: 9rem;
     box-shadow: 10px 10px 15px #8F898B;
@@ -71,7 +71,7 @@ swiper-slide {
     text-align: center;
 }
 
-.images {
+.images-c {
     display: grid;
     margin-top: 1rem;
     grid-gap: 20px;
@@ -101,7 +101,7 @@ swiper-slide {
     margin: 0 2rem 0 1rem;
 }
 
-.uk-button {
+.uk-button-c {
     background-color: #8F898B;
     width: 20rem;
     height: 12rem;
