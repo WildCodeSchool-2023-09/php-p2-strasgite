@@ -15,7 +15,6 @@ class RoomController extends AbstractController
         return $this->twig->render('chambre/show.html.twig', [
             'chambre' => $dashboardManager->selectOneById($id),
             'images' => $imageManager->selectImageByRoom($id),
-            'chambres' => $dashboardManager->selectAll()
         ]);
     }
 }

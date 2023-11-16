@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use Twig\Environment;
 use App\Model\DashboardManager;
-use App\Model\UserManager;
 use Twig\Loader\FilesystemLoader;
 use Twig\Extension\DebugExtension;
 
@@ -30,7 +29,7 @@ abstract class AbstractController
     private function showRoom()
     {
         $dashboardManager = new DashboardManager();
-        $rooms = $dashboardManager->selectAll();
+        $rooms = $dashboardManager->selectAllStuff();
         return $rooms;
     }
 }

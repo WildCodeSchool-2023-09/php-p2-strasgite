@@ -25,4 +25,11 @@ class DashboardController extends AbstractController
             return $this->twig->render('admin/dashboard/chambre.html.twig', ['chambres' => $chambres]);
         }
     }
+
+    public function deleteChambre(): void
+    {
+        $dashboardManager = new DashboardManager();
+        $dashboardManager->delete($_GET['id']);
+        header('Location:/admin/Tarifs');
+    }
 }

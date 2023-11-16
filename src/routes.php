@@ -18,4 +18,6 @@ return [
     'admin/dashboard' => ['DashboardController', 'index',],
     'admin/Tarifs' => ['DashboardTarifsController', 'index',],
     'admin/Contact' => ['DashboardContactController', 'index',],
+    'dashboard/chambre/new' => ['DashboardTarifsController', 'new'],
+    'dashboard/chambre/delete' => ['DashboardController', 'deleteChambre']
 ];

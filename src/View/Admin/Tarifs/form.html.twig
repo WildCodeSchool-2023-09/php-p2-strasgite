@@ -1,0 +1,52 @@
+{% extends "layout.html.twig" %}
+
+{% block content %}
+
+	<h1>Ajouter une chambre</h1>
+	<form method="post" class="uk-grid-small" uk-grid>
+		<div class="uk-width-1-1">
+			<label class="uk-form-label" for="form-horizontal-select">Nom de la chambre</label>
+			<input class="uk-input" name="name" type="text" placeholder="name" aria-label="100">
+		</div>
+		<div class="uk-margin">
+			<label class="uk-form-label" for="form-horizontal-select">Options</label>
+			<div class="uk-form-controls">
+				<select name="id_option" class="uk-select" id="form-horizontal-select">
+					{% for chambre in chambres %}
+						<option value="{{chambre.id_option}}">{{ chambre.option_name }}</option>
+					{% endfor %}
+				</select>
+			</div>
+		</div>
+		<div class="uk-margin">
+			<div class="uk-form-label">Dispo</div>
+			<div name="is_available" class="uk-form-controls uk-form-controls-text">
+				<label><input class="uk-radio" type="radio" name="radio1">
+					Disponible</label><br>
+				<label><input class="uk-radio" type="radio" name="radio1">
+					Pas disponible</label>
+			</div>
+		</div>
+		<div class="uk-margin">
+			<label class="uk-form-label" for="form-horizontal-select">Categorie</label>
+			<div class="uk-form-controls">
+				<select name="id_categorie" class="uk-select" id="form-horizontal-select">
+					{% for categorie in categories %}
+						<option value="{{categorie.id_categories}}">{{categorie.theme}}</option>
+					{% endfor %}
+				</select>
+			</div>
+		</div>
+		<div class="uk-width-1-4@s">
+			<label class="uk-form-label" for="form-horizontal-select">Prix</label>
+			<input name="prix" class="uk-input" type="number" placeholder="prix" aria-label="25">
+		</div>
+		<div class="uk-width-1-2@s">
+			<label class="uk-form-label" for="form-horizontal-select">Descriptions</label>
+			<input name="description" class="uk-textarea" type="text" placeholder="description" aria-label="50">
+		</div>
+		<div>
+			<button type="submit">ajouter</button>
+		</div>
+	</form>
+{% endblock %}
