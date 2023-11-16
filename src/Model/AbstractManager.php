@@ -5,9 +5,6 @@ namespace App\Model;
 use App\Model\Connection;
 use PDO;
 
-/**
- * Abstract class handling default manager.
- */
 abstract class AbstractManager
 {
     protected PDO $pdo;

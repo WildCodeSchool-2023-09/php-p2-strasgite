@@ -15,7 +15,7 @@ class ContactController extends AbstractController
             ['requête' => 'cancel', 'nom' => 'annulation'],
             ['requête' => 'information', 'nom' => 'information'],
             ];
-            $informationsContact =[
+            $informationsContact = [
                 'Téléphone',
                 '0225649685',
                 'mail',
@@ -27,18 +27,18 @@ class ContactController extends AbstractController
                 $contact = array_map('trim', $_POST);
                 $errors = $this->validate($contact);
 
-            if (empty($errors)) {
-                $contactManager = new ContactManager();
-                $contact = $contactManager->insert($contact);
-                header('Location: /');
+                if (empty($errors)) {
+                    $contactManager = new ContactManager();
+                    $contact = $contactManager->insert($contact);
+                    header('Location: /');
+                }
             }
-        }
 
-        return $this->twig->render('contact/_contact.html.twig', [
+            return $this->twig->render('contact/_contact.html.twig', [
             'errors' => $errors,
             'options' => $options,
             'informationsContact' => $informationsContact
-        ]);
+            ]);
     }
 
     public function validate(array $contact)

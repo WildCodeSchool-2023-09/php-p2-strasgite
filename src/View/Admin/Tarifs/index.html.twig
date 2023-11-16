@@ -1,0 +1,52 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Dashboard - Edit Chambres
+{% endblock %}
+
+{% block content %}
+	<h1>Dashboard</h1>
+	<a class="uk-button uk-button-default" href="/admin/Contact">Messages clients</a>
+	<a class="uk-button uk-button-default" href="/admin/dashboard">Edition des chambres</a>
+	<h1>Dashboard</h1>
+
+	<div class="uk-container">
+		<h2>Edition des chambres</h2>
+		<table class="uk-table uk-table-striped">
+			<thead>
+				<tr>
+					<th>Nom</th>
+					<th>Options</th>
+					<th>Categories</th>
+					<th>Prix</th>
+					<th>Image</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for chambre in chambres %}
+					<tr>
+						<td>
+							{{chambre.name}}
+						</td>
+						<td>
+							{{chambre.option}}
+						</td>
+						<td>
+							{{chambre.categorie}}
+						</td>
+						<td>
+							{{chambre.prix}}
+						</td>
+						<td>
+							{{chambre.img}}
+						</td>
+						<td>
+							<a href="admin/reservation/{{ chambre.id }}" class="uk-button uk-button-primary">Modifier</a>
+							<a href="admin/reservation/{{ chambre.id }}/delete" class="uk-button uk-button-danger">Supprimer</a>
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+</div>{% endblock %}

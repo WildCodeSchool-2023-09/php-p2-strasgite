@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Model\ContactManager;
+use App\Model\UserManager;
 
 class DashboardController extends AbstractController
 {
@@ -11,10 +11,19 @@ class DashboardController extends AbstractController
         if (!isset($_SESSION['isadmin']) || $_SESSION['isadmin'] === 0 || !isset($_SESSION['islogin'])) {
             header('Location:/');
         } else {
-            $contactManager = new ContactManager();
-            $messages = $contactManager->selectAll('', '');
 
-                return $this->twig->render('admin/dashboard/index.html.twig', ['messages' => $messages]);
+                return $this->twig->render('admin/dashboard/index.html.twig');
+        }
+    }
+
+    public function editChambre()
+    {
+        if (!isset($_SESSION['isadmin']) || $_SESSION['isadmin'] === 0 || !isset($_SESSION['islogin'])) {
+            header('Location:/');
+        } else {
+            $dashboardManager = new DashboardManager();
+            $chambres = $dashboardManager->selectAll();
+            return $this->twig->render('admin/dashboard/index.html.twig');
         }
     }
 }
