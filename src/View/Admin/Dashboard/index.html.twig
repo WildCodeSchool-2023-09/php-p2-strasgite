@@ -10,31 +10,29 @@
 
 	<div class="uk-container">
 		<h2>Resevations</h2>
+		
 		<table class="uk-table uk-table-striped">
 			<thead>
 				<tr>
-					<th>Nom</th>
-					<th>Prénom</th>
-					<th>Email</th>
-					<th>date d'arrivée</th>
-					<th>Départ</th>
-					<th>Chambre</th>
-					<th>Demandes</th>
-					<th>Actions</th>
+				{% for information in informationsResa %}
+					<th>{{information}}</th>
+				{% endfor %}
 				</tr>
 			</thead>
 			<tbody>
 				{% for reservation in reservations %}
 					<tr>
-						<td>{{ reservation.lastname }}</td>
+					{{dump(reservation)}}
 						<td>{{ reservation.firstname }}</td>
-						<td>{{ reservation.arrivalDate|date('d/m/Y') }}</td>
-						<td>{{ reservation.departureDate|date('d/m/Y') }}</td>
-						<td>{{ reservation.demands }}</td>
-						<td>{{ reservation.room }}</td>
+						{{dump(reservation)}}
+						<td>{{ reservation.lastname }}</td>
+						<td>{{reservation.email}}</td>
+						<td>{{ reservation.name}}</td>
+						<td>{{ reservation.date_entry|date('d/m/Y') }}</td>
+						<td>{{ reservation.date_exit|date('d/m/Y') }}</td>
+						<td>{{ reservation.demand }}</td>
 						<td>
-							<a href="admin/reservation/{{ reservation.id }}" class="uk-button uk-button-primary">Voir</a>
-							<a href="admin/reservation/{{ reservation.id }}/delete" class="uk-button uk-button-danger">Supprimer</a>
+							<a href="dashboard/delete?id={{ reservation.id_reservation }}" class="uk-button uk-button-danger">Supprimer</a>
 						</td>
 					</tr>
 				{% endfor %}

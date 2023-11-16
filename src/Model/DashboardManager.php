@@ -15,4 +15,10 @@ class DashboardManager extends AbstractManager
         $reservations = $reservationManager->selectAllResa($orderBy, $direction);
         return $reservations;
     }
+    public function deleteReservation($id)
+    {
+        $reservationManager = new ReservationManager();
+        $reservations = $reservationManager->deleteResa($id);
+        return $reservations;
+    }
 }

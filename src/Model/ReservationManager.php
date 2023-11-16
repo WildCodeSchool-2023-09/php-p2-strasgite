@@ -40,7 +40,8 @@ class ReservationManager extends AbstractManager
 
     public function selectAllResa(string $orderBy = '', string $direction = 'ASC'): array
     {
-        $query = "SELECT r.id_reservation, c.id_chambre, r.date_entry, r.date_exit, u.firstname, u.lastname, u.email
+        $query = "SELECT r.id_reservation, c.id_chambre, c.name AS name , r.date_entry, r.date_exit, 
+        r.firstname, r.lastname, u.email, r.demand
         FROM " . self::TABLE . " r
         JOIN user AS u ON r.id_user = u.id_user
         JOIN chambre AS c ON c.id_chambre = r.chambre_id";

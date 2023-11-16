@@ -10,21 +10,34 @@ class DashboardController extends AbstractController
     {
         $dashboardManager = new DashboardManager();
         $reservations = $dashboardManager->getAllReservations();
+        $informationsResa =
+            [
+            'nom',
+            'prénom',
+            'Email',
+            'chambre',
+            'date d\'arrivée',
+            'date de sortie',
+            'Demandes spécifiques',
+            'actions'
+        ];
         if (!isset($_SESSION['isadmin']) || $_SESSION['isadmin'] === 0 || !isset($_SESSION['islogin'])) {
             header('Location:/');
         } else {
-            return $this->twig->render('admin/dashboard/index.html.twig', ['reservations' => $reservations]);
+            return $this->twig->render('admin/dashboard/index.html.twig', [
+                'reservations' => $reservations,
+                'informationsResa' => $informationsResa
+            ]);
         }
     }
-
-    public function editChambre()
+    public function deleteReservation($id)
     {
         if (!isset($_SESSION['isadmin']) || $_SESSION['isadmin'] === 0 || !isset($_SESSION['islogin'])) {
             header('Location:/');
         } else {
             $dashboardManager = new DashboardManager();
-            $chambres = $dashboardManager->selectAll();
-            return $this->twig->render('admin/dashboard/chambre.html.twig', ['chambres' => $chambres]);
+            $dashboardManager->deleteReservation($id);
+            header('Location:/admin/dashboard');
         }
     }
 }
