@@ -11,7 +11,6 @@ class DashboardController extends AbstractController
         if (!isset($_SESSION['isadmin']) || $_SESSION['isadmin'] === 0 || !isset($_SESSION['islogin'])) {
             header('Location:/');
         } else {
-
                 return $this->twig->render('admin/dashboard/index.html.twig');
         }
     }
