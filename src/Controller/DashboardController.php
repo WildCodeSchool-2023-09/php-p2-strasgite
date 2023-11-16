@@ -2,14 +2,14 @@
 
 namespace App\Controller;
 
-use App\Model\DashboardManager;
+use App\Model\ReservationManager;
 
 class DashboardController extends AbstractController
 {
     public function index()
     {
-        $dashboardManager = new DashboardManager();
-        $reservations = $dashboardManager->getAllReservations();
+        $dashboardController = new DashboardController();
+        $reservations =  $dashboardController->getAllReservations();
         $informationsResa =
             [
             'nom',
@@ -35,9 +35,15 @@ class DashboardController extends AbstractController
         if (!isset($_SESSION['isadmin']) || $_SESSION['isadmin'] === 0 || !isset($_SESSION['islogin'])) {
             header('Location:/');
         } else {
-            $dashboardManager = new DashboardManager();
-            $dashboardManager->deleteReservation($id);
+            $reservationManager = new ReservationManager();
+            $reservationManager->deleteResa($id);
             header('Location:/admin/dashboard');
         }
+    }
+    public function getAllReservations(string $orderBy = '', string $direction = 'ASC'): array
+    {
+        $reservationManager = new ReservationManager();
+        $reservations = $reservationManager->selectAllResa($orderBy, $direction);
+        return $reservations;
     }
 }

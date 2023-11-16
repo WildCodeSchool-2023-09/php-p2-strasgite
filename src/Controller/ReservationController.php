@@ -27,19 +27,6 @@ class ReservationController extends AbstractController
                     $errors[$error] = "Ce champ est obligatoire";
                 }
             }
-            /*if ($reservation['lastname'] === "") {
-                $errors['lastname'] = "veuillez remplir votre nom";
-            } elseif ($reservation['firstname'] === "") {
-                $errors['firstname'] = "veuillez remplir votre Prénom";
-            } elseif (strlen($reservation['demands']) > 255) {
-                $errors['demands'] = "Les spécifités demandées sont trop longues (max 255 caractères).";
-            } elseif (empty($reservation['chambre'])) {
-                $errors['chambre'] = "Veuillez choisir une chambre.";
-            } elseif (empty($reservation['date_entry'])) {
-                $errors['date_entry'] = "Veuillez sélectionner une date d'entrée.";
-            } elseif (empty($reservation['date_exit'])) {
-                $errors['date_exit'] = "Veuillez sélectionner une date de sortie.";
-            }*/
             if (empty($errors)) {
                 $reservationManager = new ReservationManager();
                 $reservationManager->insertResa($reservation);
