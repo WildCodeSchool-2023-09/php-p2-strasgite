@@ -2,27 +2,48 @@
 
 namespace App\Controller;
 
-use App\Model\DashboardManager;
+use App\Model\ReservationManager;
 
 class DashboardController extends AbstractController
 {
     public function index()
     {
+        $dashboardController = new DashboardController();
+        $reservations =  $dashboardController->getAllReservations();
+        $informationsResa =
+            [
+            'nom',
+            'prénom',
+            'Email',
+            'chambre',
+            'date d\'arrivée',
+            'date de sortie',
+            'Demandes spécifiques',
+            'actions'
+        ];
         if (!isset($_SESSION['isadmin']) || $_SESSION['isadmin'] === 0 || !isset($_SESSION['islogin'])) {
             header('Location:/');
         } else {
-            return $this->twig->render('admin/dashboard/index.html.twig');
+            return $this->twig->render('admin/dashboard/index.html.twig', [
+                'reservations' => $reservations,
+                'informationsResa' => $informationsResa
+            ]);
         }
     }
-
-    public function editChambre()
+    public function deleteReservation($id)
     {
         if (!isset($_SESSION['isadmin']) || $_SESSION['isadmin'] === 0 || !isset($_SESSION['islogin'])) {
             header('Location:/');
         } else {
-            $dashboardManager = new DashboardManager();
-            $chambres = $dashboardManager->selectAll();
-            return $this->twig->render('admin/dashboard/chambre.html.twig', ['chambres' => $chambres]);
+            $reservationManager = new ReservationManager();
+            $reservationManager->deleteResa($id);
+            header('Location:/admin/dashboard');
         }
+    }
+    public function getAllReservations(string $orderBy = '', string $direction = 'ASC'): array
+    {
+        $reservationManager = new ReservationManager();
+        $reservations = $reservationManager->selectAllResa($orderBy, $direction);
+        return $reservations;
     }
 }

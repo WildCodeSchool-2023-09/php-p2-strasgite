@@ -16,6 +16,6 @@ return [
     'signin' => ['SecurityController', 'signin',],
     'logout' => ['SecurityController', 'logout',],
     'admin/dashboard' => ['DashboardController', 'index',],
-    'admin/Tarifs' => ['DashboardTarifsController', 'index',],
     'admin/Contact' => ['DashboardContactController', 'index',],
+    'admin/dashboard/delete' => ['DashboardController','deleteReservation',['id']],
 ];
