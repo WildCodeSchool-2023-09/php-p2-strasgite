@@ -8,32 +8,36 @@
 {% endblock %}
 
 {% block content %}
-	<div class="uk-container">
-		<swiper-container class="mySwiper" scrollbar-hide="true" autoplay-delay="2000" autoplay-disable-on-interaction="false">
-			<swiper-slide><img src="/assets/images/chambre1.jpg" alt="image chambre"></swiper-slide>
-			<swiper-slide><img src="/assets/images/chambre2.jpg" alt="image chambre"></swiper-slide>
-			<swiper-slide><img src="/assets/images/chambre1.jpg" alt="image chambre"></swiper-slide>
-			<swiper-slide><img src="/assets/images/chambre2.jpg" alt="image chambre"></swiper-slide>
-			<swiper-slide><img src="/assets/images/chambre1.jpg" alt="image chambre"></swiper-slide>
-			<swiper-slide><img src="/assets/images/chambre2.jpg" alt="image chambre"></swiper-slide>
-			<swiper-slide><img src="/assets/images/chambre1.jpg" alt="image chambre"></swiper-slide>
-			<swiper-slide><img src="/assets/images/chambre2.jpg" alt="image chambre"></swiper-slide>
-			<swiper-slide><img src="/assets/images/chambre1.jpg" alt="image chambre"></swiper-slide>
-		</swiper-container>
+	<div class="uk-container-c">
+    <div class="uk-position-relative-c uk-visible-toggle uk-light" autoplay-delay="1000" autoplay-disable-on-interaction="false" tabindex="-1" uk-slideshow="ratio: 6:2; autoplay: true">
+
+      <ul class="uk-slideshow-items">
+          <li>
+              <img src="assets/images/pexels-max-rahubovskiy-6587907.jpg" alt="Image chambre" uk-cover>
+          </li>
+          <li>
+              <img src="assets/images/chambre-chalet.jpg" alt="Image chambre" uk-cover>
+          </li>
+      </ul>
+
+      <a class="uk-position-center-left uk-position-small uk-hidden" href uk-slidenav-previous uk-slideshow-item="previous"></a>
+      <a class="uk-position-center-right uk-position-small uk-hidden" href uk-slidenav-next uk-slideshow-item="next"></a>
+
+    </div>
 	</div>
 
 	<div class="line"></div>
 
-	<div class="uk-child-width-expand@s uk-text-center uk-grid kfd-background">
+	<div class="uk-child-width-expand@s uk-text-center-c uk-grid kfd-background">
 
     <div>
         <div class="uk-card uk-card-default uk-card-body kfd-background-left">
           <legend class="uk-contact"><h2>Information de contact</h2></legend>
-            <li>Téléphone</li>
+            <li>Téléphone:</li>
             <li> 0225649685</li>
-            <li> mail</li>
+            <li> Mail:</li>
             <li> Stras'git@gmail.com</li>
-            <li> Adresse</li>
+            <li> Adresse:</li>
             <li> 7 rue de Yavuz, Strasbourg 67000</li>
         </div>
         <div class="uk-card uk-card-default uk-card-body kfd-background-left">

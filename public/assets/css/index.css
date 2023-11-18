@@ -18,14 +18,17 @@ h1 {
   text-decoration: underline;
 }
 
-.uk-text-center {
+.uk-text-center-a {
     color: white;
     font-family: "Playfair Display", serif;
+    font-size: 400%;
+    text-align: center;
 }
 
 .uk-text-center-text {
     color: #fff;
     font-family: "Roboto", sans-serif;
+    margin-top: 3rem;
 }
 
 .line {

@@ -1,6 +1,5 @@
 /* Photo 1 en haut de page */
 .uk-height-medium {
-    margin-top: 3rem;
     height: 100%;
 }
 
@@ -8,20 +7,25 @@
 .title-room {
     font-family: "Playfair Display", serif;
     color: #324C5D;
-    padding-top: 5rem;
+    padding-top: 3rem;
     text-align: center;
 }
-.uk-column-1-2-c {
+.uk-column-1-2-r {
     font-family: "Roboto", sans-serif;
     font-size: 1.2rem;
-    margin-left: 9rem;
-    margin-right: 9rem;
+    margin-left: 4rem;
+    margin-right: 4rem;
     box-shadow: 10px 10px 15px #8F898B;
+    margin-bottom: 3rem;
 }
 
 /* Premier carrousel */
 .uk-position-relative {
-    margin: 8rem;
+    padding-bottom: 8rem;
+}
+
+.uk-container-r {
+    background-color: white;
 }
 
 /* Deuxième titre */
@@ -42,7 +46,7 @@
 
 /* Deuxième carrousel */
 swiper-container {
-    width: 30%;
+    width: 50%;
     height: 30%;
 }
 
@@ -55,6 +59,18 @@ swiper-slide {
     font-weight: bold;
     color: #fff;
 }
+
+/*.my-swiper {
+    width: 50%;
+    height: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 18px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #fff;
+}*/
 
 /* Zone activités annexes */
 .activites-annexe {
@@ -71,7 +87,7 @@ swiper-slide {
     text-align: center;
 }
 
-.images-c {
+.images-r {
     display: grid;
     margin-top: 1rem;
     grid-gap: 20px;
@@ -101,7 +117,7 @@ swiper-slide {
     margin: 0 2rem 0 1rem;
 }
 
-.uk-button-c {
+.uk-button-r {
     background-color: #8F898B;
     width: 20rem;
     height: 12rem;
