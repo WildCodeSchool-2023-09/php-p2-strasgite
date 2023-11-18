@@ -16,6 +16,10 @@ return [
     'signin' => ['SecurityController', 'signin',],
     'logout' => ['SecurityController', 'logout',],
     'admin/dashboard' => ['DashboardController', 'index',],
+    'admin/Chambre' => ['DashboardChambreController', 'index',],
     'admin/Contact' => ['DashboardContactController', 'index',],
+    'dashboard/chambre/new' => ['DashboardChambreController', 'new'],
+    'dashboard/chambre/delete' => ['DashboardChambreController', 'deleteChambre', ['id']],
+    'dashboard/chambre/edit' => ['DashboardChambreController', 'editChambre',  ['id']],
     'admin/dashboard/delete' => ['DashboardController','deleteReservation',['id']],
 ];
