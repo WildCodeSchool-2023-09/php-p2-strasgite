@@ -7,5 +7,4 @@ use App\Model\AbstractManager;
 class CategorieManager extends AbstractManager
 {
     public const TABLE = 'categories';
-
 }

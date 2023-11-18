@@ -3,9 +3,10 @@
 namespace App\Controller;
 
 use Twig\Environment;
-use App\Model\DashboardManager;
+use App\Model\ImageManager;
 use Twig\Loader\FilesystemLoader;
 use Twig\Extension\DebugExtension;
+use App\Model\DashboardChambreManager;
 
 abstract class AbstractController
 {
@@ -28,8 +29,8 @@ abstract class AbstractController
 
     private function showRoom()
     {
-        $dashboardManager = new DashboardManager();
-        $rooms = $dashboardManager->selectAllStuff();
+        $dashboardCManager = new DashboardChambreManager();
+        $rooms = $dashboardCManager->selectAllStuff();
         return $rooms;
     }
 }
