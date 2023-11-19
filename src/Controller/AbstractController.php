@@ -3,13 +3,11 @@
 namespace App\Controller;
 
 use Twig\Environment;
-use App\Model\UserManager;
+use App\Model\ImageManager;
 use Twig\Loader\FilesystemLoader;
 use Twig\Extension\DebugExtension;
+use App\Model\DashboardChambreManager;
 
-/**
- * Initialized some Controller common features (Twig...)
- */
 abstract class AbstractController
 {
     protected Environment $twig;
@@ -26,5 +24,13 @@ abstract class AbstractController
         );
         $this->twig->addExtension(new DebugExtension());
         $this->twig->addGlobal('session', $_SESSION);
+        $this->twig->addGlobal('chambres', $this->showRoom());
+    }
+
+    private function showRoom()
+    {
+        $dashboardCManager = new DashboardChambreManager();
+        $rooms = $dashboardCManager->selectAllStuff();
+        return $rooms;
     }
 }

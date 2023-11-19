@@ -1,6 +1,7 @@
 <main>
 	<section class="uk-container">
-		<img class="uk-align-center" src="assets/images/strasbourg-1354438_1280.jpg" width="" height="" alt="Image presentation Gite">
+		<img class="uk-align-center" src="assets/images/strasbourg-1354438_1280.jpg" width="" 
+		height="" alt="Image presentation Gite">
 		<h1 class="uk-text-center-a">Stras'Gite</h1>
 		<p class="uk-text-center-text">
 			Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -40,23 +41,36 @@
 	<div class="line"></div>
 
 	<section class="part2">
-
-
 		<div class="uk-container">
-			<a class="uk-button uk-button-default" href="">Reserver</a>
+			<a class="uk-button uk-button-default" href="">Reservations</a>
 			<div class="uk-child-width-1-2@s uk-grid-match" uk-grid>
 				{% for chambre in chambres %}
 				<div>
 					<div class="uk-card uk-card-hover uk-card-body">
-						<h3 class="uk-card-title">{{ chambre.name }}</h3>
-						<p>Presentation {{ chambre.name }}</p>
+						<h3 class="uk-card-title">Chambre 1</h3>
+						<p>Presentation chambre 1</p>
 					</div>
 				</div>
-				{% endfor %}
-				
+				<div>
+					<div class="uk-card uk-card-hover uk-card-body">
+						<h3 class="uk-card-title">Chambre 2</h3>
+						<p>Presentation chambre 2</p>
+					</div>
+				</div>
+				<div>
+					<div class="uk-card uk-card-hover uk-card-body">
+						<h3 class="uk-card-title">Chambre 3</h3>
+						<p>Presentation chambre 3</p>
+					</div>
+				</div>
+				<div>
+					<div class="uk-card uk-card-hover uk-card-body">
+						<h3 class="uk-card-title">Chambre 4</h3>
+						<p>Presentation chambre 4</p>
+					</div>
+				</div>
 				<a class="uk-button uk-button-default" href="">Reservations</a>
 			</div>
-
 		</section>
 
-</main>
+	</main>
