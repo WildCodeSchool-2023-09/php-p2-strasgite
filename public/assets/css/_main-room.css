@@ -1,31 +1,39 @@
+
 /* Photo 1 en haut de page */
 .uk-height-medium {
     height: 100%;
+    margin: 0 80px 0 80px;
 }
 
 /* Titre de la chambre + déscriptif */
 .title-room {
     font-family: "Playfair Display", serif;
     color: #324C5D;
-    padding-top: 3rem;
+    padding-top: 2rem;
     text-align: center;
 }
 .uk-column-1-2-r {
     font-family: "Roboto", sans-serif;
+    text-align: center;
     font-size: 1.2rem;
-    margin-left: 4rem;
-    margin-right: 4rem;
+    /*margin-left: 4rem;
+    margin-right: 4rem;*/
     box-shadow: 10px 10px 15px #8F898B;
-    margin-bottom: 3rem;
+    /*margin-bottom: 3rem;*/
+    margin: 0 80px 3rem 80px;
+
 }
 
 /* Premier carrousel */
 .uk-position-relative {
-    padding-bottom: 8rem;
+    padding-bottom: 4rem;
+    padding-top: 3rem;
+    margin: 0 80px 0 80px;
 }
 
 .uk-container-r {
     background-color: white;
+    align-self: center;
 }
 
 /* Deuxième titre */
@@ -46,7 +54,7 @@
 
 /* Deuxième carrousel */
 swiper-container {
-    width: 50%;
+    width: 30%;
     height: 30%;
 }
 
@@ -59,18 +67,6 @@ swiper-slide {
     font-weight: bold;
     color: #fff;
 }
-
-/*.my-swiper {
-    width: 50%;
-    height: 30%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 18px;
-    font-size: 22px;
-    font-weight: bold;
-    color: #fff;
-}*/
 
 /* Zone activités annexes */
 .activites-annexe {
@@ -90,7 +86,7 @@ swiper-slide {
 .images-r {
     display: grid;
     margin-top: 1rem;
-    grid-gap: 20px;
+    grid-gap: 10px;
     justify-content: space-around;
     align-items: stretch;
 }
@@ -98,7 +94,7 @@ swiper-slide {
 .paragraph {
     font-family: "Roboto", sans-serif;
     color: #fff;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     margin-left: 2rem;
     display: flex;
     align-items: center;
@@ -119,7 +115,7 @@ swiper-slide {
 
 
 .uk-button-r {
-    background-color: #8F898B;
+    background-color: #9b7a5a;
     width: 20rem;
     height: 12rem;
     font-size: x-large;

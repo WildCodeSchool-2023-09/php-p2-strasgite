@@ -29,6 +29,7 @@ h1 {
     color: #fff;
     font-family: "Roboto", sans-serif;
     margin-top: 3rem;
+    text-align: center;
 }
 
 .line {
@@ -46,6 +47,7 @@ h1 {
 
 .uk-card-title {
     color: var(--marron);
+    font-family: "Playfair Display", serif;
 }
 
 .uk-button {
