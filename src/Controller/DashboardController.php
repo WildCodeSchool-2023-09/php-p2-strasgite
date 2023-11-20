@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Model\DashboardChambreManager;
 use App\Model\ReservationManager;
+use App\Model\UserManager;
 
 class DashboardController extends AbstractController
 {

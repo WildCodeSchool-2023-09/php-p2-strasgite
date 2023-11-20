@@ -2,6 +2,7 @@
 
 return [
     '' => ['HomeController', 'index',],
+    'coworking' => ['CoworkingController','index'],
     'contact' => ['ContactController', 'index',],
     'tarifs' => ['TarifsController', 'index',],
     'index' => ['HomeController', 'index',],
@@ -22,4 +23,5 @@ return [
     'dashboard/chambre/delete' => ['DashboardChambreController', 'deleteChambre', ['id']],
     'dashboard/chambre/edit' => ['DashboardChambreController', 'editChambre',  ['id']],
     'admin/dashboard/delete' => ['DashboardController','deleteReservation',['id']],
+    'Contact/delete' => ['DashboardContactController', 'deleteMesssage',],
 ];
