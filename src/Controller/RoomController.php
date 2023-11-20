@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Model\RoomManager;
 use App\Model\ImageManager;
 use App\Model\DashboardManager;
 use App\Model\DashboardChambreManager;
@@ -17,5 +18,13 @@ class RoomController extends AbstractController
             'chambre' => $dashboardManager->selectOneById($id),
             'images' => $imageManager->selectImageByRoom($id),
         ]);
+    }
+
+    public function index(): string
+    {
+        $roomManager = new RoomManager();
+        $rooms = $roomManager->selectAll();
+
+        return $this->twig->render('Home/_mainaccueil.html.twig', ['rooms' => $rooms]);
     }
 }

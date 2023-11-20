@@ -6,6 +6,7 @@
 			</div>
 			<div class="uk-navbar-right-1">
 				<ul class="uk-navbar-nav">
+					<li><a href="/coworking">Coworking</a></li>
 					<li>
 						<a href="/reservation">Réservation</a>
 					</li>
@@ -34,7 +35,7 @@
 					{% endif %}
 					{% if session.islogin == true %}
 						<li>
-							<a href="/logout">Deconnection</a>
+							<a href="/logout">Deconnexion</a>
 						</li>
 					{% else %}
 						<li>
@@ -78,13 +79,26 @@
 									<a href="/contact">Contact</a>
 								</li>
 								{% if session.isadmin == true %}
+						<li>
+							<a href="/admin/dashboard">Admin</a>
+						</li>
+					{% endif %}
+					{% if session.islogin == true %}
+						<li>
+							<a href="/logout">Déconnexion</a>
+						</li>
+					{% else %}
+						<li>
+							<a href="/login">Login</a>
+						</li>
+					{% endif %}								{% if session.isadmin == true %}
 									<li>
 										<a href="/admin/dashboard">Admin</a>
 									</li>
 								{% endif %}
 								{% if session.islogin == true %}
 									<li>
-										<a href="/logout">Deconnection</a>
+										<a href="/logout">Deconnexion</a>
 									</li>
 								{% else %}
 									<li>
@@ -99,7 +113,9 @@
 								{% endif %}
 								{% if session.islogin == true %}
 									<li>
-										<a href="/logout">Deconnection</a>
+
+										<a href="/logout">Deconnexion</a>
+
 									</li>
 								{% else %}
 									<li>

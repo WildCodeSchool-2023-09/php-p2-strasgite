@@ -16,6 +16,7 @@ USE `strasgite` ;
 
 -- -----------------------------------------------------
 
+
 CREATE TABLE
     IF NOT EXISTS `chambre` (
         `id` INT NOT NULL AUTO_INCREMENT,
@@ -48,6 +49,7 @@ VALUES ('chambre1', 1, 1, 90, 'Ut enim ad minim veniam, quis nostrud exercitatio
                 dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident. Duis aute 
                 irure dolor in reprehenderit in voluptate velit esse cillum dolore.');
 
+
 -- -----------------------------------------------------
 
 -- Table `strasgite`.`image`
@@ -76,6 +78,7 @@ VALUES (
         '/assets/images/chambre.jpg',
         'chambre'
     );
+
 
 -- -----------------------------------------------------
 
@@ -111,6 +114,67 @@ INSERT INTO
     categories (nb_personnes, taille, theme)
 VALUES (2, 15, 'chalet');
 
+
+-- -----------------------------------------------------
+
+-- Table `strasgite`.`chambre`
+
+-- -----------------------------------------------------
+
+CREATE TABLE
+    IF NOT EXISTS `chambre` (
+        `id` INT NOT NULL AUTO_INCREMENT,
+        `name` VARCHAR(45) NOT NULL,
+        `id_option` INT NULL,
+        `is_available` TINYINT NOT NULL,
+        `id_categorie` INT NOT NULL,
+        `prix` FLOAT NOT NULL,
+        `description` TEXT NOT NULL,
+        PRIMARY KEY (`id`),
+        INDEX `id_option_idx` (`id_option` ASC) VISIBLE,
+        INDEX `id_categorie_idx` (`id_categorie` ASC) VISIBLE,
+        CONSTRAINT `id_option` FOREIGN KEY (`id_option`) REFERENCES `strasgite`.`options` (`id_options`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+        CONSTRAINT `id_categorie` FOREIGN KEY (`id_categorie`) REFERENCES `strasgite`.`categories` (`id_categories`) ON DELETE NO ACTION ON UPDATE NO ACTION
+    ) ENGINE = InnoDB;
+
+CREATE TABLE
+    IF NOT EXISTS `image` (
+        `id_image` INT NOT NULL AUTO_INCREMENT,
+        `id_chambre_img` INT NOT NULL,
+        `img` TEXT NOT NULL,
+        `name` VARCHAR(45) NOT NULL,
+        `status` VARCHAR(45) NULL,
+        PRIMARY KEY (`id_image`),
+        CONSTRAINT `id_chambre_img` FOREIGN KEY (`id_chambre_img`) REFERENCES `strasgite`.`chambre` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+    ) ENGINE = InnoDB;
+
+INSERT INTO
+    chambre (
+        name,
+        is_available,
+        id_categorie,
+        prix,
+        description
+    )
+VALUES (
+        'chambre1',
+        1,
+        1,
+        90,
+        'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex 
+                ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum 
+                dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident. Duis aute 
+                irure dolor in reprehenderit in voluptate velit esse cillum dolore.'
+    ), (
+        'chambre2',
+        1,
+        1,
+        80,
+        'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex 
+                ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum 
+                dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident. Duis aute 
+                irure dolor in reprehenderit in voluptate velit esse cillum dolore.'
+    );
 
 -- -----------------------------------------------------
 
@@ -182,6 +246,7 @@ CREATE TABLE
 -- Table `strasgite`.`reservation`
 
 -- -----------------------------------------------------
+
 
 
 
