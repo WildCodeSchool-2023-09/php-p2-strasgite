@@ -34,17 +34,17 @@ class ReservationManager extends AbstractManager
     public function deleteResa(int $id)
     {
         $statement = $this->pdo->prepare("DELETE FROM " . self::TABLE . " WHERE id_reservation = :id");
-        $statement->bindValue('id', $id, \PDO::PARAM_INT);
+        $statement->bindValue('id', $id, PDO::PARAM_INT);
         return $statement->execute();
     }
 
     public function selectAllResa(string $orderBy = '', string $direction = 'ASC'): array
     {
-        $query = "SELECT r.id_reservation, c.id_chambre, c.name AS name , r.date_entry, r.date_exit, 
+        $query = "SELECT r.id_reservation, c.id, c.name AS name , r.date_entry, r.date_exit, 
         r.firstname, r.lastname, u.email, r.demand
         FROM " . self::TABLE . " r
         JOIN user AS u ON r.id_user = u.id_user
-        JOIN chambre AS c ON c.id_chambre = r.chambre_id";
+        JOIN chambre AS c ON c.id = r.chambre_id";
         if ($orderBy) {
             $query .= ' ORDER BY ' . $orderBy . ' ' . $direction;
         }
