@@ -65,7 +65,7 @@
                 </div>
                 <div class="uk-margin">
                   <input class="uk-input" name="phone" id="phone" type="number" placeholder="Votre téléphone">
-                    {% if errors.firstname is defined %} 
+                    {% if errors.phone is defined %} 
                     <div class="uk-alert" uk-alert>
                       <a class="uk-alert-close" uk-close></a>
                       <p>{{errors.phone}}</p>
@@ -74,7 +74,7 @@
                 </div>
                 <div class="uk-margin">
                   <input class="uk-input" name="email" id="Email" type="email" placeholder="Email">
-                    {% if errors.firstname is defined %} 
+                    {% if errors.Email is defined %} 
                     <div class="uk-alert" uk-alert>
                       <a class="uk-alert-close" uk-close></a>
                       <p> {{errors.Email}}</p>
