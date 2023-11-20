@@ -1,0 +1,41 @@
+.line {
+  height: 3px;
+  background: rgb(155, 122, 90);
+  background: linear-gradient(
+      90deg,
+      rgba(155, 122, 90, 1) 35%,
+      rgba(50, 76, 93, 1) 51%,
+      rgba(143, 137, 139, 1) 62%
+  );
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.kfd-background-left {
+  padding-top: 5rem;
+  background-color: #324C5D;
+}
+
+.kfd-background-right {
+  padding-top: 1rem;
+  background-color: #324C5D;
+}
+
+.kfd-background {
+  background-color: #324C5D;
+}
+
+h2 {
+  color: white;
+  font-family:  "Playfair Display", serif;
+}
+
+.uk-button {
+  background-color: #9B7A5A;
+  color: white;
+}
+
+.uk-text-center-c {
+  font-size: 100%;
+  text-align: center;
+}

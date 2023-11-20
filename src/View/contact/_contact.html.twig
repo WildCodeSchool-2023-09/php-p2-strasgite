@@ -1,0 +1,107 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}
+	{{parent()}}- Contact
+{% endblock %}
+{% block stylesheet %}
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+{% endblock %}
+
+{% block content %}
+	<div class="uk-container-c">
+    <div class="uk-position-relative-c uk-visible-toggle uk-light" autoplay-delay="3000" autoplay-disable-on-interaction="false" tabindex="-1" uk-slideshow="ratio: 6:2; autoplay: true">
+
+      <ul class="uk-slideshow-items">
+          <li>
+              <img src="assets/images/pexels-max-rahubovskiy-6587907.jpg" alt="Image chambre" uk-cover>
+          </li>
+          <li>
+              <img src="assets/images/chambre-chalet.jpg" alt="Image chambre" uk-cover>
+          </li>
+      </ul>
+
+      <a class="uk-position-center-left uk-position-small uk-hidden" href uk-slidenav-previous uk-slideshow-item="previous"></a>
+      <a class="uk-position-center-right uk-position-small uk-hidden" href uk-slidenav-next uk-slideshow-item="next"></a>
+
+    </div>
+	</div>
+
+	<div class="line"></div>
+
+	<div class="uk-child-width-expand@s uk-text-center-c uk-grid kfd-background">
+
+  <div>
+      <div class="uk-card uk-card-default uk-card-body kfd-background-left">
+        <legend><h2>Information de contact</h2></legend>
+          {% for information in informationsContact %}
+          <li class="uk-text-center-text">
+              {{ information }}
+          </li>
+          {% endfor %}
+      </div>
+      <div class="uk-card uk-card-default uk-card-body kfd-background-left">
+        <legend class="uk-contact"><h2>Horraires d'ouverture</h2></legend>
+          <li class="uk-text-center-text">Flexibles-Prévenez nous</li>
+      </div>
+  </div>
+  <div> 
+      <div class="uk-card uk-card-default uk-card-body kfd-background-right">
+          <form  method="POST">
+              <fieldset class="uk-fieldset">
+                <legend class="uk-Formulaire"><h2>Formulaire</h2></legend>
+                <div class="uk-margin">
+                  <input class="uk-input" name="lastname" id="lastname" type="text" placeholder="nom">
+                    {% if errors.lastname is defined %} 
+                    <div class="uk-alert" uk-alert>
+                      <a class="uk-alert-close" uk-close></a>
+                      <p>{{errors.lastname}}</p>
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="uk-margin">
+                  <input class="uk-input" name="firstname" id="firstname" type="text" placeholder="Prénom">
+                    {% if errors.firstname is defined %} 
+                    <div class="uk-alert" uk-alert>
+                      <a class="uk-alert-close" uk-close></a>
+                      <p>{{errors.firstname}}</p>
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="uk-margin">
+                  <input class="uk-input" name="phone" id="phone" type="number" placeholder="Votre téléphone">
+                    {% if errors.phone is defined %} 
+                    <div class="uk-alert" uk-alert>
+                      <a class="uk-alert-close" uk-close></a>
+                      <p>{{errors.phone}}</p>
+                    </div>
+                  {% endif %}
+                </div>
+                <div class="uk-margin">
+                  <input class="uk-input" name="email" id="Email" type="email" placeholder="Email">
+                    {% if errors.Email is defined %} 
+                    <div class="uk-alert" uk-alert>
+                      <a class="uk-alert-close" uk-close></a>
+                      <p> {{errors.Email}}</p>
+                    </div>
+                  {% endif %}
+                </div>
+                <div class="uk-margin">
+                    <select class="uk-select" name="reason"  aria-label="Select">
+                      <option disabled selected hidden>Choisissez votre requêtes</option>
+                      {% for option in options %}
+                        <option value="{{ option.requête }}">{{ option.nom }}</option>
+                      {% endfor %}
+                    </select>
+                </div>
+                <div class="uk-margin">
+                  <textarea class="uk-textarea" name="content" rows="5" placeholder="commentaire" ></textarea>
+                </div>
+                <div>
+                  <button class="uk-button uk-button-default">Envoyer</button>
+                </div>
+              </fieldset>
+          </form>
+      </div>  
+    </div>
+  </div>
+{% endblock %}

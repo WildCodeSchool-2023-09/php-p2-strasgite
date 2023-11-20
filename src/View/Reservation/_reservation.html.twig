@@ -1,0 +1,43 @@
+{% extends 'layout.html.twig' %}
+{% block content %}
+<form class="form-reservation" method="Post">
+    <fieldset class="uk-fieldset">
+        <legend class="uk-legend">Votre réservation</legend>
+        <div class="uk-margin">
+            <input class="uk-input uk-form-width-large"  name="firstname" type="text" placeholder="Votre prénom" aria-label="Input">
+             {{errors.firstname}}
+        </div>
+        <div class="uk-margin">
+            <input class="uk-input uk-form-width-large"  name="lastname" type="text" placeholder="Votre nom" aria-label="Input">
+             {{errors.lastname}}
+        </div>
+        <div class="uk-margin">
+            <select class="uk-select uk-form-width-large" name="chambre" aria-label="Select">
+                <option disabled selected hidden>Choisissez votre chambre</option>
+                {% for chambre in chambres %}
+                    <option value="{{ chambre.id }}">{{chambre.name}}</option>
+                {% endfor %}
+            </select>
+            {{errors.chambre}}
+        </div>
+        <div class="uk-margin">
+            <label for="date_entry">Date d'entrée :</label>
+            <input type="date" name="date_entry">
+             {{errors.date_entry}}
+        </div>
+        <div class="uk-margin">
+            <label for="date_exit">Date de sortie :</label>
+            <input type="date" name="date_exit" >
+             {{errors.date_exit}}
+        </div>
+
+        <div class="uk-margin">
+            <textarea class="uk-textarea uk-form-width-large" name="demands" rows="5" placeholder="Des demandes à nous spécifier" aria-label="Textarea"></textarea>
+             {{errors.demands}}
+        </div>
+        <div>
+            <button class="uk-button uk-button-default">Envoyer</button>
+        </div>
+    </fieldset>
+</form>
+{% endblock %}

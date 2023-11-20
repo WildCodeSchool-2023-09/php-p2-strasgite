@@ -1,0 +1,58 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Dashboard - Edit Chambres
+{% endblock %}
+
+{% block content %}
+	<h1>Dashboard</h1>
+	<a class="uk-button uk-button-default" href="/admin/Contact">Messages clients</a>
+	<a class="uk-button uk-button-default" href="/admin/dashboard">Edition des chambres</a>
+	<h1>Dashboard</h1>
+
+
+	<div class="uk-container">
+		<h2>Edition des chambres</h2>
+		<a class="uk-button uk-button-default" href="/dashboard/chambre/new">Nouveau</a>
+		<table class="uk-table uk-table-striped">
+			<thead>
+				<tr>
+					<th>Nom</th>
+					<th>Description</th>
+					<th>Option</th>
+					<th>Theme</th>
+					<th>Prix</th>
+					<th>Image</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for stuff in stuffs %}
+					<tr>
+						<td>
+							{{stuff.name}}
+						</td>
+						<td>
+							{{stuff.description}}
+						</td>
+						<td>
+							{{stuff.option_name}}
+						</td>
+						<td>
+							{{stuff.theme}}
+						</td>
+						<td>
+							{{stuff.prix}}
+						</td>
+						<td>
+							<img src="{{stuff.img}}" alt="{{stuff.name}}">
+						</td>
+						<td>
+							<a href="/dashboard/chambre/edit?id={{stuff.id}}" class="uk-button uk-button-primary">Modifier</a>
+							<a href="/dashboard/chambre/delete?id={{stuff.id}}" class="uk-button uk-button-danger">Supprimer</a>
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+</div>{% endblock %}

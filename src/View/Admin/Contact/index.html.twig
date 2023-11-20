@@ -1,0 +1,43 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Dashboard - Messages clients
+{% endblock %}
+
+{% block content %}
+    <h1>Dashboard</h1>
+    <a class="uk-button uk-button-default" href="/admin/dashboard">Edition des chambres</a>
+	<a class="uk-button uk-button-default" href="/admin/Tarifs">Tarifs des chambres</a>
+    <h1>Dashboard</h1>
+
+	<div class="uk-container">
+		<h2>contact</h2>
+		<table class="uk-table uk-table-striped">
+			<thead>
+				<tr>
+					<th>Nom</th>
+					<th>Prénom</th>
+					<th>numero</th>
+					<th>email</th>
+					<th>requête</th>
+					<th>message</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for messages in messages %}
+					<tr>
+						<td>{{ messages.lastname }}</td>
+						<td>{{ messages.firstname }}</td>
+						<td>{{ messages.phone }}</td>
+						<td>{{ messages.email }}</td>
+						<td>{{ messages.reason }}</td>
+						<td>{{ messages.content }}</td>
+						<td>
+							<a href="/Contact/delete?id={{ messages.id }}" class="uk-button uk-button-danger">Supprimer</a>
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+</div>{% endblock %}
