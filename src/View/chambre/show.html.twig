@@ -6,7 +6,8 @@
 {% endblock %}
 
 {% block content %}
-	<main>
+
+    <section class="uk-container-r">
 		<div class="uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light" uk-img>
 			{% for image in images|slice(0, 1) %}
 				<img src="{{image.img}}" alt="{{image.name}}">
@@ -16,13 +17,13 @@
 			<h1 class="title-room">{{ chambre.name }}</h1>
 		</div>
 		<div class="uk-card uk-card-default uk-card-small">
-			<div class="uk-column-1-2">
+			<div class="uk-column-1-2-r">
 				<p>{{ chambre.description }}</p>
 			</div>
 		</div>
 		<div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider autoplay="true" autoplay-interval="3000">
 			<ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@m uk-grid">
-				{% for image in images|slice(0, 3) %}
+				{% for image in images|slice(0, n) %}
 					<li>
 						<div class="uk-panel">
 							<img src="{{image.img}}" alt="{{image.name}}">
@@ -32,47 +33,42 @@
 			</ul>
 			<a class="uk-position-center-left uk-position-small uk-hidden" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
 			<a class="uk-position-center-right uk-position-small uk-hidden" href="#" uk-slidenav-next uk-slider-item="next"></a>
-		</div>
+	    </div>
+    </section>
 
-		<div class="bottom">
+    <div class="bottom">
 
-			<div class="uk-tile">
-				<h2 class="title-activity">Activités principal du gîte</h2>
-			</div>
+        <div class="uk-tile"><h2 class="title-activity">Activités principales du gîte</h2></div>
 
-			<swiper-container class="mySwiper" effect="cards" grab-cursor="true">
-				<swiper-slide><img src="/assets/images/salle-de-conference.jpg" alt="Salle de conférence"/></swiper-slide>
-				<swiper-slide><img src="/assets/images/jacuzzi3.jpg" alt="Jacuzzi"/></swiper-slide>
-				<swiper-slide><img src="/assets/images/piscine-interieur.jpg" alt="Piscine intérieur"/></swiper-slide>
-			</swiper-container>
+        <swiper-container class="mySwiper" effect="cards" grab-cursor="true">
+            <swiper-slide><img src="/assets/images/gite_de_luxe.jpg" alt="Salle de conférence" /></swiper-slide> 
+            <swiper-slide><img src="/assets/images/jacuzzi3.jpg" alt="Jacuzzi" /></swiper-slide>
+            <swiper-slide><img src="/assets/images/piscine-interieur.jpg" alt="Piscine intérieur" /></swiper-slide>
+        </swiper-container>
 
-			<section class="activites-annexe">
-				<h4 class="title">Activités annexe
-					<div class="images">
-						<img src="/assets/images/trampoling-r.jpg" width="225" height="150">
-						<img src="/assets/images/poker-baby-foot.jpg" width="225" height="150">
-						<img src="/assets/images/balancoire-et-jardin.jpg" width="225" height="150">
-					</div>
-				</h4>
+        <section class="activites-annexe"><h4 class="title">Activités annexes</h4>
+                <div class="images-r">
+                    <img src="/assets/images/trampoling-r.jpg" width="225" height="150">
+                    <img src="/assets/images/poker-baby-foot.jpg" width="225" height="150">
+                    <img src="/assets/images/balancoire-et-jardin.jpg" width="225" height="150">
+                </div>
 
-				<div class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit,<br>
-					sed do eiusmod tempor incididunt ut labore 
-					et dolore
-					<br>magna aliqua. Ut enim ad minim veniam, quis nostrud
-					<br>
-					exercitation ullamco laboris nisi ut 
-					aliquip ex ea commodo consequat.
-				</div>
+                <div class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit,<br> sed do eiusmod tempor incididunt ut labore 
+                    et dolore <br>magna aliqua. Ut enim ad minim veniam, quis nostrud <br> exercitation ullamco laboris nisi ut 
+                    aliquip ex ea commodo consequat.
+                </div>
 
-				<div class="button">
-					<hr class="uk-divider-vertical">
-					<p uk-margin>
-						<button class="uk-button-c uk-button-primary uk-button-large">Reserver</button>
-					</p>
-				</div>
-			</section>
-		</div>
-	</main>
+                <div class="button">
+                    <hr class="uk-divider-vertical">
+                    <p uk-margin>
+
+                        <button class="uk-button-r uk-button-primary uk-button-large">RESERVER</button>
+
+                    </p>
+                </div>
+        </section>
+    </div>
+
 {% endblock %}
 
 {% block javascript %}

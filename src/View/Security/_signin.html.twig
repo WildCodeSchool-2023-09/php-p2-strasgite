@@ -12,7 +12,7 @@
 				<p>{{ errors.compte }}</p>
 			</div>
 		{% endif %}
-		<input class="uk-input" name="firstname" type="text" placeholder="prenom">
+		<input class="uk-input" name="firstname" type="text" placeholder="Prénom">
 		{% if errors.firstname is defined %}
 			<div class="uk-alert-danger" uk-alert>
 				<a class="uk-alert-close" uk-close></a>
@@ -65,7 +65,7 @@
 			<option value="Parlementaire">Parlementaire</option>
 			<option value="Autres">Autres</option>
 		</select>
-		<div class="line"></div>
 		<button class="uk-button uk-button-primary">Inscription</button>
+		<div class="line"></div>
 	</form>
 {% endblock %}
