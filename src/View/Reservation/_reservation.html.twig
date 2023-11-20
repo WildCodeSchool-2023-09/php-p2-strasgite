@@ -15,7 +15,7 @@
             <select class="uk-select uk-form-width-large" name="chambre" aria-label="Select">
                 <option disabled selected hidden>Choisissez votre chambre</option>
                 {% for chambre in chambres %}
-                    <option value="{{ chambre.id }}">{{ chambre.nom }}</option>
+                    <option value="{{ chambre.id }}">{{chambre.name}}</option>
                 {% endfor %}
             </select>
             {{errors.chambre}}
