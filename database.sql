@@ -1,15 +1,3 @@
--- SQLBook: Code
--- MySQL Workbench Forward Engineering
-
-SET @OLD_UNIQUE_CHECKS=@@SESSION.UNIQUE_CHECKS, UNIQUE_CHECKS=0;
-
-SET
-    @OLD_FOREIGN_KEY_CHECKS = @@SESSION.FOREIGN_KEY_CHECKS,
-    FOREIGN_KEY_CHECKS = 0;
-
-SET
-    @OLD_SQL_MODE = @@SESSION.SQL_MODE,
-    SQL_MODE = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
 
@@ -169,26 +157,6 @@ CREATE TABLE
         CONSTRAINT `id_chambre` FOREIGN KEY (`chambre_id`) REFERENCES `strasgite`.`chambre` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
         CONSTRAINT `id_user` FOREIGN KEY (`id_user`) REFERENCES `strasgite`.`user` (`id_user`) ON DELETE NO ACTION ON UPDATE NO ACTION
     ) ENGINE = InnoDB;
-
-
-CREATE TABLE
-    IF NOT EXISTS `chambre` (
-        `id_chambre` INT NOT NULL AUTO_INCREMENT,
-        `name` VARCHAR(45) NOT NULL,
-        `id_option` INT NULL,
-        `is_available` TINYINT NOT NULL,
-        `id_categorie` INT NOT NULL,
-        `prix` FLOAT NOT NULL,
-        `id_image` INT NOT NULL,
-        PRIMARY KEY (`id_chambre`),
-        INDEX `id_image_idx` (`id_image` ASC) VISIBLE,
-        INDEX `id_option_idx` (`id_option` ASC) VISIBLE,
-        INDEX `id_categorie_idx` (`id_categorie` ASC) VISIBLE,
-        CONSTRAINT `id_image` FOREIGN KEY (`id_image`) REFERENCES `strasgite`.`image` (`id_image`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-        CONSTRAINT `id_option` FOREIGN KEY (`id_option`) REFERENCES `strasgite`.`options` (`id_options`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-        CONSTRAINT `id_categorie` FOREIGN KEY (`id_categorie`) REFERENCES `strasgite`.`categories` (`id_categories`) ON DELETE NO ACTION ON UPDATE NO ACTION
-    ) ENGINE = InnoDB;
-
 -- -----------------------------------------------------
 
 -- Table `strasgite`.`user`
@@ -275,11 +243,3 @@ CREATE TABLE
         CONSTRAINT `avis_id_chambre` FOREIGN KEY (`avis_id_chambre`) REFERENCES `strasgite`.`chambre` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
         CONSTRAINT `avis_id_user` FOREIGN KEY (`avis_id_user`) REFERENCES `strasgite`.`user` (`id_user`) ON DELETE NO ACTION ON UPDATE NO ACTION
     ) ENGINE = InnoDB;
-
-
-
-SET SQL_MODE=@OLD_SQL_MODE;
-
-SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
-
-SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
