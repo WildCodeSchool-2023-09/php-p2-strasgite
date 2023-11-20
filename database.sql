@@ -1,4 +1,5 @@
 -- SQLBook: Code
+
 -- MySQL Workbench Forward Engineering
 
 SET @OLD_UNIQUE_CHECKS=@@SESSION.UNIQUE_CHECKS, UNIQUE_CHECKS=0;
@@ -23,26 +24,11 @@ SET
 
 -- -----------------------------------------------------
 
-CREATE SCHEMA IF NOT EXISTS `strasgite` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-
-USE `strasgite` ;
-
 -- -----------------------------------------------------
 
 -- Table `strasgite`.`image`
 
 -- -----------------------------------------------------
-
-CREATE TABLE
-    IF NOT EXISTS `strasgite`.`image` (
-        `id_image` INT NOT NULL AUTO_INCREMENT,
-        `id_chambre_img` INT NOT NULL,
-        `img` TEXT NOT NULL,
-        `name` VARCHAR(45) NOT NULL,
-        `status` VARCHAR(45) NULL,
-        PRIMARY KEY (`id_image`),
-        CONSTRAINT `id_chambre_img` FOREIGN KEY (`id_chambre_img`) REFERENCES `strasgite`.`chambre` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-    ) ENGINE = InnoDB;
 
 -- -----------------------------------------------------
 
@@ -51,7 +37,7 @@ CREATE TABLE
 -- -----------------------------------------------------
 
 CREATE TABLE
-    IF NOT EXISTS `strasgite`.`options` (
+    IF NOT EXISTS `options` (
         `id_options` INT NOT NULL AUTO_INCREMENT,
         `name` VARCHAR(45) NOT NULL,
         `is_available` TINYINT NOT NULL,
@@ -66,7 +52,7 @@ CREATE TABLE
 -- -----------------------------------------------------
 
 CREATE TABLE
-    IF NOT EXISTS `strasgite`.`categories` (
+    IF NOT EXISTS `categories` (
         `id_categories` INT NOT NULL AUTO_INCREMENT,
         `nb_personnes` INT NOT NULL,
         `taille` INT NOT NULL,
@@ -85,7 +71,7 @@ VALUES (2, 15, 'chalet');
 -- -----------------------------------------------------
 
 CREATE TABLE
-    IF NOT EXISTS `strasgite`.`chambre` (
+    IF NOT EXISTS `chambre` (
         `id` INT NOT NULL AUTO_INCREMENT,
         `name` VARCHAR(45) NOT NULL,
         `id_option` INT NULL,
@@ -100,6 +86,17 @@ CREATE TABLE
         CONSTRAINT `id_categorie` FOREIGN KEY (`id_categorie`) REFERENCES `strasgite`.`categories` (`id_categories`) ON DELETE NO ACTION ON UPDATE NO ACTION
     ) ENGINE = InnoDB;
 
+CREATE TABLE
+    IF NOT EXISTS `image` (
+        `id_image` INT NOT NULL AUTO_INCREMENT,
+        `id_chambre_img` INT NOT NULL,
+        `img` TEXT NOT NULL,
+        `name` VARCHAR(45) NOT NULL,
+        `status` VARCHAR(45) NULL,
+        PRIMARY KEY (`id_image`),
+        CONSTRAINT `id_chambre_img` FOREIGN KEY (`id_chambre_img`) REFERENCES `strasgite`.`chambre` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+    ) ENGINE = InnoDB;
+
 INSERT INTO
     chambre (
         name,
@@ -108,13 +105,25 @@ INSERT INTO
         prix,
         description
     )
-VALUES ('chambre1', 1, 1, 90, 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex 
+VALUES (
+        'chambre1',
+        1,
+        1,
+        90,
+        'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex 
                 ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum 
                 dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident. Duis aute 
-                irure dolor in reprehenderit in voluptate velit esse cillum dolore.'), ('chambre2', 1, 1, 80, 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex 
+                irure dolor in reprehenderit in voluptate velit esse cillum dolore.'
+    ), (
+        'chambre2',
+        1,
+        1,
+        80,
+        'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex 
                 ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum 
                 dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident. Duis aute 
-                irure dolor in reprehenderit in voluptate velit esse cillum dolore.');
+                irure dolor in reprehenderit in voluptate velit esse cillum dolore.'
+    );
 
 -- -----------------------------------------------------
 
@@ -123,7 +132,7 @@ VALUES ('chambre1', 1, 1, 90, 'Ut enim ad minim veniam, quis nostrud exercitatio
 -- -----------------------------------------------------
 
 CREATE TABLE
-    IF NOT EXISTS `strasgite`.`user` (
+    IF NOT EXISTS `user` (
         `id_user` INT NOT NULL AUTO_INCREMENT,
         `firstname` VARCHAR(150) NOT NULL,
         `lastname` VARCHAR(150) NOT NULL,
@@ -143,7 +152,7 @@ CREATE TABLE
 -- -----------------------------------------------------
 
 CREATE TABLE
-    IF NOT EXISTS `strasgite`.`reservation` (
+    IF NOT EXISTS `reservation` (
         `id_reservation` INT NOT NULL AUTO_INCREMENT,
         `chambre_id` INT NOT NULL,
         `id_user` INT NOT NULL,
@@ -158,6 +167,7 @@ CREATE TABLE
         CONSTRAINT `id_chambre` FOREIGN KEY (`chambre_id`) REFERENCES `strasgite`.`chambre` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
         CONSTRAINT `id_user` FOREIGN KEY (`id_user`) REFERENCES `strasgite`.`user` (`id_user`) ON DELETE NO ACTION ON UPDATE NO ACTION
     ) ENGINE = InnoDB;
+
 -- -----------------------------------------------------
 
 -- Table `strasgite`.`contact`
@@ -165,7 +175,7 @@ CREATE TABLE
 -- -----------------------------------------------------
 
 CREATE TABLE
-    IF NOT EXISTS `strasgite`.`contact` (
+    IF NOT EXISTS `contact` (
         `id` INT NOT NULL AUTO_INCREMENT,
         `lastname` VARCHAR(50) NOT NULL,
         `firstname` VARCHAR(50) NOT NULL,
@@ -183,7 +193,7 @@ CREATE TABLE
 -- -----------------------------------------------------
 
 CREATE TABLE
-    IF NOT EXISTS `strasgite`.`favoris` (
+    IF NOT EXISTS `favoris` (
         `id_favoris` INT NOT NULL AUTO_INCREMENT,
         `favori_id_user` INT NOT NULL,
         `favori_id_chambre` INT NOT NULL,
@@ -203,7 +213,7 @@ CREATE TABLE
 -- -----------------------------------------------------
 
 CREATE TABLE
-    IF NOT EXISTS `strasgite`.`avis` (
+    IF NOT EXISTS `avis` (
         `id_avis` INT NOT NULL AUTO_INCREMENT,
         `avis_id_chambre` INT NOT NULL,
         `avis_id_user` INT NOT NULL,
@@ -215,8 +225,6 @@ CREATE TABLE
         CONSTRAINT `avis_id_chambre` FOREIGN KEY (`avis_id_chambre`) REFERENCES `strasgite`.`chambre` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
         CONSTRAINT `avis_id_user` FOREIGN KEY (`avis_id_user`) REFERENCES `strasgite`.`user` (`id_user`) ON DELETE NO ACTION ON UPDATE NO ACTION
     ) ENGINE = InnoDB;
-
-
 
 SET SQL_MODE=@OLD_SQL_MODE;
 
