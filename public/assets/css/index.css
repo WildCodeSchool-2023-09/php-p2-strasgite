@@ -50,6 +50,14 @@ h1 {
     font-family: "Playfair Display", serif;
 }
 
+.uk-card {
+    margin: 1rem auto;
+}
+
+.uk-grid>*>:last-child {
+    margin-bottom: 2rem;
+}
+
 .uk-button {
     color: var(--marron);
 }

@@ -15,13 +15,10 @@
 .uk-column-1-2-r {
     font-family: "Roboto", sans-serif;
     text-align: center;
-    font-size: 1.2rem;
-    /*margin-left: 4rem;
-    margin-right: 4rem;*/
+    font-size: 1.3rem;
     box-shadow: 10px 10px 15px #8F898B;
-    /*margin-bottom: 3rem;*/
     margin: 0 80px 3rem 80px;
-
+    padding: 1.5rem;
 }
 
 /* Premier carrousel */
