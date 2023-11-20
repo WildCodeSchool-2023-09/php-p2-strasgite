@@ -9,7 +9,6 @@ class ReservationController extends AbstractController
     public function index(): string
     {
         $errors = [];
-        
         if (!isset($_SESSION['islogin']) || $_SESSION['islogin'] !== true) {
             header('Location: /login');
             return '';

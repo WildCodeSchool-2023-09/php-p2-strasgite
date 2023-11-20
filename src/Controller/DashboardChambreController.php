@@ -12,8 +12,7 @@ class DashboardChambreController extends AbstractController
     public function index()
     {
         if (
-            !isset($_SESSION['isadmin']) || $_SESSION['isadmin'] === 0
-            || !isset($_SESSION['islogin'])
+            !isset($_SESSION['isadmin']) || $_SESSION['isadmin'] === 0 || !isset($_SESSION['islogin'])
         ) {
             header('Location:/');
         } else {
@@ -84,5 +83,4 @@ class DashboardChambreController extends AbstractController
             'options' => $optionManager->selectAll()
         ]);
     }
-
 }

@@ -13,7 +13,8 @@ class DashboardChambreManager extends AbstractManager
 
     public function selectAllStuff()
     {
-        $query = ("SELECT chambre.*, MAX(image.img) AS img, categories.*, options.name AS option_name, options.id_options FROM  "
+        $query = ("SELECT chambre.*, MAX(image.img) AS img, categories.*, options.name
+         AS option_name, options.id_options FROM  "
             . static::TABLE . " LEFT JOIN " . static::IMAGE . " ON chambre.id = image.id_chambre_img LEFT JOIN " .
             static::CATEGORIES . " ON chambre.id_categorie = categories.id_categories LEFT JOIN " . static::OPTIONS .
             " ON chambre.id_option = options.id_options GROUP BY chambre.id");
