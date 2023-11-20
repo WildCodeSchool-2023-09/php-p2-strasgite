@@ -1,5 +1,6 @@
 <h1>Ajouter une chambre</h1>
 <form enctype="multipart/form-data" method="post" class="uk-grid-small" uk-grid>
+<input type="hidden" name="id" value="{{chambre.id}}">
 	<div class="uk-width-1-1">
 		<label class="uk-form-label" for="form-horizontal-select">Nom de la chambre</label>
 		<input class="uk-input" name="name" type="text" placeholder="name" aria-label="100">
@@ -8,8 +9,8 @@
 		<label class="uk-form-label" for="form-horizontal-select">Options</label>
 		<div class="uk-form-controls">
 			<select name="id_option" class="uk-select" id="form-horizontal-select">
-				{% for chambre in chambres %}
-					<option value="{{chambre.id_option}}">{{ chambre.option_name }}</option>
+				{% for option in options %}
+					<option value="{{option.id_options}}">{{ option.name }}</option>
 				{% endfor %}
 			</select>
 		</div>

@@ -2,9 +2,10 @@
 
 namespace App\Controller;
 
-use App\Model\DashboardChambreManager;
-use App\Model\CategorieManager;
 use App\Model\ImageManager;
+use App\Model\OptionManager;
+use App\Model\CategorieManager;
+use App\Model\DashboardChambreManager;
 
 class DashboardChambreController extends AbstractController
 {
@@ -26,6 +27,7 @@ class DashboardChambreController extends AbstractController
     public function new()
     {
         $categorieManager = new CategorieManager();
+        $optionManager = new OptionManager();
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $uploadDir = __DIR__ . '/../../public/assets/uploads/';
             $img = '/assets/images/';
@@ -50,7 +52,8 @@ class DashboardChambreController extends AbstractController
             return;
         }
         return $this->twig->render('Admin/Chambre/new.html.twig', [
-            'categories' => $categorieManager->selectAll()
+            'categories' => $categorieManager->selectAll(),
+            'options' => $optionManager->selectAll()
         ]);
     }
 
@@ -65,6 +68,7 @@ class DashboardChambreController extends AbstractController
     {
         $dashboardCManager = new DashboardChambreManager();
         $categorieManager = new CategorieManager();
+        $optionManager = new OptionManager();
         $chambre = $dashboardCManager->selectOneById($id);
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // clean $_POST data
@@ -76,7 +80,9 @@ class DashboardChambreController extends AbstractController
         }
         return $this->twig->render('Admin/Chambre/edit.html.twig', [
             'chambre' => $chambre,
-            'categories' => $categorieManager->selectAll()
+            'categories' => $categorieManager->selectAll(),
+            'options' => $optionManager->selectAll()
         ]);
     }
+
 }
