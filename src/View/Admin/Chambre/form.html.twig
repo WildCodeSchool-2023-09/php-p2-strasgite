@@ -1,6 +1,6 @@
 <h1>Ajouter une chambre</h1>
 <form enctype="multipart/form-data" method="post" class="uk-grid-small" uk-grid>
-<input type="hidden" name="id" value="{{chambre.id}}">
+	<input type="hidden" name="id" value="{{chambre.id}}">
 	<div class="uk-width-1-1">
 		<label class="uk-form-label" for="form-horizontal-select">Nom de la chambre</label>
 		<input class="uk-input" name="name" type="text" placeholder="name" aria-label="100">
@@ -13,15 +13,6 @@
 					<option value="{{option.id_options}}">{{ option.name }}</option>
 				{% endfor %}
 			</select>
-		</div>
-	</div>
-	<div class="uk-margin">
-		<div class="uk-form-label">Dispo</div>
-		<div name="is_available" class="uk-form-controls uk-form-controls-text">
-			<label><input class="uk-radio" type="radio" name="radio1">
-				Disponible</label><br>
-			<label><input class="uk-radio" type="radio" name="radio1">
-				Pas disponible</label>
 		</div>
 	</div>
 	<div class="uk-margin">
@@ -43,20 +34,19 @@
 		<input name="description" class="uk-textarea" type="text" placeholder="description" aria-label="50">
 	</div>
 	<input name="id_chambre_img" type="hidden" name="" value="{{chambre.id}}">
-	    <div class="uk-margin" uk-margin>
-        <div uk-form-custom="target: true">
-            <input name="img" type="file" aria-label="Custom controls">
-            <input  class="uk-input uk-form-width-medium" type="text" placeholder="Select file" aria-label="Custom controls" disabled>
-        </div>
-    </div>
-		{% if chambre.id is defined %}
-			{% set button = "Modifier" %}
-		{% else %}
-			{% set button = "Ajouter" %}
-		{% endif %}
-		<div>
-			<button type="submit" class="uk-button uk-button-default">{{button}}
-				chambre</button>
+	<div class="uk-margin" uk-margin>
+		<div uk-form-custom="target: true">
+			<input name="img" type="file" aria-label="Custom controls">
+			<input class="uk-input uk-form-width-medium" type="text" placeholder="Select file" aria-label="Custom controls" disabled>
 		</div>
 	</div>
-</form>
+	{% if chambre.id is defined %}
+		{% set button = "Modifier" %}
+	{% else %}
+		{% set button = "Ajouter" %}
+	{% endif %}
+	<div>
+		<button type="submit" class="uk-button uk-button-default">{{button}}
+			chambre</button>
+	</div>
+</div></form>

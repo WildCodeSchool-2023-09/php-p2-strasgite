@@ -1,4 +1,3 @@
-
 -- -----------------------------------------------------
 
 -- Schema strasgite
@@ -13,9 +12,10 @@ CREATE TABLE
         `prix` FLOAT NOT NULL,
         PRIMARY KEY (`id_options`)
     ) ENGINE = InnoDB;
-INSERT INTO
-    options (name, is_available, prix) VALUES ('Petit déjeuner', 1, 10), ('Demi-pension', 1, 20), ('Pension complète', 1, 30);
 
+INSERT INTO
+    options (name, is_available, prix)
+VALUES ('Petit déjeuner', 1, 10), ('Demi-pension', 1, 20), ('Pension complète', 1, 30);
 
 CREATE TABLE
     IF NOT EXISTS `categories` (
@@ -36,13 +36,12 @@ VALUES (2, 15, 'chalet'), (2, 15, 'pierre'), (2, 15, 'chic'), (2, 15, 'botanique
 
 -- -----------------------------------------------------
 
-
 CREATE TABLE
     IF NOT EXISTS `chambre` (
         `id` INT NOT NULL AUTO_INCREMENT,
         `name` VARCHAR(45) NOT NULL,
         `id_option` INT NULL,
-        `is_available` TINYINT NOT NULL,
+        `is_available` TINYINT NULL,
         `id_categorie` INT NOT NULL,
         `prix` FLOAT NOT NULL,
         `description` TEXT NOT NULL,
@@ -99,7 +98,6 @@ VALUES (
                 irure dolor in reprehenderit in voluptate velit esse cillum dolore.'
     );
 
-
 -- -----------------------------------------------------
 
 -- Table `strasgite`.`image`
@@ -111,147 +109,143 @@ CREATE TABLE
         `id_image` INT NOT NULL AUTO_INCREMENT,
         `id_chambre_img` INT NOT NULL,
         `img` TEXT NOT NULL,
-        `name` VARCHAR(45) NOT NULL,
+        `name` VARCHAR(45) NULL,
         `status` VARCHAR(45) NULL,
         PRIMARY KEY (`id_image`),
         CONSTRAINT `id_chambre_img` FOREIGN KEY (`id_chambre_img`) REFERENCES `strasgite`.`chambre` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
     ) ENGINE = InnoDB;
 
-INSERT INTO `image` (
-    id_chambre_img,
-    img,
-    name
-) VALUES (
-    1,
-    'assets/images/chambre-chalet.jpg',
-    'Chambre Chalet'
-), (
-    1,
-    'assets/images/deux-petits-lits.jpg',
-    'Chambre Chalet deux petits lits'
-), (
-    2,
-    'assets/images/chambre-pierre.jpg',
-    'Chambre en Pierre'
-), (
-    2,
-    'assets/images/salle-de-bain-pierre.jpg',
-    'Salle de bain de la chambre en pierre'
-), (
-    2,
-    'assets/images/deux-lits3.jpg',
-    'Chambre en Pierre deux petits lits'
-), (
-    3,
-    'assets/images/pexels-max-rahubovskiy-6587907.jpg',
-    'Chambre Chic'
-), (
-    3,
-    'assets/images/salon-moderne2.jpg',
-    'Salon chambre chic'
-), (
-    4,
-    'assets/images/chambre-botanique.jpg',
-    'Chambre Botanique'
-), (
-    4,
-    'assets/images/salon-avec-plantes.jpg',
-    'Salon de la chambre botanique'
-), (
-    1,
-    'assets/images/salle-a-manger-chalet.jpg',
-    'Salle à manger de la chambre chalet'
-), (
-    1,
-    'assets/images/cuisine-chalet.jpg',
-    'Cuisine de la chambre chalet'
-), (
-    1,
-    'assets/images/salle-de-bain-chalet.jpg',
-    'Salle de bain de la chambre chalet'
-), (
-    1,
-    'assets/images/salon-chalet.jpg',
-    'Salon de la chambre chalet'
-), (
-    1,
-    'assets/images/bureau-chalet.jpg',
-    'Bureau de la chambre chalet'
-), (
-    1,
-    'assets/images/toilette-chalet.jpg',
-    'Toilettes de la chambre chalet'
-), (
-    2,
-    'assets/images/douche-pierre.jpg',
-    'Douche de la chambre en pierre'
-), (
-    2,
-    'assets/images/salle-a-manger-pierre.jpg',
-    'Salle à manger de la chambre en pierre'
-), (
-    2,
-    'assets/images/salon-pierre.jpg',
-    'Salon de la chambre en pierre'
-), (
-    2,
-    'assets/images/toilette-pierre.jpg',
-    'Toilettes de la chambre en pierre'
-), (
-    2,
-    'assets/images/cuisine-pierre.jpg',
-    'Cuisine de la chambre en pierre'
-), (
-    3,
-    'assets/images/salle-manger-chic.jpg',
-    'Salle à manger de la chambre chic'
-), (
-    3,
-    'assets/images/bureau-chic.jpg',
-    'Bureau de la chambre chic'
-), (
-    3,
-    'assets/images/toilette-chic.jpg',
-    'Toilettes de la chambre chic'
-), (
-    3,
-    'assets/images/cuisine-chic.jpg',
-    'Cuisine de la chambre chic'
-), (
-    3,
-    'assets/images/salle-de-bain-chic.webp',
-    'Salle de bain de la chambre chic'
-), (
-    4,
-    'assets/images/cuis-sallem-bot.jpg',
-    'Cuisine et salle à manger de la ch. botanique'
-), (
-    4,
-    'assets/images/salle-de-bain-botanique.jpg',
-    'Salle de bain de la chambre botanique'
-), (
-    4,
-    'assets/images/toilette-botanique.jpg',
-    'Toilettes de la chambre botanique'
-), (
-    4,
-    'assets/images/bureau-botanique.webp',
-    'Bureau de la chambre botanique'
-);
-
+INSERT INTO
+    `image` (id_chambre_img, img, name)
+VALUES (
+        1,
+        '/assets/images/chambre-chalet.jpg',
+        'Chambre Chalet'
+    ), (
+        1,
+        '/assets/images/deux-petits-lits.jpg',
+        'Chambre Chalet deux petits lits'
+    ), (
+        2,
+        '/assets/images/chambre-pierre.jpg',
+        'Chambre en Pierre'
+    ), (
+        2,
+        '/assets/images/salle-de-bain-pierre.jpg',
+        'Salle de bain de la chambre en pierre'
+    ), (
+        2,
+        '/assets/images/deux-lits3.jpg',
+        'Chambre en Pierre deux petits lits'
+    ), (
+        3,
+        '/assets/images/pexels-max-rahubovskiy-6587907.jpg',
+        'Chambre Chic'
+    ), (
+        3,
+        '/assets/images/salon-moderne2.jpg',
+        'Salon chambre chic'
+    ), (
+        4,
+        '/assets/images/chambre-botanique.jpg',
+        'Chambre Botanique'
+    ), (
+        4,
+        '/assets/images/salon-avec-plantes.jpg',
+        'Salon de la chambre botanique'
+    ), (
+        1,
+        '/assets/images/salle-a-manger-chalet.jpg',
+        'Salle à manger de la chambre chalet'
+    ), (
+        1,
+        '/assets/images/cuisine-chalet.jpg',
+        'Cuisine de la chambre chalet'
+    ), (
+        1,
+        '/assets/images/salle-de-bain-chalet.jpg',
+        'Salle de bain de la chambre chalet'
+    ), (
+        1,
+        '/assets/images/salon-chalet.jpg',
+        'Salon de la chambre chalet'
+    ), (
+        1,
+        '/assets/images/bureau-chalet.jpg',
+        'Bureau de la chambre chalet'
+    ), (
+        1,
+        '/assets/images/toilette-chalet.jpg',
+        'Toilettes de la chambre chalet'
+    ), (
+        2,
+        '/assets/images/douche-pierre.jpg',
+        'Douche de la chambre en pierre'
+    ), (
+        2,
+        '/assets/images/salle-a-manger-pierre.jpg',
+        'Salle à manger de la chambre en pierre'
+    ), (
+        2,
+        '/assets/images/salon-pierre.jpg',
+        'Salon de la chambre en pierre'
+    ), (
+        2,
+        '/assets/images/toilette-pierre.jpg',
+        'Toilettes de la chambre en pierre'
+    ), (
+        2,
+        '/assets/images/cuisine-pierre.jpg',
+        'Cuisine de la chambre en pierre'
+    ), (
+        3,
+        '/assets/images/salle-manger-chic.jpg',
+        'Salle à manger de la chambre chic'
+    ), (
+        3,
+        '/assets/images/bureau-chic.jpg',
+        'Bureau de la chambre chic'
+    ), (
+        3,
+        '/assets/images/toilette-chic.jpg',
+        'Toilettes de la chambre chic'
+    ), (
+        3,
+        '/assets/images/cuisine-chic.jpg',
+        'Cuisine de la chambre chic'
+    ), (
+        3,
+        '/assets/images/salle-de-bain-chic.webp',
+        'Salle de bain de la chambre chic'
+    ), (
+        4,
+        '/assets/images/cuis-sallem-bot.jpg',
+        'Cuisine et salle à manger de la ch. botanique'
+    ), (
+        4,
+        '/assets/images/salle-de-bain-botanique.jpg',
+        'Salle de bain de la chambre botanique'
+    ), (
+        4,
+        '/assets/images/toilette-botanique.jpg',
+        'Toilettes de la chambre botanique'
+    ), (
+        4,
+        '/assets/images/bureau-botanique.webp',
+        'Bureau de la chambre botanique'
+    );
 
 -- -----------------------------------------------------
 
 -- Table `strasgite`.`options`
 
 -- -----------------------------------------------------
+
 -- -----------------------------------------------------
 
 -- Table `strasgite`.`categories`
 
 -- -----------------------------------------------------
-
-
 
 -- -----------------------------------------------------
 
@@ -273,8 +267,27 @@ CREATE TABLE
         PRIMARY KEY (`id_user`)
     ) ENGINE = InnoDB;
 
-INSERT INTO `user` (`firstname`, `lastname`, `email`, `password`, `adresse`, `tel`, `profession`, `isadmin`) VALUES
- ('yavuz', 'yavuz', 'yavuz@yavuz.com', '$2y$10$/RTidqukVvJGUsTvAZSrK.ovYHT5u6QEVusap7pCohiONW7wZZep2', 'yavuz', 123456789, 'Autres', 1);
+INSERT INTO
+    `user` (
+        `firstname`,
+        `lastname`,
+        `email`,
+        `password`,
+        `adresse`,
+        `tel`,
+        `profession`,
+        `isadmin`
+    )
+VALUES (
+        'yavuz',
+        'yavuz',
+        'yavuz@yavuz.com',
+        '$2y$10$/RTidqukVvJGUsTvAZSrK.ovYHT5u6QEVusap7pCohiONW7wZZep2',
+        'yavuz',
+        123456789,
+        'Autres',
+        1
+    );
 
 -- -----------------------------------------------------
 
