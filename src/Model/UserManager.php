@@ -46,4 +46,15 @@ class UserManager extends AbstractManager
 
         return $result["count"] > 0;
     }
+
+    public function userResetPassword(array $user): void
+    {
+        $statement = $this->pdo->prepare("UPDATE " . static::TABLE .
+            " SET password=:password WHERE email=:email");
+        $statement->bindValue('email', $user['email'], \PDO::PARAM_STR);
+        $statement->bindValue('password', $user['password'], \PDO::PARAM_STR);
+        $statement->execute();
+
+        return;
+    }
 }

@@ -96,4 +96,28 @@ class SecurityController extends AbstractController
         }
         return $this->twig->render('Security/_signin.html.twig', ['errors' => $errors]);
     }
+
+    public function resetPassword()
+    {
+        $errors = [];
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if ($_POST['email'] == '') {
+                $errors['email'] = 'Veuillez renseigner votre email';
+            }
+
+            if (!$errors) {
+                $userManager = new UserManager();
+                $user = $userManager->userResetPassword($_POST);
+                if ($user) {
+                    $_SESSION['islogin'] = true;
+                    $_SESSION['isadmin'] = $user['isadmin'];
+                    $_SESSION['email'] = $user['email'];
+                    header('Location:/');
+                } else {
+                    $errors['login'] = 'Email ou mot de passe incorrect';
+                }
+            }
+        }
+        return $this->twig->render('Security/_forgot.html.twig', ['errors' => $errors]);
+    }
 }
