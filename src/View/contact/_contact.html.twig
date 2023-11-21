@@ -34,14 +34,14 @@
       <div class="uk-card uk-card-default uk-card-body kfd-background-left">
         <legend><h2>Information de contact</h2></legend>
           {% for information in informationsContact %}
-          <li class="uk-text-center-text">
+          <li class="uk-text-center-text-c">
               {{ information }}
           </li>
           {% endfor %}
       </div>
       <div class="uk-card uk-card-default uk-card-body kfd-background-left">
         <legend class="uk-contact"><h2>Horraires d'ouverture</h2></legend>
-          <li class="uk-text-center-text">Flexibles-Prévenez nous</li>
+          <li class="uk-text-center-text-c">Flexibles-Prévenez nous</li>
       </div>
   </div>
   <div> 
@@ -50,7 +50,7 @@
               <fieldset class="uk-fieldset">
                 <legend class="uk-Formulaire"><h2>Formulaire</h2></legend>
                 <div class="uk-margin">
-                  <input class="uk-input" name="lastname" id="lastname" type="text" placeholder="nom">
+                  <input class="uk-input" name="lastname" id="lastname" type="text" placeholder="Nom">
                     {% if errors.lastname is defined %} 
                     <div class="uk-alert" uk-alert>
                       <a class="uk-alert-close" uk-close></a>
@@ -94,7 +94,7 @@
                     </select>
                 </div>
                 <div class="uk-margin">
-                  <textarea class="uk-textarea" name="content" rows="5" placeholder="commentaire" ></textarea>
+                  <textarea class="uk-textarea" name="content" rows="5" placeholder="Commentaire" ></textarea>
                 </div>
                 <div>
                   <button class="uk-button uk-button-default">Envoyer</button>
