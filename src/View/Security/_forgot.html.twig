@@ -1,7 +1,7 @@
-{% extends 'layout.html.twig' %} {% block title %} {{ parent() }}-Connection {%
+{% extends 'layout.html.twig' %} {% block title %} {{ parent() }}- Nouveau mot de passe {%
 endblock %} {% block content %}
 <div class="uk-container">
-    <h1>Merci de vous connecter</h1>
+    <h1>Reinisialisation du mot de passe</h1>
     <div class="line"></div>
     <form method="POST">
         <div class="uk-margin">
@@ -48,10 +48,8 @@ endblock %} {% block content %}
     </form>
     <div class="line"></div>
     <h4>
-        Vous n'avez pas de compte ? merci de vous
-        <a href="signin">Enregistrez</a>
+        <a href="login">Ce connecter</a>
     </h4>
-    <h4>Mot de passe oublié ? <a href="forgot">Nouveau mot de passe </a></h4>
 </div>
 
 {% endblock %}

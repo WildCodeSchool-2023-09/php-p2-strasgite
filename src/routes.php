@@ -16,6 +16,7 @@ return [
     'login' => ['SecurityController', 'login',],
     'signin' => ['SecurityController', 'signin',],
     'logout' => ['SecurityController', 'logout',],
+    'forgot' => ['SecurityController', 'resetPassword'],
     'admin/dashboard' => ['DashboardController', 'index',],
     'admin/Chambre' => ['DashboardChambreController', 'index',],
     'admin/Contact' => ['DashboardContactController', 'index',],

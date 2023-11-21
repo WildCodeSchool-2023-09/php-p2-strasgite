@@ -27,7 +27,7 @@ class ReservationController extends AbstractController
                 header('Location: /reservation');
             }
         }
-        return $this->twig->render('reservation/_reservation.html.twig', [
+        return $this->twig->render('Reservation/_reservation.html.twig', [
             'errors' => $errors,
         ]);
     }
