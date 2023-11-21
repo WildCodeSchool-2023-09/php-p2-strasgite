@@ -13,7 +13,8 @@ CREATE TABLE
         `prix` FLOAT NOT NULL,
         PRIMARY KEY (`id_options`)
     ) ENGINE = InnoDB;
-
+INSERT INTO
+    options (name, is_available, prix) VALUES ('Petit déjeuner', 1, 10), ('Demi-pension', 1, 20), ('Pension complète', 1, 30);
 
 
 CREATE TABLE
@@ -27,7 +28,7 @@ CREATE TABLE
 
 INSERT INTO
     categories (nb_personnes, taille, theme)
-VALUES (2, 15, 'chalet');
+VALUES (2, 15, 'chalet'), (2, 15, 'pierre'), (2, 15, 'chic'), (2, 15, 'botanique');
 
 -- -----------------------------------------------------
 
