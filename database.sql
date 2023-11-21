@@ -5,6 +5,30 @@
 
 -- -----------------------------------------------------
 
+CREATE TABLE
+    IF NOT EXISTS `options` (
+        `id_options` INT NOT NULL AUTO_INCREMENT,
+        `name` VARCHAR(45) NOT NULL,
+        `is_available` TINYINT NOT NULL,
+        `prix` FLOAT NOT NULL,
+        PRIMARY KEY (`id_options`)
+    ) ENGINE = InnoDB;
+INSERT INTO
+    options (name, is_available, prix) VALUES ('Petit déjeuner', 1, 10), ('Demi-pension', 1, 20), ('Pension complète', 1, 30);
+
+
+CREATE TABLE
+    IF NOT EXISTS `categories` (
+        `id_categories` INT NOT NULL AUTO_INCREMENT,
+        `nb_personnes` INT NOT NULL,
+        `taille` INT NOT NULL,
+        `theme` VARCHAR(45) NOT NULL,
+        PRIMARY KEY (`id_categories`)
+    ) ENGINE = InnoDB;
+
+INSERT INTO
+    categories (nb_personnes, taille, theme)
+VALUES (2, 15, 'chalet'), (2, 15, 'pierre'), (2, 15, 'chic'), (2, 15, 'botanique');
 
 -- -----------------------------------------------------
 
@@ -221,34 +245,12 @@ INSERT INTO `image` (
 -- Table `strasgite`.`options`
 
 -- -----------------------------------------------------
-
-CREATE TABLE
-    IF NOT EXISTS `options` (
-        `id_options` INT NOT NULL AUTO_INCREMENT,
-        `name` VARCHAR(45) NOT NULL,
-        `is_available` TINYINT NOT NULL,
-        `prix` FLOAT NOT NULL,
-        PRIMARY KEY (`id_options`)
-    ) ENGINE = InnoDB;
-
 -- -----------------------------------------------------
 
 -- Table `strasgite`.`categories`
 
 -- -----------------------------------------------------
 
-CREATE TABLE
-    IF NOT EXISTS `categories` (
-        `id_categories` INT NOT NULL AUTO_INCREMENT,
-        `nb_personnes` INT NOT NULL,
-        `taille` INT NOT NULL,
-        `theme` VARCHAR(45) NOT NULL,
-        PRIMARY KEY (`id_categories`)
-    ) ENGINE = InnoDB;
-
-INSERT INTO
-    categories (nb_personnes, taille, theme)
-VALUES (2, 15, 'chalet');
 
 
 -- -----------------------------------------------------
