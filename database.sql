@@ -1,4 +1,3 @@
-
 -- -----------------------------------------------------
 
 -- Schema strasgite
@@ -13,9 +12,10 @@ CREATE TABLE
         `prix` FLOAT NOT NULL,
         PRIMARY KEY (`id_options`)
     ) ENGINE = InnoDB;
-INSERT INTO
-    options (name, is_available, prix) VALUES ('Petit déjeuner', 1, 10), ('Demi-pension', 1, 20), ('Pension complète', 1, 30);
 
+INSERT INTO
+    options (name, is_available, prix)
+VALUES ('Petit déjeuner', 1, 10), ('Demi-pension', 1, 20), ('Pension complète', 1, 30);
 
 CREATE TABLE
     IF NOT EXISTS `categories` (
@@ -36,13 +36,12 @@ VALUES (2, 15, 'chalet'), (2, 15, 'pierre'), (2, 15, 'chic'), (2, 15, 'botanique
 
 -- -----------------------------------------------------
 
-
 CREATE TABLE
     IF NOT EXISTS `chambre` (
         `id` INT NOT NULL AUTO_INCREMENT,
         `name` VARCHAR(45) NOT NULL,
         `id_option` INT NULL,
-        `is_available` TINYINT NOT NULL,
+        `is_available` TINYINT NULL,
         `id_categorie` INT NOT NULL,
         `prix` FLOAT NOT NULL,
         `description` TEXT NOT NULL,
@@ -99,7 +98,6 @@ VALUES (
                 irure dolor in reprehenderit in voluptate velit esse cillum dolore.'
     );
 
-
 -- -----------------------------------------------------
 
 -- Table `strasgite`.`image`
@@ -111,7 +109,7 @@ CREATE TABLE
         `id_image` INT NOT NULL AUTO_INCREMENT,
         `id_chambre_img` INT NOT NULL,
         `img` TEXT NOT NULL,
-        `name` VARCHAR(45) NOT NULL,
+        `name` VARCHAR(45) NULL,
         `status` VARCHAR(45) NULL,
         PRIMARY KEY (`id_image`),
         CONSTRAINT `id_chambre_img` FOREIGN KEY (`id_chambre_img`) REFERENCES `strasgite`.`chambre` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
@@ -239,19 +237,17 @@ INSERT INTO `image` (
     'Bureau de la chambre botanique'
 );
 
-
 -- -----------------------------------------------------
 
 -- Table `strasgite`.`options`
 
 -- -----------------------------------------------------
+
 -- -----------------------------------------------------
 
 -- Table `strasgite`.`categories`
 
 -- -----------------------------------------------------
-
-
 
 -- -----------------------------------------------------
 
@@ -273,8 +269,27 @@ CREATE TABLE
         PRIMARY KEY (`id_user`)
     ) ENGINE = InnoDB;
 
-INSERT INTO `user` (`firstname`, `lastname`, `email`, `password`, `adresse`, `tel`, `profession`, `isadmin`) VALUES
- ('yavuz', 'yavuz', 'yavuz@yavuz.com', '$2y$10$/RTidqukVvJGUsTvAZSrK.ovYHT5u6QEVusap7pCohiONW7wZZep2', 'yavuz', 123456789, 'Autres', 1);
+INSERT INTO
+    `user` (
+        `firstname`,
+        `lastname`,
+        `email`,
+        `password`,
+        `adresse`,
+        `tel`,
+        `profession`,
+        `isadmin`
+    )
+VALUES (
+        'yavuz',
+        'yavuz',
+        'yavuz@yavuz.com',
+        '$2y$10$/RTidqukVvJGUsTvAZSrK.ovYHT5u6QEVusap7pCohiONW7wZZep2',
+        'yavuz',
+        123456789,
+        'Autres',
+        1
+    );
 
 -- -----------------------------------------------------
 
