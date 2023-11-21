@@ -99,119 +99,119 @@ INSERT INTO `image` (
     name
 ) VALUES (
     1,
-    'assets/images/chambre-chalet.jpg',
+    '/assets/images/chambre-chalet.jpg',
     'Chambre Chalet'
 ), (
     1,
-    'assets/images/deux-petits-lits.jpg',
+    '/assets/images/deux-petits-lits.jpg',
     'Chambre Chalet deux petits lits'
 ), (
     2,
-    'assets/images/chambre-pierre.jpg',
+    '/assets/images/chambre-pierre.jpg',
     'Chambre en Pierre'
 ), (
     2,
-    'assets/images/salle-de-bain-pierre.jpg',
+    '/assets/images/salle-de-bain-pierre.jpg',
     'Salle de bain de la chambre en pierre'
 ), (
     2,
-    'assets/images/deux-lits3.jpg',
+    '/assets/images/deux-lits3.jpg',
     'Chambre en Pierre deux petits lits'
 ), (
     3,
-    'assets/images/pexels-max-rahubovskiy-6587907.jpg',
+    '/assets/images/pexels-max-rahubovskiy-6587907.jpg',
     'Chambre Chic'
 ), (
     3,
-    'assets/images/salon-moderne2.jpg',
+    '/assets/images/salon-moderne2.jpg',
     'Salon chambre chic'
 ), (
     4,
-    'assets/images/chambre-botanique.jpg',
+    '/assets/images/chambre-botanique.jpg',
     'Chambre Botanique'
 ), (
     4,
-    'assets/images/salon-avec-plantes.jpg',
+    '/assets/images/salon-avec-plantes.jpg',
     'Salon de la chambre botanique'
 ), (
     1,
-    'assets/images/salle-a-manger-chalet.jpg',
+    '/assets/images/salle-a-manger-chalet.jpg',
     'Salle à manger de la chambre chalet'
 ), (
     1,
-    'assets/images/cuisine-chalet.jpg',
+    '/assets/images/cuisine-chalet.jpg',
     'Cuisine de la chambre chalet'
 ), (
     1,
-    'assets/images/salle-de-bain-chalet.jpg',
+    '/assets/images/salle-de-bain-chalet.jpg',
     'Salle de bain de la chambre chalet'
 ), (
     1,
-    'assets/images/salon-chalet.jpg',
+    '/assets/images/salon-chalet.jpg',
     'Salon de la chambre chalet'
 ), (
     1,
-    'assets/images/bureau-chalet.jpg',
+    '/assets/images/bureau-chalet.jpg',
     'Bureau de la chambre chalet'
 ), (
     1,
-    'assets/images/toilette-chalet.jpg',
+    '/assets/images/toilette-chalet.jpg',
     'Toilettes de la chambre chalet'
 ), (
     2,
-    'assets/images/douche-pierre.jpg',
+    '/assets/images/douche-pierre.jpg',
     'Douche de la chambre en pierre'
 ), (
     2,
-    'assets/images/salle-a-manger-pierre.jpg',
+    '/assets/images/salle-a-manger-pierre.jpg',
     'Salle à manger de la chambre en pierre'
 ), (
     2,
-    'assets/images/salon-pierre.jpg',
+    '/assets/images/salon-pierre.jpg',
     'Salon de la chambre en pierre'
 ), (
     2,
-    'assets/images/toilette-pierre.jpg',
+    '/assets/images/toilette-pierre.jpg',
     'Toilettes de la chambre en pierre'
 ), (
     2,
-    'assets/images/cuisine-pierre.jpg',
+    '/assets/images/cuisine-pierre.jpg',
     'Cuisine de la chambre en pierre'
 ), (
     3,
-    'assets/images/salle-manger-chic.jpg',
+    '/assets/images/salle-manger-chic.jpg',
     'Salle à manger de la chambre chic'
 ), (
     3,
-    'assets/images/bureau-chic.jpg',
+    '/assets/images/bureau-chic.jpg',
     'Bureau de la chambre chic'
 ), (
     3,
-    'assets/images/toilette-chic.jpg',
+    '/assets/images/toilette-chic.jpg',
     'Toilettes de la chambre chic'
 ), (
     3,
-    'assets/images/cuisine-chic.jpg',
+    '/assets/images/cuisine-chic.jpg',
     'Cuisine de la chambre chic'
 ), (
     3,
-    'assets/images/salle-de-bain-chic.webp',
+    '/assets/images/salle-de-bain-chic.webp',
     'Salle de bain de la chambre chic'
 ), (
     4,
-    'assets/images/cuis-sallem-bot.jpg',
+    '/assets/images/cuis-sallem-bot.jpg',
     'Cuisine et salle à manger de la ch. botanique'
 ), (
     4,
-    'assets/images/salle-de-bain-botanique.jpg',
+    '/assets/images/salle-de-bain-botanique.jpg',
     'Salle de bain de la chambre botanique'
 ), (
     4,
-    'assets/images/toilette-botanique.jpg',
+    '/assets/images/toilette-botanique.jpg',
     'Toilettes de la chambre botanique'
 ), (
     4,
-    'assets/images/bureau-botanique.webp',
+    '/assets/images/bureau-botanique.webp',
     'Bureau de la chambre botanique'
 );
 

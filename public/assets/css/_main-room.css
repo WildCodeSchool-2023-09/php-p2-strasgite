@@ -67,32 +67,34 @@ swiper-slide {
 
 /* Zone activités annexes */
 .activites-annexe {
-    display: grid;
-    grid-template-columns: 1fr 2fr 1.5fr;
-    margin: 5rem;
-    align-items: stretch;
-    gap: 10px;
+    margin: 2rem;
 }
 
 .title {
     font-family: "Playfair Display", serif;
     color: #fff;
     text-align: center;
+    margin-bottom: 2rem;
 }
 
 .images-r {
-    display: grid;
-    margin-top: 1rem;
-    grid-gap: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    padding: 2rem 0;
     justify-content: space-around;
-    align-items: stretch;
+}
+
+.images-r>img {
+    padding-bottom: 1rem;
 }
 
 .paragraph {
     font-family: "Roboto", sans-serif;
     color: #fff;
-    font-size: 1.1rem;
-    margin-left: 2rem;
+    font-size: 1.2rem;
+    justify-content: center;
+    padding: 1rem 0;
     display: flex;
     align-items: center;
 }
@@ -110,18 +112,9 @@ swiper-slide {
     margin: 0 2rem 0 1rem;
 }
 
-
 .uk-button-r {
     background-color: #9b7a5a;
-    width: 20rem;
-    height: 12rem;
     font-size: x-large;
 }
 
-@media screen and (max-width: 1200px) {
-    .activites-annexe {
-        display: flex;
-        flex-wrap: wrap;
-    }
-}
     
