@@ -25,4 +25,5 @@ return [
     'dashboard/chambre/edit' => ['DashboardChambreController', 'editChambre',  ['id']],
     'admin/dashboard/delete' => ['DashboardController','deleteReservation',['id']],
     'Contact/delete' => ['DashboardContactController', 'deleteMesssage',],
+    'chambre' => ['RoomController', 'showAllRooms'],
 ];
