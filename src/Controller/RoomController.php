@@ -27,4 +27,9 @@ class RoomController extends AbstractController
 
         return $this->twig->render('Home/_mainaccueil.html.twig', ['rooms' => $rooms]);
     }
+
+    public function showAllRooms(): string
+    {
+        return $this->twig->render('chambre/home.html.twig');
+    }
 }
