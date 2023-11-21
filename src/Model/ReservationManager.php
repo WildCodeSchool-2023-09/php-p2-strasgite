@@ -35,7 +35,7 @@ class ReservationManager extends AbstractManager
         $query = "SELECT r.id_reservation, c.id, c.name AS name , r.date_entry, r.date_exit, 
         r.firstname, r.lastname, u.email, r.demand
         FROM " . self::TABLE . " r
-        JOIN user AS u ON r.id_user = u.id_user
+        JOIN user AS u ON r.id_user = u.id
         JOIN chambre AS c ON c.id = r.chambre_id";
         if ($orderBy) {
             $query .= ' ORDER BY ' . $orderBy . ' ' . $direction;
