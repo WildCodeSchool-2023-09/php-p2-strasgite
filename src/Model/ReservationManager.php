@@ -7,16 +7,8 @@ use PDO;
 class ReservationManager extends AbstractManager
 {
     public const TABLE = 'reservation';
-    public function insertResa(array $reservation): int
+    public function insertResa(array $reservation, $userId): int
     {
-        $email = isset($_SESSION['email']) ? $_SESSION['email'] : null;
-
-        $getIdUser = "SELECT id_user FROM user WHERE email = :email";
-        $getIdUserStatement = $this->pdo->prepare($getIdUser);
-        $getIdUserStatement->bindParam(':email', $email, PDO::PARAM_STR);
-        $getIdUserStatement->execute();
-        $user = $getIdUserStatement->fetch(PDO::FETCH_ASSOC);
-        $userId = $user['id_user'];
         $statement = $this->pdo->prepare("INSERT INTO " . self::TABLE .
             " (chambre_id,id_user, firstname, lastname, date_entry, date_exit, demand) 
             VALUES (:chambre_id, :id_user, :firstname, :lastname, :date_entry, :date_exit, :demands)");
