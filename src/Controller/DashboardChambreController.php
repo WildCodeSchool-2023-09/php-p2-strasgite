@@ -18,7 +18,7 @@ class DashboardChambreController extends AbstractController
         } else {
             $dashboardCManager = new DashboardChambreManager();
             return $this->twig->render(
-                'admin/Chambre/index.html.twig',
+                'Admin/Chambre/index.html.twig',
                 ['stuffs' => $dashboardCManager->selectAllStuff()]
             );
         }
