@@ -28,6 +28,7 @@
 h2 {
   color: white;
   font-family:  "Playfair Display", serif;
+  text-align: center;
 }
 
 .uk-button {
@@ -35,7 +36,8 @@ h2 {
   color: white;
 }
 
-.uk-text-center-c {
+.uk-text-center-text-c {
   font-size: 100%;
   text-align: center;
+  color: #fff;
 }
