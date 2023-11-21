@@ -11,9 +11,8 @@ class UserManager extends AbstractManager
     public function userLogin(array $user)
     {
         $statement = $this->pdo->prepare("SELECT * FROM " . static::TABLE .
-            " WHERE email=:email AND password=:password");
-        $statement->bindValue('email', $user['email'], \PDO::PARAM_STR);
-        $statement->bindValue('password', $user['password'], \PDO::PARAM_STR);
+            " WHERE email=:email");
+        $statement->bindValue(':email', $user['email'], \PDO::PARAM_STR);
         $statement->execute();
 
         return $statement->fetch();
@@ -27,7 +26,7 @@ class UserManager extends AbstractManager
         $statement->bindValue('firstname', $user['firstname'], \PDO::PARAM_STR);
         $statement->bindValue('lastname', $user['lastname'], \PDO::PARAM_STR);
         $statement->bindValue('email', $user['email'], \PDO::PARAM_STR);
-        $statement->bindValue('password', $user['password'], \PDO::PARAM_STR);
+        $statement->bindValue('password', password_hash($user['password'], PASSWORD_DEFAULT), \PDO::PARAM_STR);
         $statement->bindValue('adresse', $user['adresse'], \PDO::PARAM_STR);
         $statement->bindValue('tel', $user['tel'], \PDO::PARAM_INT);
         $statement->bindValue('profession', $user['profession'], \PDO::PARAM_STR);
@@ -52,7 +51,7 @@ class UserManager extends AbstractManager
         $statement = $this->pdo->prepare("UPDATE " . static::TABLE .
             " SET password=:password WHERE email=:email");
         $statement->bindValue('email', $user['email'], \PDO::PARAM_STR);
-        $statement->bindValue('password', $user['password'], \PDO::PARAM_STR);
+        $statement->bindValue('password', password_hash($user['password'], PASSWORD_DEFAULT), \PDO::PARAM_STR);
         $statement->execute();
 
         return;

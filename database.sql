@@ -184,7 +184,7 @@ CREATE TABLE
         `firstname` VARCHAR(150) NOT NULL,
         `lastname` VARCHAR(150) NOT NULL,
         `email` VARCHAR(50) NOT NULL,
-        `password` VARCHAR(45) NOT NULL,
+        `password` VARCHAR(255) NOT NULL,
         `adresse` VARCHAR(100) NOT NULL,
         `tel` INT NOT NULL,
         `profession` VARCHAR(100) NOT NULL,
@@ -193,7 +193,7 @@ CREATE TABLE
     ) ENGINE = InnoDB;
 
 INSERT INTO `user` (`firstname`, `lastname`, `email`, `password`, `adresse`, `tel`, `profession`, `isadmin`) VALUES
- ('yavuz', 'yavuz', 'yavuz@yavuz.com', 'yavuz', 'yavuz', 123456789, 'Autres', 1);
+ ('yavuz', 'yavuz', 'yavuz@yavuz.com', '$2y$10$/RTidqukVvJGUsTvAZSrK.ovYHT5u6QEVusap7pCohiONW7wZZep2', 'yavuz', 123456789, 'Autres', 1);
 
 -- -----------------------------------------------------
 

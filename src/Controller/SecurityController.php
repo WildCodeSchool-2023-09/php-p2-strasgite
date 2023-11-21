@@ -27,7 +27,8 @@ class SecurityController extends AbstractController
             if (!$errors) {
                 $userManager = new UserManager();
                 $user = $userManager->userLogin($_POST);
-                if ($user) {
+
+                if ($user && password_verify($_POST['password'], $user['password'])) {
                     $_SESSION['islogin'] = true;
                     $_SESSION['isadmin'] = $user['isadmin'];
                     $_SESSION['email'] = $user['email'];
