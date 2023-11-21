@@ -42,11 +42,12 @@ class DashboardChambreController extends AbstractController
             $chambre['id_chambre_img'] = $_POST['id_chambre_img'];
             $fileName = $_FILES['img']['name'];
             $chambre['img'] = $img . $fileName;
+            $chambre['name'] = $fileName;
 
             $dashboardCManager = new DashboardChambreManager();
             $idChambre = $dashboardCManager->insert($chambre);
             $imageManager = new ImageManager();
-            $imageManager->insertImage($chambre['img'], $idChambre);
+            $imageManager->insertImage($idChambre, $chambre['img'], $chambre['name']);
             header('Location:/admin/Chambre');
             return;
         }

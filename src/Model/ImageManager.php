@@ -20,12 +20,13 @@ class ImageManager extends AbstractManager
         return $statement->fetchAll();
     }
 
-    public function insertImage(string $image, int $idChambreImg)
+    public function insertImage(int $idChambreImg, string $image, string $name)
     {
-        $statement = $this->pdo->prepare("INSERT INTO " . static::TABLE . " (id_chambre_img, img ) 
-        VALUES ( :id_chambre_img, :img )");
+        $statement = $this->pdo->prepare("INSERT INTO " . static::TABLE . " (id_chambre_img, img, name ) 
+        VALUES ( :id_chambre_img, :img, :name)");
         $statement->bindValue(':id_chambre_img', $idChambreImg, PDO::PARAM_INT);
         $statement->bindValue(':img', $image, PDO::PARAM_STR);
+        $statement->bindValue(':name', $name, PDO::PARAM_STR);
         $statement->execute();
         return (int)$this->pdo->lastInsertId();
     }
