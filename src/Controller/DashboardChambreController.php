@@ -36,12 +36,8 @@ class DashboardChambreController extends AbstractController
                 }
             }
             if (empty($errors)) {
-                $uploadDir = __DIR__ . '/../../public/assets/uploads/';
-                $img = '/assets/images/';
-                if (!is_dir($uploadDir)) {
-                    mkdir($uploadDir);
-                }
                 $chambre = [];
+                $img = '/assets/images/';
                 $chambre['name'] = $_POST['name'];
                 $chambre['id_option'] = $_POST['id_option'];
                 $chambre['id_categorie'] = $_POST['id_categorie'];
@@ -52,9 +48,7 @@ class DashboardChambreController extends AbstractController
                 $chambre['img'] = $img . $fileName;
 
                 $dashboardCManager = new DashboardChambreManager();
-                $idChambre = $dashboardCManager->insert($chambre);
-                $imageManager = new ImageManager();
-                $imageManager->insertImage($idChambre, $chambre['img'], $chambre['name']);
+                $dashboardCManager->insert($chambre);
                 header('Location:/admin/Chambre');
                 return;
             }
@@ -105,5 +99,25 @@ class DashboardChambreController extends AbstractController
             'options' => $optionManager->selectAll(),
             'errors' => $errors
         ]);
+    }
+
+    public function addFiles()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $uploadDir = __DIR__ . '/../../public/assets/uploads/';
+            if (!is_dir($uploadDir)) {
+                mkdir($uploadDir);
+            }
+            $chambreId = $_POST['id'];
+            $imageManager = new ImageManager();
+            foreach ($_FILES['img']['tmp_name'] as $index => $tmpName) {
+                $fileName = $_FILES['img']['name'][$index];
+                move_uploaded_file($tmpName, $uploadDir . $fileName);
+                $imageManager->insertImage($chambreId, $uploadDir . $fileName, $fileName);
+            }
+
+            header('Location:/admin/Chambre');
+            
+            }
     }
 }
