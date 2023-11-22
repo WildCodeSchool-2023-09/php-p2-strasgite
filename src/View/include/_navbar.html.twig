@@ -2,7 +2,7 @@
 	<div class="uk-container">
 		<div uk-navbar>
 			<div class="uk-navbar-left">
-				<a class="uk-navbar-item uk-logo" href="/" aria-label="logo strat's gite"><img class="img-logo" src="assets/images/logov1.png"></a>
+				<a class="uk-navbar-item uk-logo" href="/" aria-label="logo strat's gite"><img class="img-logo" src="/assets/images/logov1.png"></a>
 			</div>
 			<div class="uk-navbar-right-1">
 				<ul class="uk-navbar-nav">
@@ -54,26 +54,19 @@
 						<div class="uk-navbar-dropdown">
 							<ul class="uk-nav uk-navbar-dropdown-nav">
 								<li class="uk-active">
-									<a href="#">Nos chambres</a>
+									<a href="/chambre">Nos chambres</a>
 								</li>
+								{% for chambre in chambres %}
 								<li>
-									<a href="/chambre">Chambre 1</a>
+									<a href="/chambre/show?id={{ chambre.id }}">{{ chambre.name }}</a>
 								</li>
-								<li>
-									<a href="#">Chambre 2</a>
-								</li>
-								<li>
-									<a href="#">Chambre 3</a>
-								</li>
-								<li>
-									<a href="#">Chambre 4</a>
-								</li>
+								{% endfor %}
 								<li class="uk-nav-header">Nous joindre</li>
 								<li>
 									<a href="/tarifs">Nos tarifs</a>
 								</li>
 								<li>
-									<a href="/Reservation">Réservation</a>
+									<a href="/reservation">Réservation</a>
 								</li>
 								<li>
 									<a href="/contact">Contact</a>
@@ -91,37 +84,7 @@
 						<li>
 							<a href="/login">Login</a>
 						</li>
-					{% endif %}								{% if session.isadmin == true %}
-									<li>
-										<a href="/admin/dashboard">Admin</a>
-									</li>
-								{% endif %}
-								{% if session.islogin == true %}
-									<li>
-										<a href="/logout">Deconnexion</a>
-									</li>
-								{% else %}
-									<li>
-										<a href="/login">Login</a>
-									</li>
-								{% endif %}
-							</ul>
-								{% if session.isadmin == true %}
-									<li>
-										<a href="/admin/dashboard">Admin</a>
-									</li>
-								{% endif %}
-								{% if session.islogin == true %}
-									<li>
-
-										<a href="/logout">Deconnexion</a>
-
-									</li>
-								{% else %}
-									<li>
-										<a href="/login">Login</a>
-									</li>
-								{% endif %}
+					{% endif %}
 						</div>
 					</ul>
 				</div>
