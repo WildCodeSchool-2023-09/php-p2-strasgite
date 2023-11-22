@@ -1,4 +1,9 @@
-<h1>Ajouter une chambre</h1>
+	{% if chambre.id is defined %}
+		{% set titre = "Modifier" %}
+	{% else %}
+		{% set titre = "Ajouter" %}
+	{% endif %}
+<h1>{{titre}} une chambre</h1>
 <form enctype="multipart/form-data" method="post" class="uk-grid-small" uk-grid>
 	<input type="hidden" name="id" value="{{chambre.id}}">
 	<div class="uk-width-1-1">

@@ -80,18 +80,26 @@ class DashboardChambreController extends AbstractController
         $categorieManager = new CategorieManager();
         $optionManager = new OptionManager();
         $chambre = $dashboardCManager->selectOneById($id);
+        $errors = [];
+        $required = ['name', 'prix', 'description'];
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // clean $_POST data
-
+            foreach ($required as $field) {
+                if (empty($_POST[$field])) {
+                    $errors[$field] = 'Ce champ est requis';
+                }
+            }
+            if (empty($errors)){
             $chambre = array_map('trim', $_POST);
             $dashboardCManager->update($chambre);
             header('Location:/admin/Chambre');
             return;
+            }
         }
         return $this->twig->render('Admin/Chambre/edit.html.twig', [
             'chambre' => $chambre,
             'categories' => $categorieManager->selectAll(),
-            'options' => $optionManager->selectAll()
+            'options' => $optionManager->selectAll(),
+            'errors' => $errors
         ]);
     }
 }
