@@ -23,6 +23,7 @@ class DashboardChambreController extends AbstractController
             );
         }
     }
+
     public function new()
     {
         $categorieManager = new CategorieManager();
@@ -36,8 +37,12 @@ class DashboardChambreController extends AbstractController
                 }
             }
             if (empty($errors)) {
-                $chambre = [];
+                $uploadDir = __DIR__ . '/../../public/assets/uploads/';
                 $img = '/assets/images/';
+                if (!is_dir($uploadDir)) {
+                    mkdir($uploadDir);
+                }
+                $chambre = [];
                 $chambre['name'] = $_POST['name'];
                 $chambre['id_option'] = $_POST['id_option'];
                 $chambre['id_categorie'] = $_POST['id_categorie'];
@@ -47,8 +52,11 @@ class DashboardChambreController extends AbstractController
                 $fileName = $_FILES['img']['name'];
                 $chambre['img'] = $img . $fileName;
 
+
                 $dashboardCManager = new DashboardChambreManager();
-                $dashboardCManager->insert($chambre);
+                $idChambre = $dashboardCManager->insert($chambre);
+                $imageManager = new ImageManager();
+                $imageManager->insertImage($idChambre, $chambre['img'], $chambre['name']);
                 header('Location:/admin/Chambre');
                 return;
             }
@@ -115,9 +123,7 @@ class DashboardChambreController extends AbstractController
                 move_uploaded_file($tmpName, $uploadDir . $fileName);
                 $imageManager->insertImage($chambreId, $uploadDir . $fileName, $fileName);
             }
-
             header('Location:/admin/Chambre');
-            
             }
     }
 }
