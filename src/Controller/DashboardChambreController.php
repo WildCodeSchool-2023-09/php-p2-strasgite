@@ -78,8 +78,10 @@ class DashboardChambreController extends AbstractController
         $dashboardCManager = new DashboardChambreManager();
         $categorieManager = new CategorieManager();
         $optionManager = new OptionManager();
+        $imageManager = new ImageManager();
         $chambre = $dashboardCManager->selectOneById($id);
         $errors = [];
+        $img = '/assets/images/';
         $required = ['name', 'prix', 'description'];
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             foreach ($required as $field) {
@@ -88,8 +90,11 @@ class DashboardChambreController extends AbstractController
                 }
             }
             if (empty($errors)) {
+                $fileName = $_FILES['img']['name'];
                 $chambre = array_map('trim', $_POST);
                 $dashboardCManager->update($chambre);
+                $chambre['img'] = $img . $fileName;
+                $imageManager->updateImage($chambre['img'], $_POST['id_chambre_img']);
                 header('Location:/admin/Chambre');
                 return;
             }
