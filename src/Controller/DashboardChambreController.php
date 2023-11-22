@@ -88,11 +88,11 @@ class DashboardChambreController extends AbstractController
                     $errors[$field] = 'Ce champ est requis';
                 }
             }
-            if (empty($errors)){
-            $chambre = array_map('trim', $_POST);
-            $dashboardCManager->update($chambre);
-            header('Location:/admin/Chambre');
-            return;
+            if (empty($errors)) {
+                $chambre = array_map('trim', $_POST);
+                $dashboardCManager->update($chambre);
+                header('Location:/admin/Chambre');
+                return;
             }
         }
         return $this->twig->render('Admin/Chambre/edit.html.twig', [
