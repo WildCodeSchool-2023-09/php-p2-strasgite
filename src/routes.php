@@ -1,17 +1,29 @@
 <?php
 
-// list of accessible routes of your application, add every new route here
-// key : route to match
-// values : 1. controller name
-//          2. method name
-//          3. (optional) array of query string keys to send as parameter to the method
-// e.g route '/item/edit?id=1' will execute $itemController->edit(1)
 return [
     '' => ['HomeController', 'index',],
+    'coworking' => ['CoworkingController','index'],
     'contact' => ['ContactController', 'index',],
+    'tarifs' => ['TarifsController', 'index',],
+    'index' => ['HomeController', 'index',],
+    'reservation' => ['ReservationController', 'index',],
     'items' => ['ItemController', 'index',],
     'items/edit' => ['ItemController', 'edit', ['id']],
     'items/show' => ['ItemController', 'show', ['id']],
     'items/add' => ['ItemController', 'add',],
     'items/delete' => ['ItemController', 'delete',],
+    'chambre/show' => ['RoomController', 'show', ['id']],
+    'login' => ['SecurityController', 'login',],
+    'signin' => ['SecurityController', 'signin',],
+    'logout' => ['SecurityController', 'logout',],
+    'forgot' => ['SecurityController', 'resetPassword'],
+    'admin/dashboard' => ['DashboardController', 'index',],
+    'admin/Chambre' => ['DashboardChambreController', 'index',],
+    'admin/Contact' => ['DashboardContactController', 'index',],
+    'dashboard/chambre/new' => ['DashboardChambreController', 'new'],
+    'dashboard/chambre/delete' => ['DashboardChambreController', 'deleteChambre', ['id']],
+    'dashboard/chambre/edit' => ['DashboardChambreController', 'editChambre',  ['id']],
+    'admin/dashboard/delete' => ['DashboardController','deleteReservation',['id']],
+    'Contact/delete' => ['DashboardContactController', 'deleteMesssage',],
+    'chambre' => ['RoomController', 'showAllRooms'],
 ];

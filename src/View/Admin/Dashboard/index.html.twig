@@ -1,0 +1,41 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Dashboard
+{% endblock %}
+
+{% block content %}
+	<h1>Dashboard</h1>
+	<a class="uk-button uk-button-default" href="/admin/Contact">Messages clients</a>
+	<a class="uk-button uk-button-default" href="/admin/Chambre">Edition des chambres</a>
+
+	<div class="uk-container">
+		<h2>Réservation</h2>
+		
+		<table class="uk-table uk-table-striped">
+			<thead>
+				<tr>
+				{% for information in informationsResa %}
+					<th>{{information}}</th>
+				{% endfor %}
+				</tr>
+			</thead>
+			<tbody>
+				{% for reservation in reservations %}
+					<tr>
+						<td>{{ reservation.firstname }}</td>
+						<td>{{ reservation.lastname }}</td>
+						<td>{{reservation.email}}</td>
+						<td>{{ reservation.name}}</td>
+						<td>{{ reservation.date_entry|date('d/m/Y') }}</td>
+						<td>{{ reservation.date_exit|date('d/m/Y') }}</td>
+						<td>{{ reservation.demand }}</td>
+						<td>
+							<a href="dashboard/delete?id={{ reservation.id_reservation }}" class="uk-button uk-button-danger">Supprimer</a>
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+</div>
+{% endblock %}

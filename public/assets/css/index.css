@@ -1,0 +1,63 @@
+:root {
+    --marron: #9b7a5a;
+    --bleu: #324c5d;
+    --gris: #8f898b;
+}
+
+main {
+    background-color: var(--bleu);
+}
+
+.uk-align-center {
+    border-radius: 0 0 5% 5%;
+    height: 30rem;
+    width: 65rem;
+}
+
+h1 {
+  text-decoration: underline;
+}
+
+.uk-text-center-a {
+    color: white;
+    font-family: "Playfair Display", serif;
+    font-size: 400%;
+    text-align: center;
+}
+
+.uk-text-center-text {
+    color: #fff;
+    font-family: "Roboto", sans-serif;
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.line {
+    height: 3px;
+    background: rgb(155, 122, 90);
+    background: linear-gradient(
+        90deg,
+        rgba(155, 122, 90, 1) 35%,
+        rgba(50, 76, 93, 1) 51%,
+        rgba(143, 137, 139, 1) 62%
+    );
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.uk-card-title {
+    color: var(--marron);
+    font-family: "Playfair Display", serif;
+}
+
+.uk-card {
+    margin: 1rem auto;
+}
+
+.uk-grid>*>:last-child {
+    margin-bottom: 2rem;
+}
+
+.uk-button {
+    color: var(--marron);
+}

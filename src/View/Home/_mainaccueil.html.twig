@@ -1,0 +1,60 @@
+<main>
+	<section class="uk-container">
+		<img class="uk-align-center" src="assets/images/strasbourg-1354438_1280.jpg" width="" 
+		height="" alt="Image presentation Gite">
+		<h1 class="uk-text-center-a">Stras'Gite</h1>
+		<p class="uk-text-center-text">
+			Lorem ipsum dolor sit amet consectetur adipisicing elit.
+			Aperiam reprehenderit ullam dolorem beatae velit pariatur!
+			Sapiente et, aspernatur deserunt, voluptatibus ipsum cum 
+			placeat, exercitationem numquam suscipit nihil eveniet 
+			dolore excepturi.
+			Fugit deleniti eveniet quis! Fugit nesciunt voluptatum 
+			veritatis repellendus molestias in perspiciatis dolor qui
+			commodi, architecto aliquid repellat accusamus iusto 
+			laudantium fuga? Reiciendis odio illum magni a dicta 
+			recusandae nemo!
+			Eaque eos non laborum distinctio a deleniti eligendi
+			suscipit culpa rerum repudiandae! Quibusdam eum eveniet,
+			ad nihil repellat id dolorum ipsa ducimus laboriosam,
+			illum, perferendis laudantium debitis soluta. Labore,
+			saepe.
+			Incidunt consectetur rerum, aut libero nisi saepe sunt
+			ipsum vel facere repellat obcaecati deleniti aperiam
+			totam ipsa et dicta nesciunt? Quod, consectetur. Quo
+			dicta sint autem, quis adipisci nemo hic!
+			Eligendi voluptatibus beatae incidunt ipsam reiciendis,
+			illo obcaecati atque ea dolores sed aspernatur
+			, possimus,
+			ducimus at laudantium vitae blanditiis cumque eum
+			excepturi iure nisi natus libero consectetur dolore 
+			architecto? Labore?
+			Eveniet quas qui, tenetur magnam nesciunt voluptates
+			recusandae dolorem neque sed incidunt corrupti
+			quisquam
+			quasi reprehenderit ex voluptatibus vitae rerum minus
+			sint tempore vel pariatur nihil ipsa laboriosam
+			similique! Incidunt!
+		</p>
+	</section>
+
+	<div class="line"></div>
+
+	<section class="part2">
+		<div class="uk-container">
+			<a class="uk-button uk-button-default" href="/reservation">Reserver</a>
+			<div class="uk-child-width-1-2@s uk-grid-match" uk-grid>
+				{% for chambre in chambres %}
+				<div>
+					<div class="uk-card uk-card-hover uk-card-body">
+						<h3 class="uk-card-title">{{ chambre.name }}</h3>
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+						Aperiam reprehenderit ullam dolorem beatae velit pariatur!
+						</p>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</section>
+
+	</main>

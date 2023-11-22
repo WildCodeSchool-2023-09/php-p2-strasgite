@@ -1,0 +1,77 @@
+	{% if chambre.id is defined %}
+		{% set titre = "Modifier" %}
+	{% else %}
+		{% set titre = "Ajouter" %}
+	{% endif %}
+<h1>{{titre}} une chambre</h1>
+<form enctype="multipart/form-data" method="post" class="uk-grid-small" uk-grid>
+	<input type="hidden" name="id" value="{{chambre.id}}">
+	<div class="uk-width-1-1">
+		{% if errors.name is defined %}
+			<div class="uk-alert-danger" uk-alert>
+				<a class="uk-alert-close" uk-close></a>
+				<p>{{ errors.name }}</p>
+			</div>
+		{% endif %}
+	
+		<label class="uk-form-label" for="form-horizontal-select">Nom de la chambre</label>
+		<input class="uk-input" {% if chambre.name is defined %} value="{{chambre.name}}" {% endif %} name="name" type="text" placeholder="name" aria-label="100">
+
+	</div>
+	<div class="uk-margin">
+		<label class="uk-form-label" for="form-horizontal-select">Options</label>
+		<div class="uk-form-controls">
+			<select name="id_option" class="uk-select" id="form-horizontal-select">
+				{% for option in options %}
+					<option value="{{option.id_options}}">{{ option.name }}</option>
+				{% endfor %}
+			</select>
+		</div>
+	</div>
+	<div class="uk-margin">
+		<label class="uk-form-label" for="form-horizontal-select">Categorie</label>
+		<div class="uk-form-controls">
+			<select name="id_categorie" class="uk-select" id="form-horizontal-select">
+				{% for categorie in categories %}
+					<option value="{{categorie.id_categories}}">{{categorie.theme}}</option>
+				{% endfor %}
+			</select>
+		</div>
+	</div>
+	<div class="uk-width-1-4@s">
+		{% if errors.prix is defined %}
+			<div class="uk-alert-danger" uk-alert>
+				<a class="uk-alert-close" uk-close></a>
+				<p>{{ errors.prix }}</p>
+			</div>
+		{% endif %}
+		<label class="uk-form-label" for="form-horizontal-select">Prix</label>
+		<input name="prix" {% if chambre.prix is defined %} value="{{chambre.prix}}" {% endif %} class="uk-input" type="number" placeholder="prix" aria-label="25">
+	</div>
+	<div class="uk-width-1-2@s">
+		{% if errors.description is defined %}
+			<div class="uk-alert-danger" uk-alert>
+				<a class="uk-alert-close" uk-close></a>
+				<p>{{ errors.description }}</p>
+			</div>
+		{% endif %}
+		<label class="uk-form-label" for="form-horizontal-select">Descriptions</label>
+		<input name="description" {% if chambre.description is defined %} value="{{chambre.description}}" {% endif %} class="uk-textarea" type="text" placeholder="description" aria-label="50">
+	</div>
+	<input name="id_chambre_img" type="hidden" name="" value="{{chambre.id}}">
+	<div class="uk-margin" uk-margin>
+		<div uk-form-custom="target: true">
+			<input name="img" type="file" aria-label="Custom controls">
+			<input class="uk-input uk-form-width-medium" type="text" placeholder="Select file" aria-label="Custom controls" disabled>
+		</div>
+	</div>
+	{% if chambre.id is defined %}
+		{% set button = "Modifier" %}
+	{% else %}
+		{% set button = "Ajouter" %}
+	{% endif %}
+	<div>
+		<button type="submit" class="uk-button uk-button-default">{{button}}
+			chambre</button>
+	</div>
+</div></form>

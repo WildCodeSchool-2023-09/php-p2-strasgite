@@ -1,0 +1,25 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}
+Toutes nos chambres
+{% endblock %}
+{% block content %}
+
+<section class="part2">
+        <div class="uk-container">
+            <a class="uk-button uk-button-default" href="/reservation">Reserver</a>
+            <div class="uk-child-width-1-2@s uk-grid-match" uk-grid>
+                {% for chambre in chambres %}
+                <div>
+                    <div class="uk-card uk-card-hover uk-card-body">
+                        <h3 class="uk-card-title">{{ chambre.name }}</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Aperiam reprehenderit ullam dolorem beatae velit pariatur!
+                        </p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+</section>
+
+{% endblock %}
