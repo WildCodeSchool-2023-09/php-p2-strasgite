@@ -22,8 +22,9 @@ class ReservationController extends AbstractController
                 }
             }
             if (empty($errors)) {
+                $userId = $_SESSION['user_id'];
                 $reservationManager = new ReservationManager();
-                $reservationManager->insertResa($reservation);
+                $reservationManager->insertResa($reservation, $userId);
                 header('Location: /reservation');
             }
         }

@@ -114,7 +114,6 @@ CREATE TABLE
         PRIMARY KEY (`id_image`),
         CONSTRAINT `id_chambre_img` FOREIGN KEY (`id_chambre_img`) REFERENCES `strasgite`.`chambre` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
     ) ENGINE = InnoDB;
-
 INSERT INTO `image` (
     id_chambre_img,
     img,
@@ -236,7 +235,6 @@ INSERT INTO `image` (
     '/assets/images/bureau-botanique.webp',
     'Bureau de la chambre botanique'
 );
-
 -- -----------------------------------------------------
 
 -- Table `strasgite`.`options`
@@ -257,7 +255,7 @@ INSERT INTO `image` (
 
 CREATE TABLE
     IF NOT EXISTS `user` (
-        `id_user` INT NOT NULL AUTO_INCREMENT,
+        `id` INT NOT NULL AUTO_INCREMENT,
         `firstname` VARCHAR(150) NOT NULL,
         `lastname` VARCHAR(150) NOT NULL,
         `email` VARCHAR(50) NOT NULL,
@@ -266,7 +264,7 @@ CREATE TABLE
         `tel` INT NOT NULL,
         `profession` VARCHAR(100) NOT NULL,
         `isadmin` TINYINT NULL,
-        PRIMARY KEY (`id_user`)
+        PRIMARY KEY (`id`)
     ) ENGINE = InnoDB;
 
 INSERT INTO
@@ -310,8 +308,8 @@ CREATE TABLE
         PRIMARY KEY (`id_reservation`),
         INDEX `id_chambre_idx` (`chambre_id` ASC) VISIBLE,
         INDEX `id_user_idx` (`id_user` ASC) VISIBLE,
-        CONSTRAINT `id_chambre` FOREIGN KEY (`chambre_id`) REFERENCES `strasgite`.`chambre` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-        CONSTRAINT `id_user` FOREIGN KEY (`id_user`) REFERENCES `strasgite`.`user` (`id_user`) ON DELETE NO ACTION ON UPDATE NO ACTION
+        CONSTRAINT `id_chambre` FOREIGN KEY (`chambre_id`) REFERENCES `chambre` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+        CONSTRAINT `id_user` FOREIGN KEY (`id_user`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
     ) ENGINE = InnoDB;
 
 -- -----------------------------------------------------
