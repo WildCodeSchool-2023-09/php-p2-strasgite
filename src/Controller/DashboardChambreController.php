@@ -23,6 +23,7 @@ class DashboardChambreController extends AbstractController
             );
         }
     }
+
     public function new()
     {
         $categorieManager = new CategorieManager();
@@ -50,7 +51,7 @@ class DashboardChambreController extends AbstractController
                 $chambre['id_chambre_img'] = $_POST['id_chambre_img'];
                 $fileName = $_FILES['img']['name'];
                 $chambre['img'] = $img . $fileName;
-                $chambre['name'] = $fileName;
+
 
                 $dashboardCManager = new DashboardChambreManager();
                 $idChambre = $dashboardCManager->insert($chambre);
@@ -79,8 +80,10 @@ class DashboardChambreController extends AbstractController
         $dashboardCManager = new DashboardChambreManager();
         $categorieManager = new CategorieManager();
         $optionManager = new OptionManager();
+        $imageManager = new ImageManager();
         $chambre = $dashboardCManager->selectOneById($id);
         $errors = [];
+        $img = '/assets/images/';
         $required = ['name', 'prix', 'description'];
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             foreach ($required as $field) {
@@ -89,8 +92,11 @@ class DashboardChambreController extends AbstractController
                 }
             }
             if (empty($errors)) {
+                $fileName = $_FILES['img']['name'];
                 $chambre = array_map('trim', $_POST);
                 $dashboardCManager->update($chambre);
+                $chambre['img'] = $img . $fileName;
+                $imageManager->updateImage($chambre['img'], $_POST['id_chambre_img']);
                 header('Location:/admin/Chambre');
                 return;
             }
@@ -101,5 +107,23 @@ class DashboardChambreController extends AbstractController
             'options' => $optionManager->selectAll(),
             'errors' => $errors
         ]);
+    }
+
+    public function addFiles()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $uploadDir = __DIR__ . '/../../public/assets/uploads/';
+            if (!is_dir($uploadDir)) {
+                mkdir($uploadDir);
+            }
+            $chambreId = $_POST['id'];
+            $imageManager = new ImageManager();
+            foreach ($_FILES['img']['tmp_name'] as $index => $tmpName) {
+                $fileName = $_FILES['img']['name'][$index];
+                move_uploaded_file($tmpName, $uploadDir . $fileName);
+                $imageManager->insertImage($chambreId, $uploadDir . $fileName, $fileName);
+            }
+            header('Location:/admin/Chambre');
+        }
     }
 }

@@ -13,8 +13,10 @@
 				<p>{{ errors.name }}</p>
 			</div>
 		{% endif %}
+	
 		<label class="uk-form-label" for="form-horizontal-select">Nom de la chambre</label>
-		<input class="uk-input" name="name" type="text" placeholder="name" aria-label="100">
+		<input class="uk-input" {% if chambre.name is defined %} value="{{chambre.name}}" {% endif %} name="name" type="text" placeholder="name" aria-label="100">
+
 	</div>
 	<div class="uk-margin">
 		<label class="uk-form-label" for="form-horizontal-select">Options</label>
@@ -44,7 +46,7 @@
 			</div>
 		{% endif %}
 		<label class="uk-form-label" for="form-horizontal-select">Prix</label>
-		<input name="prix" class="uk-input" type="number" placeholder="prix" aria-label="25">
+		<input name="prix" {% if chambre.prix is defined %} value="{{chambre.prix}}" {% endif %} class="uk-input" type="number" placeholder="prix" aria-label="25">
 	</div>
 	<div class="uk-width-1-2@s">
 		{% if errors.description is defined %}
@@ -54,7 +56,7 @@
 			</div>
 		{% endif %}
 		<label class="uk-form-label" for="form-horizontal-select">Descriptions</label>
-		<input name="description" class="uk-textarea" type="text" placeholder="description" aria-label="50">
+		<input name="description" {% if chambre.description is defined %} value="{{chambre.description}}" {% endif %} class="uk-textarea" type="text" placeholder="description" aria-label="50">
 	</div>
 	<input name="id_chambre_img" type="hidden" name="" value="{{chambre.id}}">
 	<div class="uk-margin" uk-margin>
