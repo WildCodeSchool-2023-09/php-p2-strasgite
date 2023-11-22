@@ -124,6 +124,6 @@ class DashboardChambreController extends AbstractController
                 $imageManager->insertImage($chambreId, $uploadDir . $fileName, $fileName);
             }
             header('Location:/admin/Chambre');
-            }
+        }
     }
 }
