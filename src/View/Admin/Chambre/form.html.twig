@@ -2,6 +2,12 @@
 <form enctype="multipart/form-data" method="post" class="uk-grid-small" uk-grid>
 	<input type="hidden" name="id" value="{{chambre.id}}">
 	<div class="uk-width-1-1">
+		{% if errors.name is defined %}
+			<div class="uk-alert-danger" uk-alert>
+				<a class="uk-alert-close" uk-close></a>
+				<p>{{ errors.name }}</p>
+			</div>
+		{% endif %}
 		<label class="uk-form-label" for="form-horizontal-select">Nom de la chambre</label>
 		<input class="uk-input" name="name" type="text" placeholder="name" aria-label="100">
 	</div>
@@ -26,10 +32,22 @@
 		</div>
 	</div>
 	<div class="uk-width-1-4@s">
+		{% if errors.prix is defined %}
+			<div class="uk-alert-danger" uk-alert>
+				<a class="uk-alert-close" uk-close></a>
+				<p>{{ errors.prix }}</p>
+			</div>
+		{% endif %}
 		<label class="uk-form-label" for="form-horizontal-select">Prix</label>
 		<input name="prix" class="uk-input" type="number" placeholder="prix" aria-label="25">
 	</div>
 	<div class="uk-width-1-2@s">
+		{% if errors.description is defined %}
+			<div class="uk-alert-danger" uk-alert>
+				<a class="uk-alert-close" uk-close></a>
+				<p>{{ errors.description }}</p>
+			</div>
+		{% endif %}
 		<label class="uk-form-label" for="form-horizontal-select">Descriptions</label>
 		<input name="description" class="uk-textarea" type="text" placeholder="description" aria-label="50">
 	</div>

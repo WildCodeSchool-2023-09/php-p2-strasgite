@@ -27,7 +27,15 @@ class DashboardChambreController extends AbstractController
     {
         $categorieManager = new CategorieManager();
         $optionManager = new OptionManager();
+        $errors = [];
+        $required = ['name', 'prix', 'description'];
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            foreach ($required as $field) {
+                if (empty($_POST[$field])) {
+                    $errors[$field] = 'Ce champ est requis';
+                }
+            }
+            if (empty($errors)){
             $uploadDir = __DIR__ . '/../../public/assets/uploads/';
             $img = '/assets/images/';
             if (!is_dir($uploadDir)) {
@@ -50,10 +58,12 @@ class DashboardChambreController extends AbstractController
             $imageManager->insertImage($idChambre, $chambre['img'], $chambre['name']);
             header('Location:/admin/Chambre');
             return;
+            }
         }
         return $this->twig->render('Admin/Chambre/new.html.twig', [
             'categories' => $categorieManager->selectAll(),
-            'options' => $optionManager->selectAll()
+            'options' => $optionManager->selectAll(),
+            'errors' => $errors
         ]);
     }
 
