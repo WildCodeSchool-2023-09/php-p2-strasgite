@@ -35,29 +35,29 @@ class DashboardChambreController extends AbstractController
                     $errors[$field] = 'Ce champ est requis';
                 }
             }
-            if (empty($errors)){
-            $uploadDir = __DIR__ . '/../../public/assets/uploads/';
-            $img = '/assets/images/';
-            if (!is_dir($uploadDir)) {
-                mkdir($uploadDir);
-            }
-            $chambre = [];
-            $chambre['name'] = $_POST['name'];
-            $chambre['id_option'] = $_POST['id_option'];
-            $chambre['id_categorie'] = $_POST['id_categorie'];
-            $chambre['prix'] = $_POST['prix'];
-            $chambre['description'] = $_POST['description'];
-            $chambre['id_chambre_img'] = $_POST['id_chambre_img'];
-            $fileName = $_FILES['img']['name'];
-            $chambre['img'] = $img . $fileName;
-            $chambre['name'] = $fileName;
+            if (empty($errors)) {
+                $uploadDir = __DIR__ . '/../../public/assets/uploads/';
+                $img = '/assets/images/';
+                if (!is_dir($uploadDir)) {
+                    mkdir($uploadDir);
+                }
+                $chambre = [];
+                $chambre['name'] = $_POST['name'];
+                $chambre['id_option'] = $_POST['id_option'];
+                $chambre['id_categorie'] = $_POST['id_categorie'];
+                $chambre['prix'] = $_POST['prix'];
+                $chambre['description'] = $_POST['description'];
+                $chambre['id_chambre_img'] = $_POST['id_chambre_img'];
+                $fileName = $_FILES['img']['name'];
+                $chambre['img'] = $img . $fileName;
+                $chambre['name'] = $fileName;
 
-            $dashboardCManager = new DashboardChambreManager();
-            $idChambre = $dashboardCManager->insert($chambre);
-            $imageManager = new ImageManager();
-            $imageManager->insertImage($idChambre, $chambre['img'], $chambre['name']);
-            header('Location:/admin/Chambre');
-            return;
+                $dashboardCManager = new DashboardChambreManager();
+                $idChambre = $dashboardCManager->insert($chambre);
+                $imageManager = new ImageManager();
+                $imageManager->insertImage($idChambre, $chambre['img'], $chambre['name']);
+                header('Location:/admin/Chambre');
+                return;
             }
         }
         return $this->twig->render('Admin/Chambre/new.html.twig', [
