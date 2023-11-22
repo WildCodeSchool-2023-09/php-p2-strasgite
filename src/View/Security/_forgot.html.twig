@@ -1,7 +1,7 @@
 {% extends 'layout.html.twig' %} {% block title %} {{ parent() }}- Nouveau mot de passe {%
 endblock %} {% block content %}
 <div class="uk-container">
-    <h1>Reinisialisation du mot de passe</h1>
+    <h1>Réinitialisation du mot de passe</h1>
     <div class="line"></div>
     <form method="POST">
         <div class="uk-margin">
@@ -44,12 +44,10 @@ endblock %} {% block content %}
                 {% endif %}
             </div>
         </div>
-        <button class="uk-button uk-button-default" href="" type="submit">Se connecter</button>
+        <button class="uk-button uk-button-default" href="" type="submit">Modifier le Mot de passe</button>
     </form>
     <div class="line"></div>
-    <h4>
-        <a href="login">Ce connecter</a>
-    </h4>
+    <h4 class="uk-button uk-button-default" href="login">Se connecter</h4>
 </div>
 
 {% endblock %}
