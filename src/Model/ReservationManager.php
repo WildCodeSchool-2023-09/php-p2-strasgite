@@ -26,7 +26,7 @@ class ReservationManager extends AbstractManager
         return (int)$this->pdo->lastInsertId();
     }
 
-    public function deleteResa(int $id): void
+    public function deleteResa(int $id)
     {
         $statement = $this->pdo->prepare("DELETE FROM " . self::TABLE . " WHERE id_reservation = :id");
         $statement->bindParam(':id', $id, PDO::PARAM_INT);
