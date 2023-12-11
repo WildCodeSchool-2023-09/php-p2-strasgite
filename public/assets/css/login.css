@@ -1,0 +1,11 @@
+h1,h4 {
+    color: #fff;
+}
+
+h1 {
+    padding-top: 2rem;
+}
+
+h4:last-child {
+    padding-bottom: 1rem;
+}

@@ -18,41 +18,53 @@ class DashboardChambreController extends AbstractController
         } else {
             $dashboardCManager = new DashboardChambreManager();
             return $this->twig->render(
-                'admin/Chambre/index.html.twig',
+                'Admin/Chambre/index.html.twig',
                 ['stuffs' => $dashboardCManager->selectAllStuff()]
             );
         }
     }
+
     public function new()
     {
         $categorieManager = new CategorieManager();
         $optionManager = new OptionManager();
+        $errors = [];
+        $required = ['name', 'prix', 'description'];
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $uploadDir = __DIR__ . '/../../public/assets/uploads/';
-            $img = '/assets/images/';
-            if (!is_dir($uploadDir)) {
-                mkdir($uploadDir);
+            foreach ($required as $field) {
+                if (empty($_POST[$field])) {
+                    $errors[$field] = 'Ce champ est requis';
+                }
             }
-            $chambre = [];
-            $chambre['name'] = $_POST['name'];
-            $chambre['id_option'] = $_POST['id_option'];
-            $chambre['id_categorie'] = $_POST['id_categorie'];
-            $chambre['prix'] = $_POST['prix'];
-            $chambre['description'] = $_POST['description'];
-            $chambre['id_chambre_img'] = $_POST['id_chambre_img'];
-            $fileName = $_FILES['img']['name'];
-            $chambre['img'] = $img . $fileName;
+            if (empty($errors)) {
+                $uploadDir = __DIR__ . '/../../public/assets/uploads/';
+                $img = '/assets/images/';
+                if (!is_dir($uploadDir)) {
+                    mkdir($uploadDir);
+                }
+                $chambre = [];
+                $chambre['name'] = $_POST['name'];
+                $chambre['id_option'] = $_POST['id_option'];
+                $chambre['id_categorie'] = $_POST['id_categorie'];
+                $chambre['prix'] = $_POST['prix'];
+                $chambre['description'] = $_POST['description'];
+                $chambre['id_chambre_img'] = $_POST['id_chambre_img'];
+                $fileName = $_FILES['img']['name'];
+                $chambre['img'] = $img . $fileName;
 
-            $dashboardCManager = new DashboardChambreManager();
-            $idChambre = $dashboardCManager->insert($chambre);
-            $imageManager = new ImageManager();
-            $imageManager->insertImage($chambre['img'], $idChambre);
-            header('Location:/admin/Chambre');
-            return;
+
+                $dashboardCManager = new DashboardChambreManager();
+                $idChambre = $dashboardCManager->insert($chambre);
+                $imageManager = new ImageManager();
+                $imageManager->insertImage($idChambre, $chambre['img'], $chambre['name']);
+                header('Location:/admin/Chambre');
+                return;
+            }
         }
         return $this->twig->render('Admin/Chambre/new.html.twig', [
             'categories' => $categorieManager->selectAll(),
-            'options' => $optionManager->selectAll()
+            'options' => $optionManager->selectAll(),
+            'errors' => $errors
         ]);
     }
 
@@ -68,19 +80,50 @@ class DashboardChambreController extends AbstractController
         $dashboardCManager = new DashboardChambreManager();
         $categorieManager = new CategorieManager();
         $optionManager = new OptionManager();
+        $imageManager = new ImageManager();
         $chambre = $dashboardCManager->selectOneById($id);
+        $errors = [];
+        $img = '/assets/images/';
+        $required = ['name', 'prix', 'description'];
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // clean $_POST data
-
-            $chambre = array_map('trim', $_POST);
-            $dashboardCManager->update($chambre);
-            header('Location:/admin/Chambre');
-            return;
+            foreach ($required as $field) {
+                if (empty($_POST[$field])) {
+                    $errors[$field] = 'Ce champ est requis';
+                }
+            }
+            if (empty($errors)) {
+                $fileName = $_FILES['img']['name'];
+                $chambre = array_map('trim', $_POST);
+                $dashboardCManager->update($chambre);
+                $chambre['img'] = $img . $fileName;
+                $imageManager->updateImage($chambre['img'], $_POST['id_chambre_img']);
+                header('Location:/admin/Chambre');
+                return;
+            }
         }
         return $this->twig->render('Admin/Chambre/edit.html.twig', [
             'chambre' => $chambre,
             'categories' => $categorieManager->selectAll(),
-            'options' => $optionManager->selectAll()
+            'options' => $optionManager->selectAll(),
+            'errors' => $errors
         ]);
+    }
+
+    public function addFiles()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $uploadDir = __DIR__ . '/../../public/assets/uploads/';
+            if (!is_dir($uploadDir)) {
+                mkdir($uploadDir);
+            }
+            $chambreId = $_POST['id'];
+            $imageManager = new ImageManager();
+            foreach ($_FILES['img']['tmp_name'] as $index => $tmpName) {
+                $fileName = $_FILES['img']['name'][$index];
+                move_uploaded_file($tmpName, $uploadDir . $fileName);
+                $imageManager->insertImage($chambreId, $uploadDir . $fileName, $fileName);
+            }
+            header('Location:/admin/Chambre');
+        }
     }
 }

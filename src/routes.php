@@ -22,6 +22,7 @@ return [
     'admin/Contact' => ['DashboardContactController', 'index',],
     'dashboard/chambre/new' => ['DashboardChambreController', 'new'],
     'dashboard/chambre/delete' => ['DashboardChambreController', 'deleteChambre', ['id']],
+    'dashboard/chambre/add-file' => ['DashboardChambreController', 'addFiles'],
     'dashboard/chambre/edit' => ['DashboardChambreController', 'editChambre',  ['id']],
     'admin/dashboard/delete' => ['DashboardController','deleteReservation',['id']],
     'Contact/delete' => ['DashboardContactController', 'deleteMesssage',],
